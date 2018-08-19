@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" 
+"http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+	<properties resource="config/jdbc.properties"/>
+
+	<classPathEntry location="D:\maven\repository\mysql\mysql-connector-java\5.1.21\mysql-connector-java-5.1.21.jar" />
+	<!--<classPathEntry location="F:\MyProject\lynk-cp\src\main\webapp\WEB-INF\lib\db2jcc4.jar" />-->
+	<context id="tcrcb-cp" targetRuntime="MyBatis3">
+		<plugin type="org.mybatis.generator.plugins.RenameExampleClassPlugin">  
+			<property name="searchString" value="Example$" />  
+			<property name="replaceString" value="Criteria" />  
+		</plugin>
+		<commentGenerator>
+			<property name="suppressAllComments" value="true" />
+		</commentGenerator>
+		
+		<jdbcConnection driverClass="${mysql.driverClassName}" connectionURL="${mysql.url}" userId="${mysql.username}" password="${mysql.password}">
+		</jdbcConnection>
+		
+		<javaTypeResolver >
+			<property name="forceBigDecimals" value="true" />
+		</javaTypeResolver>
+
+		<javaModelGenerator targetPackage="com.lynk.system.entity" targetProject="MAVEN">
+			<property name="enableSubPackages" value="false" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+		<sqlMapGenerator targetPackage="daoMapper/system"  targetProject="MAVEN">
+			<property name="enableSubPackages" value="false" />
+			<property name="" value="true" />
+		</sqlMapGenerator>
+		<javaClientGenerator type="XMLMAPPER" targetPackage="com.lynk.system.dao" targetProject="MAVEN">
+			<property name="enableSubPackages" value="false" />
+		</javaClientGenerator>
+		<!--
+		<table tableName="SYS_USER" domainObjectName="SysUser"
+			   enableInsert="true"
+			   enableUpdateByExample="true"
+			   enableUpdateByPrimaryKey="true"
+			   enableDeleteByExample="true"
+			   enableDeleteByPrimaryKey="true"
+			   enableCountByExample="true"
+			   enableSelectByExample="true"
+			   enableSelectByPrimaryKey="true">
+		</table>
+		<table tableName="SYS_AUTHORITY" domainObjectName="SysAuthority"
+			   enableInsert="true"
+			   enableUpdateByExample="true"
+			   enableUpdateByPrimaryKey="true"
+			   enableDeleteByExample="true"
+			   enableDeleteByPrimaryKey="true"
+			   enableCountByExample="true"
+			   enableSelectByExample="true"
+			   enableSelectByPrimaryKey="true">
+		</table>
+		<table tableName="SYS_ROLE" domainObjectName="SysRole"
+			   enableInsert="true"
+			   enableUpdateByExample="true"
+			   enableUpdateByPrimaryKey="true"
+			   enableDeleteByExample="true"
+			   enableDeleteByPrimaryKey="true"
+			   enableCountByExample="true"
+			   enableSelectByExample="true"
+			   enableSelectByPrimaryKey="true">
+		</table>
+		<table tableName="SYS_ROLE_USER" domainObjectName="SysRoleUser"
+			   enableInsert="true"
+			   enableUpdateByExample="true"
+			   enableUpdateByPrimaryKey="true"
+			   enableDeleteByExample="true"
+			   enableDeleteByPrimaryKey="true"
+			   enableCountByExample="true"
+			   enableSelectByExample="true"
+			   enableSelectByPrimaryKey="true">
+		</table>
+		<table tableName="SYS_ROLE_AUTH" domainObjectName="SysRoleAuthority"
+			   enableInsert="true"
+			   enableUpdateByExample="true"
+			   enableUpdateByPrimaryKey="true"
+			   enableDeleteByExample="true"
+			   enableDeleteByPrimaryKey="true"
+			   enableCountByExample="true"
+			   enableSelectByExample="true"
+			   enableSelectByPrimaryKey="true">
+		</table>
+		<table tableName="SYS_ORGANIZATION" domainObjectName="SysOrganization"
+			   enableInsert="true"
+			   enableUpdateByExample="true"
+			   enableUpdateByPrimaryKey="true"
+			   enableDeleteByExample="true"
+			   enableDeleteByPrimaryKey="true"
+			   enableCountByExample="true"
+			   enableSelectByExample="true"
+			   enableSelectByPrimaryKey="true">
+		</table>
+		<table tableName="SYS_PARAM" domainObjectName="SysParam"
+			   enableInsert="true"
+			   enableUpdateByExample="true"
+			   enableUpdateByPrimaryKey="true"
+			   enableDeleteByExample="true"
+			   enableDeleteByPrimaryKey="true"
+			   enableCountByExample="true"
+			   enableSelectByExample="true"
+			   enableSelectByPrimaryKey="true">
+		</table>
+		<table tableName="SYS_SERIAL_NUMBER" domainObjectName="SysSerialNumber"
+			   enableInsert="false"
+			   enableUpdateByExample="false"
+			   enableUpdateByPrimaryKey="true"
+			   enableDeleteByExample="false"
+			   enableDeleteByPrimaryKey="false"
+			   enableCountByExample="false"
+			   enableSelectByExample="false"
+			   enableSelectByPrimaryKey="true">
+			<columnOverride column="SN_CURRENT" javaType="java.math.BigDecimal"/>
+			<columnOverride column="SN_INCREASE" javaType="java.math.BigDecimal"/>
+			<columnOverride column="SN_MAX" javaType="java.math.BigDecimal"/>
+			<columnOverride column="SN_SIZE" javaType="java.math.BigDecimal"/>
+		</table>
+		<table tableName="SYS_ERROR_CODE" domainObjectName="SysErrorCode"
+			   enableInsert="false"
+			   enableUpdateByExample="false"
+			   enableUpdateByPrimaryKey="false"
+			   enableDeleteByExample="false"
+			   enableDeleteByPrimaryKey="false"
+			   enableCountByExample="false"
+			   enableSelectByExample="false"
+			   enableSelectByPrimaryKey="true">
+		</table>
+		<table tableName="SYS_SEND_MESSAGE" domainObjectName="SysSendMessage"
+			   enableInsert="true"
+			   enableUpdateByExample="false"
+			   enableUpdateByPrimaryKey="false"
+			   enableDeleteByExample="false"
+			   enableDeleteByPrimaryKey="false"
+			   enableCountByExample="false"
+			   enableSelectByExample="true"
+			   enableSelectByPrimaryKey="true">
+		</table>
+		<table tableName="SYS_USER_LOGIN_RECORD" domainObjectName="SysUserLoginRecord"
+			   enableInsert="true"
+			   enableUpdateByExample="true"
+			   enableUpdateByPrimaryKey="true"
+			   enableDeleteByExample="true"
+			   enableDeleteByPrimaryKey="true"
+			   enableCountByExample="true"
+			   enableSelectByExample="true"
+			   enableSelectByPrimaryKey="true">
+		</table>
+		<table tableName="sys_task" domainObjectName="SysTask"
+			   enableInsert="true"
+			   enableUpdateByExample="true"
+			   enableUpdateByPrimaryKey="true"
+			   enableDeleteByExample="true"
+			   enableDeleteByPrimaryKey="true"
+			   enableCountByExample="true"
+			   enableSelectByExample="true"
+			   enableSelectByPrimaryKey="true">
+		</table>
+		<table tableName="sys_task_log" domainObjectName="SysTaskLog"
+			   enableInsert="true"
+			   enableUpdateByExample="true"
+			   enableUpdateByPrimaryKey="true"
+			   enableDeleteByExample="true"
+			   enableDeleteByPrimaryKey="true"
+			   enableCountByExample="true"
+			   enableSelectByExample="true"
+			   enableSelectByPrimaryKey="true">
+		</table>
+		-->
+		<table tableName="sys_task" domainObjectName="SysTask"
+			   enableInsert="true"
+			   enableUpdateByExample="true"
+			   enableUpdateByPrimaryKey="true"
+			   enableDeleteByExample="true"
+			   enableDeleteByPrimaryKey="true"
+			   enableCountByExample="true"
+			   enableSelectByExample="true"
+			   enableSelectByPrimaryKey="true">
+		</table>
+	</context>
+</generatorConfiguration>

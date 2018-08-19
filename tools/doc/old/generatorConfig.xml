@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" 
+"http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+	<properties resource="config/jdbc.properties"/>
+
+	<classPathEntry location="/Users/LynkLin/maven/repository/mysql/mysql-connector-java/5.1.21/mysql-connector-java-5.1.21.jar" />
+	<!--<classPathEntry location="D:\maven\repository\mysql\mysql-connector-java\5.1.21\mysql-connector-java-5.1.21.jar" />-->
+	<!--<classPathEntry location="F:\MyProject\lynk-cp\src\main\webapp\WEB-INF\lib\db2jcc4.jar" />-->
+	<context id="lynk-sys" targetRuntime="MyBatis3">
+		<plugin type="org.mybatis.generator.plugins.RenameExampleClassPlugin">
+			<property name="searchString" value="Example$" />
+			<property name="replaceString" value="Criteria" />
+		</plugin>
+		<commentGenerator>
+			<property name="suppressAllComments" value="true" />
+		</commentGenerator>
+
+		<jdbcConnection driverClass="${mysql.driverClassName}" connectionURL="${mysql.url}" userId="${mysql.username}" password="${mysql.password}">
+		</jdbcConnection>
+
+		<javaTypeResolver >
+			<property name="forceBigDecimals" value="true" />
+		</javaTypeResolver>
+
+		<javaModelGenerator targetPackage="com.lynk.business.entity" targetProject="MAVEN">
+			<property name="enableSubPackages" value="false" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+		<sqlMapGenerator targetPackage="daoMapper/business"  targetProject="MAVEN">
+			<property name="enableSubPackages" value="false" />
+			<property name="" value="true" />
+		</sqlMapGenerator>
+		<javaClientGenerator type="XMLMAPPER" targetPackage="com.lynk.business.dao" targetProject="MAVEN">
+			<property name="enableSubPackages" value="false" />
+		</javaClientGenerator>
+		<!--
+		<table tableName="base_department" domainObjectName="Department">
+		</table>
+		-->
+		<table tableName="base_position" domainObjectName="Position">
+		</table>
+	</context>
+</generatorConfiguration>

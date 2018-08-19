@@ -1,0 +1,68 @@
+server:
+  port: 9998
+#  servlet:
+#    context-path: /
+
+spring:
+  datasource:
+    druid:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://10.211.55.9:3306/lynk_sys?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+      username: root
+      password: root
+      initial-size: 1
+      min-idle: 1
+      max-active: 20
+      max-wait: 60000
+      filters: stat
+      stat-view-servlet:
+        enabled: true
+        url-pattern: /druid/*
+      web-stat-filter:
+        enabled: true
+  redis:
+    host: 10.211.55.9
+    port: 6379
+    jedis:
+      pool:
+        max-active: 8
+        max-idle: 8
+        min-idle: 0
+        max-wait: -1ms
+    timeout: 500ms
+  quartz:
+    jdbc:
+      initialize-schema: NEVER
+    job-store-type: jdbc
+    properties:
+      org:
+        quartz:
+          scheduler:
+            instanceName: simpleScheduler
+            instanceId: AUTO
+          jobStore:
+            class: org.quartz.impl.jdbcjobstore.JobStoreTX
+            driverDelegateClass: org.quartz.impl.jdbcjobstore.StdJDBCDelegate
+            tablePrefix: SYS_TASK_
+            isClustered: true
+            clusterCheckinInterval: 10000
+            useProperties: false
+          threadPool:
+            class: org.quartz.simpl.SimpleThreadPool
+            threadCount: 10
+            threadPriority: 5
+            threadsInheritContextClassLoaderOfInitializingThread: true
+
+mybatis-plus:
+  mapper-locations: classpath:/daoMapper/*/*Dao.xml
+  type-aliases-package: com.lynk.*.entity
+  configuration.cache-enabled: false
+  configuration.map-underscore-to-camel-case: true
+  global-config:
+    id-type: 5
+    db-column-underline: true
+    refresh-mapper: true
+    meta-object-handler: com.lynk.system.mybatis.TimeMetaObjectHandler
+
+logging:
+  config: classpath:config/logback-spring.xml

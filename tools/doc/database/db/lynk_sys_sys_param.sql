@@ -1,0 +1,16 @@
+INSERT INTO SYS_PARAM (id, category, code, value, remark, gmt_create, gmt_modified) VALUES ('100000000000000001', 'bip', 'externalDomain', '301', '公共头', '2017-11-09 21:00:28', '2017-11-09 21:00:28');
+INSERT INTO SYS_PARAM (id, category, code, value, remark, gmt_create, gmt_modified) VALUES ('100000000000000002', 'bip', 'medium', '1001', '公共头', '2017-11-09 21:00:28', '2017-11-09 21:00:28');
+INSERT INTO SYS_PARAM (id, category, code, value, remark, gmt_create, gmt_modified) VALUES ('100000000000000003', 'bip', 'tellerCode', '00000335', '公共头', '2017-11-09 21:00:28', '2017-11-09 21:00:28');
+INSERT INTO SYS_PARAM (id, category, code, value, remark, gmt_create, gmt_modified) VALUES ('100000000000000004', 'bip', 'orgCode', '0001', '公共头', '2017-11-09 21:00:28', '2017-11-09 21:00:28');
+INSERT INTO SYS_PARAM (id, category, code, value, remark, gmt_create, gmt_modified) VALUES ('100000000000000005', 'bip', 'wsdl_path', 'E:\\projects\\navi-simple\\simple-server\\wsdl', 'WSDL路径', '2017-11-09 21:00:28', '2017-11-09 21:00:28');
+INSERT INTO SYS_PARAM (id, category, code, value, remark, gmt_create, gmt_modified) VALUES ('100000000000000006', 'bip', 'address', 'http://66.76.68.35:9080/BIPWorkingPlatform/service', '请求地址', '2017-11-09 21:00:28', '2017-11-09 21:00:28');
+INSERT INTO SYS_PARAM (id, category, code, value, remark, gmt_create, gmt_modified) VALUES ('100000000000000007', 'msg', 'channel', 'dxzp', '短信平台渠道号', '2017-11-09 21:00:28', '2017-11-09 21:00:28');
+INSERT INTO SYS_PARAM (id, category, code, value, remark, gmt_create, gmt_modified) VALUES ('100000000000000008', 'msg', 'ip', '66.76.69.56', 'FTP地址', '2017-11-09 21:00:28', '2017-11-09 21:00:28');
+INSERT INTO SYS_PARAM (id, category, code, value, remark, gmt_create, gmt_modified) VALUES ('100000000000000009', 'msg', 'port', '21', '端口', '2017-11-09 21:00:28', '2017-11-09 21:00:28');
+INSERT INTO SYS_PARAM (id, category, code, value, remark, gmt_create, gmt_modified) VALUES ('100000000000000010', 'msg', 'user', 'sms302', 'FTP用户', '2017-11-09 21:00:28', '2017-11-09 21:00:28');
+INSERT INTO SYS_PARAM (id, category, code, value, remark, gmt_create, gmt_modified) VALUES ('100000000000000011', 'msg', 'password', 'sms302', 'FTP密码', '2017-11-09 21:00:28', '2017-11-09 21:00:28');
+INSERT INTO SYS_PARAM (id, category, code, value, remark, gmt_create, gmt_modified) VALUES ('100000000000000012', 'msg', 'remotePath', '/home/sms302/downloadtmp', 'FTP上传目录', '2017-11-09 21:00:28', '2017-11-09 21:00:28');
+INSERT INTO SYS_PARAM (id, category, code, value, remark, gmt_create, gmt_modified) VALUES ('100000000000000013', 'msg', 'localPath', 'E:\\projects\\navi-simple\\simple-server\\msg', '本地FTP路径', '2017-11-09 21:00:28', '2017-11-09 21:00:28');
+INSERT INTO SYS_PARAM (id, category, code, value, remark, gmt_create, gmt_modified) VALUES ('100000000000000014', 'msg', 'contentStart', '101', '短信内容开始', '2017-11-09 21:00:28', '2017-11-09 21:00:28');
+INSERT INTO SYS_PARAM (id, category, code, value, remark, gmt_create, gmt_modified) VALUES ('100000000000000015', 'msg', 'contentSplit', '|', '分隔符', '2017-11-09 21:00:28', '2017-11-09 21:00:28');
+INSERT INTO SYS_PARAM (id, category, code, value, remark, gmt_create, gmt_modified) VALUES ('100000000000000016', 'msg', 'contentEnd', '111', '短信内容结束', '2017-11-09 21:00:28', '2017-11-09 21:00:28');

@@ -1,0 +1,1055 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="0471a6d1-acda-49ed-8249-ee93189512c7" name="Default" comment="fix swagger ui 404 bug">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_schema_2_9_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_spring_web_2_9_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_swagger2_2_9_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_swagger_ui_2_9_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_swagger_swagger_annotations_1_5_20.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/simple-server/src/test/java/com/lynk/tools/Base64Test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tools/doc/database/mps_mysql.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/simple_server_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/simple_server_war_exploded.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/85b03712-34f9-4ab4-b4e5-b7cb81ef37c1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/85b03712-34f9-4ab4-b4e5-b7cb81ef37c1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__dom4j_dom4j_1_6_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_dom4j_dom4j_2_1_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_jsonwebtoken_jjwt_0_9_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_jsonwebtoken_jjwt_0_9_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_core_2_8_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_core_2_9_2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_schema_2_8_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_spi_2_8_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_spi_2_9_2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_spring_web_2_8_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_swagger2_2_8_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_swagger_common_2_8_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_swagger_common_2_9_2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_swagger_ui_2_8_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_swagger_swagger_annotations_1_5_14.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_swagger_swagger_models_1_5_14.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_swagger_swagger_models_1_5_20.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_javassist_javassist_3_21_0_GA.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_reflections_reflections_0_9_11.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple-server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/simple-server/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple-server/simple-server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/simple-server/simple-server.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/simple-server/src/main/resources/banner.txt" beforeDir="false" afterPath="$PROJECT_DIR$/simple-server/src/main/resources/banner.txt" afterDir="false" />
+    </list>
+    <list id="4584676f-2880-4b84-b0fc-d70cd16c2443" name="Revert &quot;cors&quot;" comment="Revert &quot;cors&quot;&#10;&#10;This reverts commit 832060c" />
+    <ignored path="$PROJECT_DIR$/tools/target/" />
+    <ignored path="$PROJECT_DIR$/simple-server/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="lynk_sys" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="lynk_sys" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="lynk_sys" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="lynk_sys: schema" type="c314c289:MysqlImplModel$Schema" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ExecutionTargetDialog">
+    <checked>
+      <node key="85b03712-34f9-4ab4-b4e5-b7cb81ef37c1">
+        <node key="lynk_sys" />
+      </node>
+    </checked>
+    <expanded>
+      <node key="85b03712-34f9-4ab4-b4e5-b7cb81ef37c1" />
+    </expanded>
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="-1989144013">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="2" />
+          <entry key="project.open.time.15" value="1" />
+          <entry key="project.open.time.16" value="2" />
+          <entry key="project.opened" value="3" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="sql" value="111" />
+          <entry key="txt" value="4" />
+          <entry key="xml" value="23" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="PLAIN_TEXT" value="4" />
+          <entry key="SQL" value="111" />
+          <entry key="XML" value="23" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="sql" value="6" />
+          <entry key="txt" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="PLAIN_TEXT" value="2" />
+          <entry key="SQL" value="6" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>jedis</find>
+      <find>redis</find>
+      <find>Shiro</find>
+      <find>SecurityUtils</find>
+      <find>ID varchar(18),</find>
+      <find>MSP</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>ID varchar(18) not null primary key</replace>
+      <replace>ID varchar(18) not null primary key,</replace>
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/tools/doc/database/db/lynk_sys_sys_param.sql" />
+        <option value="$PROJECT_DIR$/tools/doc/database/db/lynk_sys_sys_task.sql" />
+        <option value="$PROJECT_DIR$/tools/doc/database/db/lynk_sys_sys_user.sql" />
+        <option value="$PROJECT_DIR$/simple-server/src/main/java/com/lynk/system/bip/BipInvoker.java" />
+        <option value="$PROJECT_DIR$/simple-server/src/main/java/com/lynk/system/entity/SysParam.java" />
+        <option value="$PROJECT_DIR$/tools/src/main/java/com/generator/SystemGeneratorMySql.java" />
+        <option value="$PROJECT_DIR$/simple-server/src/main/java/com/lynk/system/entity/base/SystemBaseEntity.java" />
+        <option value="$PROJECT_DIR$/simple-server/src/main/java/com/lynk/system/entity/SysPermission.java" />
+        <option value="$PROJECT_DIR$/simple-server/src/main/java/com/lynk/system/entity/SysRole.java" />
+        <option value="$PROJECT_DIR$/simple-server/src/main/java/com/lynk/system/entity/SysRolePermission.java" />
+        <option value="$PROJECT_DIR$/simple-server/src/main/java/com/lynk/system/entity/SysTask.java" />
+        <option value="$PROJECT_DIR$/simple-server/src/main/java/com/lynk/system/entity/SysUser.java" />
+        <option value="$PROJECT_DIR$/simple-server/src/main/java/com/lynk/system/entity/SysUserRole.java" />
+        <option value="$PROJECT_DIR$/simple-server/src/main/resources/daoMapper/system/SysParamDao.xml" />
+        <option value="$PROJECT_DIR$/simple-server/src/main/resources/daoMapper/system/SysPermissionDao.xml" />
+        <option value="$PROJECT_DIR$/simple-server/src/main/resources/daoMapper/system/SysRoleDao.xml" />
+        <option value="$PROJECT_DIR$/simple-server/src/main/resources/daoMapper/system/SysRolePermissionDao.xml" />
+        <option value="$PROJECT_DIR$/simple-server/src/main/resources/daoMapper/system/SysTaskDao.xml" />
+        <option value="$PROJECT_DIR$/simple-server/src/main/resources/daoMapper/system/SysUserDao.xml" />
+        <option value="$PROJECT_DIR$/simple-server/src/main/resources/daoMapper/system/SysUserRoleDao.xml" />
+        <option value="$PROJECT_DIR$/simple-server/src/main/java/com/lynk/system/config/WebMvcConfg.java" />
+        <option value="$PROJECT_DIR$/simple-server/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/simple-server/src/main/java/com/lynk/system/config/ShiroConfig.java" />
+        <option value="$PROJECT_DIR$/simple-server/src/main/java/com/lynk/system/config/SwaggerConfig.java" />
+        <option value="$PROJECT_DIR$/simple-server/src/main/java/com/lynk/system/web/response/LoginResponse.java" />
+        <option value="$PROJECT_DIR$/simple-server/src/main/java/com/lynk/system/service/ISysAuthService.java" />
+        <option value="$PROJECT_DIR$/simple-server/src/main/java/com/lynk/system/service/ISysUserService.java" />
+        <option value="$PROJECT_DIR$/simple-server/src/main/java/com/lynk/system/service/impl/SysAuthServiceImpl.java" />
+        <option value="$PROJECT_DIR$/simple-server/src/main/java/com/lynk/system/controller/SysUserController.java" />
+        <option value="$PROJECT_DIR$/simple-server/src/main/java/com/lynk/system/service/impl/SysUserServiceImpl.java" />
+        <option value="$PROJECT_DIR$/tools/doc/database/db/lynk_sys_sys_permission.sql" />
+        <option value="$PROJECT_DIR$/simple-server/src/test/java/com/lynk/datainit/MysqlDataInit.java" />
+        <option value="$PROJECT_DIR$/simple-server/src/main/java/com/lynk/system/config/WebMvcConfig.java" />
+        <option value="$PROJECT_DIR$/simple-server/src/main/java/com/lynk/system/controller/SysAuthController.java" />
+        <option value="$PROJECT_DIR$/simple-server/src/test/java/com/lynk/tools/Base64Test.java" />
+        <option value="$PROJECT_DIR$/simple-server/pom.xml" />
+        <option value="$PROJECT_DIR$/tools/doc/database/table_mysql.sql" />
+        <option value="$PROJECT_DIR$/tools/doc/database/mps_mysql.sql" />
+        <option value="$PROJECT_DIR$/simple-server/src/main/resources/banner.txt" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="userSettingsFile" value="/Volumes/Transcend/develop/jar_repo/maven/settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="simple" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="simple" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="simple" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
+        </path>
+      </expand>
+      <select />
+    </treeState>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="60" />
+    <option name="y" value="23" />
+    <option name="width" value="1220" />
+    <option name="height" value="777" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="lynk-simple-project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="simple-server" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lynk-simple-project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="simple-server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lynk-simple-project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="simple-server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lynk-simple-project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="simple-server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lynk-simple-project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="simple-server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lynk-simple-project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="simple-server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="lynk" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lynk-simple-project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="simple-server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lynk-simple-project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tools" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lynk-simple-project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tools" type="462c0819:PsiDirectoryNode" />
+              <item name="doc" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lynk-simple-project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tools" type="462c0819:PsiDirectoryNode" />
+              <item name="doc" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="AndroidView" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="SearchEverywhereHistoryKey" value="ErrorCode&#9;PSI&#9;JAVA://com.lynk.system.exception.error.ErrorCode&#10;sysrole&#9;PSI&#9;JAVA://com.lynk.system.entity.SysRole&#10;sysuser&#9;PSI&#9;JAVA://com.lynk.system.entity.SysUser&#10;errorcodeman&#9;PSI&#9;JAVA://com.lynk.system.tool.SysErrorCodeManager&#10;applica&#9;FILE&#9;file:///Users/LynkLin/IdeaProjects/lynk-simple-project/simple-server/src/main/resources/application-dev.yml&#10;errorcode&#9;PSI&#9;JAVA://com.lynk.system.tool.SysErrorCodeManager&#10;pom&#9;FILE&#9;file:///Users/LynkLin/IdeaProjects/lynk-simple-project/simple-server/pom.xml&#10;applicat&#9;FILE&#9;file:///Users/LynkLin/IdeaProjects/lynk-simple-project/simple-server/src/main/resources/application.yml&#10;auth&#9;FILE&#9;file:///Users/LynkLin/IdeaProjects/lynk-simple-project/simple-server/src/main/java/com/lynk/system/controller/SysAuthController.java&#10;controll&#9;PSI&#9;JAVA://com.lynk.system.controller.SysAuthController&#10;DruidDataSource&#9;PSI&#9;JAVA://com.alibaba.druid.pool.DruidDataSource" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
+    <property name="database.console.LAST_STATE" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.45402297" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.lynk.tools" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/simple-server/src/main/resources" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.StartApplication">
+    <configuration name="Base64Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.lynk.tools.Base64Test" />
+      <module name="simple-server" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lynk.tools.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SystemGeneratorMySql" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.generator.SystemGeneratorMySql" />
+      <module name="tools" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.generator.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Base64Test.base64Decode" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="simple-server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lynk.tools.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.lynk.tools" />
+      <option name="MAIN_CLASS_NAME" value="com.lynk.tools.Base64Test" />
+      <option name="METHOD_NAME" value="base64Decode" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MysqlDataInit.initPermission" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="simple-server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lynk.datainit.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.lynk.datainit" />
+      <option name="MAIN_CLASS_NAME" value="com.lynk.datainit.MysqlDataInit" />
+      <option name="METHOD_NAME" value="initPermission" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StartApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="simple-server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lynk.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.lynk.StartApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Spring Boot.StartApplication" />
+      <item itemvalue="JUnit.MysqlDataInit.initPermission" />
+      <item itemvalue="Application.SystemGeneratorMySql" />
+      <item itemvalue="JUnit.Base64Test.base64Decode" />
+      <item itemvalue="Application.Base64Test" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.StartApplication" />
+        <item itemvalue="Application.Base64Test" />
+        <item itemvalue="JUnit.Base64Test.base64Decode" />
+        <item itemvalue="JUnit.MysqlDataInit.initPermission" />
+        <item itemvalue="Application.SystemGeneratorMySql" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="StructureViewFactory">
+    <option name="ACTIVE_ACTIONS" value=",SHOW_PROPERTIES" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0471a6d1-acda-49ed-8249-ee93189512c7" name="Default" comment="" />
+      <created>1527343019992</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1527343019992</updated>
+      <workItem from="1527343024902" duration="1477000" />
+      <workItem from="1527344602345" duration="834000" />
+      <workItem from="1527346051563" duration="1508000" />
+      <workItem from="1527349147816" duration="5395000" />
+      <workItem from="1527359789007" duration="1229000" />
+      <workItem from="1527433495205" duration="742000" />
+      <workItem from="1527599520726" duration="6265000" />
+      <workItem from="1527991570628" duration="178000" />
+      <workItem from="1527994745657" duration="406000" />
+      <workItem from="1528009496302" duration="41936000" />
+      <workItem from="1533741489933" duration="2712000" />
+      <workItem from="1534349331042" duration="236000" />
+      <workItem from="1534351243631" duration="300000" />
+      <workItem from="1534351581167" duration="2074000" />
+      <workItem from="1534658599158" duration="3449000" />
+    </task>
+    <task id="LOCAL-00001" summary="db update">
+      <created>1527433812876</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1527433812876</updated>
+    </task>
+    <task id="LOCAL-00002" summary="db update">
+      <created>1527433969313</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1527433969313</updated>
+    </task>
+    <task id="LOCAL-00003" summary="db update">
+      <created>1528213312341</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1528213312342</updated>
+    </task>
+    <task id="LOCAL-00004" summary="fix swagger ui 404 bug">
+      <created>1528527480990</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1528527480990</updated>
+    </task>
+    <task id="LOCAL-00005" summary="fix swagger ui 404 bug">
+      <created>1529076925180</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1529076925180</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
+    <servers />
+  </component>
+  <component name="TestHistory">
+    <history-entry file="MysqlDataInit_initPermission - 2018.05.27 at 00h 24m 45s.xml">
+      <configuration name="MysqlDataInit.initPermission" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MysqlDataInit_initPermission - 2018.05.27 at 00h 27m 50s.xml">
+      <configuration name="MysqlDataInit.initPermission" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MysqlDataInit_initPermission - 2018.05.27 at 00h 38m 53s.xml">
+      <configuration name="MysqlDataInit.initPermission" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MysqlDataInit_initPermission - 2018.05.27 at 01h 18m 31s.xml">
+      <configuration name="MysqlDataInit.initPermission" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MysqlDataInit_initPermission - 2018.05.27 at 01h 19m 15s.xml">
+      <configuration name="MysqlDataInit.initPermission" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MysqlDataInit_initPermission - 2018.06.13 at 22h 38m 12s.xml">
+      <configuration name="MysqlDataInit.initPermission" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Base64Test_base64Decode - 2018.08.08 at 23h 23m 12s.xml">
+      <configuration name="Base64Test.base64Decode" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Base64Test_base64Decode - 2018.08.08 at 23h 27m 06s.xml">
+      <configuration name="Base64Test.base64Decode" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Base64Test_base64Decode - 2018.08.08 at 23h 28m 13s.xml">
+      <configuration name="Base64Test.base64Decode" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="Base64Test_base64Decode - 2018.08.08 at 23h 36m 22s.xml">
+      <configuration name="Base64Test.base64Decode" configurationId="JUnit" />
+    </history-entry>
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="68741000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="60" y="23" width="1220" height="777" extended-state="0" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.497191" visible="true" weight="0.26825127" />
+      <window_info id="Structure" order="1" sideWeight="0.502809" side_tool="true" weight="0.28836834" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info id="Web" order="6" side_tool="true" />
+      <window_info id="Capture Tool" order="7" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.55834687" weight="0.5738204" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.60615885" visible="true" weight="0.4018127" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Spring" order="7" weight="0.32876712" />
+      <window_info anchor="bottom" id="Database Changes" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info anchor="bottom" id="Java Enterprise" order="10" />
+      <window_info anchor="bottom" id="Database Console" order="11" sideWeight="0.49756888" weight="0.36404833" />
+      <window_info anchor="bottom" id="Version Control" order="12" weight="0.32779455" />
+      <window_info anchor="bottom" id="RoboVM" order="13" />
+      <window_info anchor="bottom" id="Messages" order="14" weight="0.32779455" />
+      <window_info anchor="bottom" id="Event Log" order="15" sideWeight="0.39384118" side_tool="true" weight="0.39726028" />
+      <window_info anchor="bottom" id="SQL Generator" order="16" weight="0.32876712" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.24957556" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Database" order="5" weight="0.237691" />
+      <window_info anchor="right" id="Palette&#9;" order="6" />
+      <window_info anchor="right" id="Theme Preview" order="7" />
+      <window_info anchor="right" id="Bean Validation" order="8" weight="0.3293718" />
+      <window_info anchor="right" id="Maven Projects" order="9" weight="0.24193548" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="db update" />
+    <MESSAGE value="fix swagger ui 404 bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix swagger ui 404 bug" />
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/simple-server/src/main/java/com/lynk/system/exception/annotation/ErrorDefinition.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="18" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simple-server/src/main/resources/application-dev.yml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simple-server/src/main/java/com/lynk/StartApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="11" column="28" lean-forward="true" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Volumes/Transcend/develop/jar_repo/maven/repository/com/google/guava/guava/20.0/guava-20.0-sources.jar!/com/google/common/base/Predicates.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="86" column="33" selection-start-line="86" selection-start-column="33" selection-end-line="86" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simple-server/src/main/java/com/lynk/system/config/SwaggerConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="44" column="40" lean-forward="true" selection-start-line="44" selection-start-column="40" selection-end-line="44" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Volumes/Transcend/develop/jar_repo/maven/repository/io/swagger/swagger-annotations/1.5.14/swagger-annotations-1.5.14.jar!/io/swagger/annotations/ApiParam.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simple-server/src/main/java/com/lynk/system/web/request/LoginRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simple-server/src/main/java/com/lynk/system/web/base/Response.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simple-server/src/main/java/com/lynk/system/web/base/PageResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simple-server/src/main/java/com/lynk/system/entity/SysUserRole.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simple-server/src/main/java/com/lynk/system/entity/SysUser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simple-server/src/main/java/com/lynk/system/entity/SysRole.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simple-server/src/main/java/com/lynk/system/security/filter/JwtFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simple-server/src/main/java/com/lynk/system/security/cache/CacheSysUserFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simple-server/src/main/java/com/lynk/system/config/ShiroConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-139">
+          <caret line="51" column="38" lean-forward="true" selection-start-line="51" selection-start-column="38" selection-end-line="51" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simple-server/src/main/java/com/lynk/system/start/AppInit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simple-server/src/main/java/com/lynk/system/security/JwtShiroToken.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simple-server/src/main/java/com/lynk/system/security/cache/CacheSysUser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="11" column="43" lean-forward="true" selection-start-line="11" selection-start-column="43" selection-end-line="11" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simple-server/src/main/java/com/lynk/system/security/SysRealm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="55" column="19" selection-start-line="55" selection-start-column="19" selection-end-line="55" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simple-server/src/main/java/com/lynk/system/security/PermissionAspect.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simple-server/src/main/java/com/lynk/system/service/ISysAuthService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="20" column="15" selection-start-line="20" selection-start-column="15" selection-end-line="20" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simple-server/src/main/java/com/lynk/system/service/ISysUserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="370">
+          <caret line="60" column="13" selection-start-line="60" selection-start-column="13" selection-end-line="60" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simple-server/src/main/java/com/lynk/system/tool/SysErrorCodeManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-45">
+          <caret line="22" column="27" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simple-server/src/main/java/com/lynk/system/service/ISysPermissionService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="15" column="65" selection-start-line="15" selection-start-column="65" selection-end-line="15" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simple-server/src/main/java/com/lynk/system/service/impl/SysAuthServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="22" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simple-server/src/main/java/com/lynk/system/controller/SysUserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="151">
+          <caret line="96" column="11" selection-start-line="96" selection-start-column="11" selection-end-line="96" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/doc/database/db/lynk_sys_sys_permission.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="232" selection-start-line="11" selection-end-line="11" selection-end-column="256" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://85b03712-34f9-4ab4-b4e5-b7cb81ef37c1/schema/lynk_sys/table/SYS_PERMISSION">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://cead7bb7-97a9-4de3-8c3b-51554bb86bc6/schema/lynk_sys/table/SYS_PERMISSION">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/85b03712-34f9-4ab4-b4e5-b7cb81ef37c1/console.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simple-server/src/main/java/com/lynk/system/entity/SysPermission.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="22" column="29" lean-forward="true" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simple-server/src/main/java/com/lynk/system/service/impl/SysUserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="157" column="22" selection-start-line="157" selection-start-column="22" selection-end-line="157" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simple-server/src/main/java/com/lynk/system/web/response/TokenResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="8" column="28" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simple-server/src/main/java/com/lynk/system/config/WebMvcConfig.java" />
+    <entry file="file://$PROJECT_DIR$/simple-server/src/main/java/com/lynk/system/config/JsonConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simple-server/src/main/java/com/lynk/system/config/CorsConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="13" column="25" lean-forward="true" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simple-server/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="15" selection-start-line="2" selection-start-column="15" selection-end-line="2" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simple-server/src/main/java/com/lynk/system/controller/SysAuthController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="37" column="37" selection-start-line="37" selection-start-column="37" selection-end-line="37" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simple-server/src/main/java/com/lynk/system/exception/error/ErrorCode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="60" column="13" selection-start-line="60" selection-start-column="13" selection-end-line="60" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://85b03712-34f9-4ab4-b4e5-b7cb81ef37c1/schema/lynk_sys/table/SYS_USER">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simple-server/src/test/java/com/lynk/business/service/DepartmentPositionServiceTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simple-server/src/test/java/com/lynk/datainit/MysqlDataInit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="109">
+          <caret line="19" column="50" lean-forward="true" selection-start-line="19" selection-start-column="50" selection-end-line="19" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://85b03712-34f9-4ab4-b4e5-b7cb81ef37c1/schema/lynk_sys/table/SYS_PARAM">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simple-server/src/main/java/com/lynk/system/service/impl/SysRolePermissionServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="2" lean-forward="true" selection-start-line="12" selection-start-column="2" selection-end-line="12" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simple-server/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2655">
+          <caret line="177" column="20" lean-forward="true" selection-start-line="177" selection-start-column="20" selection-end-line="177" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simple-server/src/test/java/com/lynk/tools/Base64Test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="9" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/doc/database/mysql_db.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/doc/database/quartz.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/doc/database/mps_mysql.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="121" column="18" lean-forward="true" selection-start-line="121" selection-start-column="18" selection-end-line="121" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/doc/database/table_mysql.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="49" lean-forward="true" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/simple-server/src/main/resources/banner.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>simple-server:war</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Web</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.45402297" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>simple-server</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.45402297" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: ch.qos.logback:logback-classic:1.2.3</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.45402297" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

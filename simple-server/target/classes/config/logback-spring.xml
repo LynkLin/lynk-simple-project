@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+    <property name="logPath" value="./simple-server/logs" />
+
+    <appender name="consoleAppender" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符-->
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="fileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!--日志文件输出的文件名-->
+            <FileNamePattern>${logPath}/%d{yyyyMMdd}/app.%d{yyyyMMdd}.%i.log</FileNamePattern>
+            <!--日志文件保留天数-->
+            <MaxHistory>2</MaxHistory>
+            <!--日志文件大小-->
+            <maxFileSize>10MB</maxFileSize>
+            <!--<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">-->
+                <!--<maxFileSize>10MB</maxFileSize>-->
+            <!--</timeBasedFileNamingAndTriggeringPolicy>-->
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符-->
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
+        </encoder>
+        <!--日志文件最大的大小-->
+        <!--<triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">-->
+            <!--<MaxFileSize>1MB</MaxFileSize>-->
+        <!--</triggeringPolicy>-->
+    </appender>
+
+    <logger name="com.lynk" level="DEBUG" additivity="false">
+        <appender-ref ref="fileAppender"/>
+        <appender-ref ref="consoleAppender" />
+    </logger>
+
+    <!--根日志级别-->
+    <root>
+        <level value="INFO" />
+        <!--<appender-ref ref="fileAppender"/>-->
+        <appender-ref ref="consoleAppender" />
+    </root>
+</configuration>

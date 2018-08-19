@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.lynk.business.mps.dao.MpsRespStopResultDao;
 import com.lynk.business.mps.entity.MpsRespStopResult;
 import com.lynk.business.mps.service.IMpsRespStopResultService;
+import org.springframework.stereotype.Service;
 
 /**
  * <p>
@@ -13,6 +14,7 @@ import com.lynk.business.mps.service.IMpsRespStopResultService;
  * @author Lynk
  * @since 2018-08-19
  */
+@Service
 public class MpsRespStopResultServiceImpl extends ServiceImpl<MpsRespStopResultDao, MpsRespStopResult> implements IMpsRespStopResultService {
 
 }

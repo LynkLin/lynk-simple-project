@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.lynk.business.mps.dao.MpsRespDynamicResultDao;
 import com.lynk.business.mps.entity.MpsRespDynamicResult;
 import com.lynk.business.mps.service.IMpsRespDynamicResultService;
+import org.springframework.stereotype.Service;
 
 /**
  * <p>
@@ -13,6 +14,7 @@ import com.lynk.business.mps.service.IMpsRespDynamicResultService;
  * @author Lynk
  * @since 2018-08-19
  */
+@Service
 public class MpsRespDynamicResultServiceImpl extends ServiceImpl<MpsRespDynamicResultDao, MpsRespDynamicResult> implements IMpsRespDynamicResultService {
 
 }

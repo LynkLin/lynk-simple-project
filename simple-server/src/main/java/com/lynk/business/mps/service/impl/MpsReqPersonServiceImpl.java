@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.lynk.business.mps.dao.MpsReqPersonDao;
 import com.lynk.business.mps.entity.MpsReqPerson;
 import com.lynk.business.mps.service.IMpsReqPersonService;
+import org.springframework.stereotype.Service;
 
 /**
  * <p>
@@ -13,6 +14,7 @@ import com.lynk.business.mps.service.IMpsReqPersonService;
  * @author Lynk
  * @since 2018-08-19
  */
+@Service
 public class MpsReqPersonServiceImpl extends ServiceImpl<MpsReqPersonDao, MpsReqPerson> implements IMpsReqPersonService {
 
 }

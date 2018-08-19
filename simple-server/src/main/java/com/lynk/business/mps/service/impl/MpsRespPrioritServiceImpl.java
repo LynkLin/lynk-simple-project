@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.lynk.business.mps.dao.MpsRespPrioritDao;
 import com.lynk.business.mps.entity.MpsRespPriorit;
 import com.lynk.business.mps.service.IMpsRespPrioritService;
+import org.springframework.stereotype.Service;
 
 /**
  * <p>
@@ -13,6 +14,7 @@ import com.lynk.business.mps.service.IMpsRespPrioritService;
  * @author Lynk
  * @since 2018-08-19
  */
+@Service
 public class MpsRespPrioritServiceImpl extends ServiceImpl<MpsRespPrioritDao, MpsRespPriorit> implements IMpsRespPrioritService {
 
 }

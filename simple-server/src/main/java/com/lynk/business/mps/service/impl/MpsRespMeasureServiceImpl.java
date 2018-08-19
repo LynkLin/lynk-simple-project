@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.lynk.business.mps.dao.MpsRespMeasureDao;
 import com.lynk.business.mps.entity.MpsRespMeasure;
 import com.lynk.business.mps.service.IMpsRespMeasureService;
+import org.springframework.stereotype.Service;
 
 /**
  * <p>
@@ -13,6 +14,7 @@ import com.lynk.business.mps.service.IMpsRespMeasureService;
  * @author Lynk
  * @since 2018-08-19
  */
+@Service
 public class MpsRespMeasureServiceImpl extends ServiceImpl<MpsRespMeasureDao, MpsRespMeasure> implements IMpsRespMeasureService {
 
 }

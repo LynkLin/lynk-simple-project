@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lynk.business.mps.dao.MpsRespZipDao">
+
+	<!-- 通用查询映射结果 -->
+	<resultMap id="BaseResultMap" type="com.lynk.business.mps.entity.MpsRespZip">
+	<result column="ID" property="id" />
+	<result column="GMT_CREATE" property="gmtCreate" />
+	<result column="GMT_MODIFIED" property="gmtModified" />
+		<result column="REQ_ID" property="reqId" />
+		<result column="POLICE_ORG_ID" property="policeOrgId" />
+		<result column="BANK_ID" property="bankId" />
+		<result column="QQDBS" property="qqdbs" />
+		<result column="SEQ_NO" property="seqNo" />
+		<result column="REQUEST_TYPE" property="requestType" />
+		<result column="FILE" property="file" />
+		<result column="STATUS" property="status" />
+	</resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+ID AS id,
+GMT_CREATE AS gmtCreate,
+GMT_MODIFIED AS gmtModified,
+        REQ_ID AS reqId, POLICE_ORG_ID AS policeOrgId, BANK_ID AS bankId, QQDBS AS qqdbs, SEQ_NO AS seqNo, REQUEST_TYPE AS requestType, FILE AS file, STATUS AS status
+    </sql>
+
+</mapper>

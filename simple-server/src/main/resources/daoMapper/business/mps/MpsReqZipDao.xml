@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lynk.business.mps.dao.MpsReqZipDao">
+
+	<!-- 通用查询映射结果 -->
+	<resultMap id="BaseResultMap" type="com.lynk.business.mps.entity.MpsReqZip">
+	<result column="ID" property="id" />
+	<result column="GMT_CREATE" property="gmtCreate" />
+	<result column="GMT_MODIFIED" property="gmtModified" />
+		<result column="POLICE_ORG_ID" property="policeOrgId" />
+		<result column="BANK_ID" property="bankId" />
+		<result column="QQDBS" property="qqdbs" />
+		<result column="FILE" property="file" />
+		<result column="NESTED_STATUS" property="nestedStatus" />
+		<result column="PARENT_ZIP_ID" property="parentZipId" />
+		<result column="STATUS" property="status" />
+		<result column="HZDM" property="hzdm" />
+	</resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+ID AS id,
+GMT_CREATE AS gmtCreate,
+GMT_MODIFIED AS gmtModified,
+        POLICE_ORG_ID AS policeOrgId, BANK_ID AS bankId, QQDBS AS qqdbs, FILE AS file, NESTED_STATUS AS nestedStatus, PARENT_ZIP_ID AS parentZipId, STATUS AS status, HZDM AS hzdm
+    </sql>
+
+</mapper>

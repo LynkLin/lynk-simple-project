@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lynk.business.mps.dao.MpsRespPrioritDao">
+
+	<!-- 通用查询映射结果 -->
+	<resultMap id="BaseResultMap" type="com.lynk.business.mps.entity.MpsRespPriorit">
+	<result column="ID" property="id" />
+	<result column="GMT_CREATE" property="gmtCreate" />
+	<result column="GMT_MODIFIED" property="gmtModified" />
+		<result column="REQ_BASIC_INFO_ID" property="reqBasicInfoId" />
+		<result column="REQ_TYPE" property="reqType" />
+		<result column="RESP_CUSTOMER_ID" property="respCustomerId" />
+		<result column="ZH" property="zh" />
+		<result column="XH" property="xh" />
+		<result column="QLLX" property="qllx" />
+		<result column="ZZLXDM" property="zzlxdm" />
+		<result column="ZZHM" property="zzhm" />
+		<result column="QLRXM" property="qlrxm" />
+		<result column="QLJE" property="qlje" />
+		<result column="QLRDZ" property="qlrdz" />
+		<result column="QLRLXFS" property="qlrlxfs" />
+	</resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+ID AS id,
+GMT_CREATE AS gmtCreate,
+GMT_MODIFIED AS gmtModified,
+        REQ_BASIC_INFO_ID AS reqBasicInfoId, REQ_TYPE AS reqType, RESP_CUSTOMER_ID AS respCustomerId, ZH AS zh, XH AS xh, QLLX AS qllx, ZZLXDM AS zzlxdm, ZZHM AS zzhm, QLRXM AS qlrxm, QLJE AS qlje, QLRDZ AS qlrdz, QLRLXFS AS qlrlxfs
+    </sql>
+
+</mapper>

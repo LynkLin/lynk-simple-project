@@ -30,6 +30,7 @@
 		<spring.context.support.version>5.0.6.RELEASE</spring.context.support.version>
 		<commons.lang.version>3.7</commons.lang.version>
 		<commons.net.version>3.6</commons.net.version>
+		<zip4j.version>1.3.2</zip4j.version>
 		<swagger.version>2.9.2</swagger.version>
 		<jjwt.version>0.9.1</jjwt.version>
 		<!--<sharding.jdbc.version>3.0.0.M2</sharding.jdbc.version>-->
@@ -111,6 +112,11 @@
 			<groupId>commons-net</groupId>
 			<artifactId>commons-net</artifactId>
 			<version>${commons.net.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>net.lingala.zip4j</groupId>
+			<artifactId>zip4j</artifactId>
+			<version>${zip4j.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>io.springfox</groupId>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lynk.business.mps.dao.MpsRespAccountDao">
+
+	<!-- 通用查询映射结果 -->
+	<resultMap id="BaseResultMap" type="com.lynk.business.mps.entity.MpsRespAccount">
+	<result column="ID" property="id" />
+	<result column="GMT_CREATE" property="gmtCreate" />
+	<result column="GMT_MODIFIED" property="gmtModified" />
+		<result column="REQ_BASIC_INFO_ID" property="reqBasicInfoId" />
+		<result column="REQ_TYPE" property="reqType" />
+		<result column="RESP_CUSTOMER_ID" property="respCustomerId" />
+		<result column="KH" property="kh" />
+		<result column="ZH" property="zh" />
+		<result column="ZHLB" property="zhlb" />
+		<result column="ZHZT" property="zhzt" />
+		<result column="KHWD" property="khwd" />
+		<result column="KHWDDM" property="khwddm" />
+		<result column="KHRQ" property="khrq" />
+		<result column="XHRQ" property="xhrq" />
+		<result column="XHWD" property="xhwd" />
+		<result column="BZ" property="bz" />
+		<result column="CHBZ" property="chbz" />
+		<result column="ZHYE" property="zhye" />
+		<result column="KYYE" property="kyye" />
+		<result column="ZHJYSJ" property="zhjysj" />
+		<result column="BEIZ" property="beiz" />
+	</resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+ID AS id,
+GMT_CREATE AS gmtCreate,
+GMT_MODIFIED AS gmtModified,
+        REQ_BASIC_INFO_ID AS reqBasicInfoId, REQ_TYPE AS reqType, RESP_CUSTOMER_ID AS respCustomerId, KH AS kh, ZH AS zh, ZHLB AS zhlb, ZHZT AS zhzt, KHWD AS khwd, KHWDDM AS khwddm, KHRQ AS khrq, XHRQ AS xhrq, XHWD AS xhwd, BZ AS bz, CHBZ AS chbz, ZHYE AS zhye, KYYE AS kyye, ZHJYSJ AS zhjysj, BEIZ AS beiz
+    </sql>
+
+</mapper>

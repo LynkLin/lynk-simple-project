@@ -54,8 +54,8 @@ spring:
             threadsInheritContextClassLoaderOfInitializingThread: true
 
 mybatis-plus:
-  mapper-locations: classpath:/daoMapper/*/*Dao.xml
-  type-aliases-package: com.lynk.*.entity
+  mapper-locations: classpath:/daoMapper/*/*Dao.xml,classpath:/daoMapper/business/*/*Dao.xml
+  type-aliases-package: com.lynk.*.entity,com.lynk.business.*.entity
   configuration.cache-enabled: false
   configuration.map-underscore-to-camel-case: true
   global-config:

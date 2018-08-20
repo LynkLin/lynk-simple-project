@@ -1,1 +1,1 @@
-INSERT INTO lynk_sys.SYS_USER (id, name, password, salt, real_name, is_deleted, gmt_create, gmt_modified) VALUES ('930779101112471554', 'admin', 'a1f19257f348c316856bc5bc92af1691', '2d2035f168', 'admin', 0, '2017-11-15 20:46:45', '2017-11-15 20:46:45');
+INSERT INTO SYS_USER (id, name, password, salt, real_name, is_deleted, gmt_create, gmt_modified) VALUES ('930779101112471554', 'admin', 'a1f19257f348c316856bc5bc92af1691', '2d2035f168', 'admin', 0, '2017-11-15 20:46:45', '2017-11-15 20:46:45');

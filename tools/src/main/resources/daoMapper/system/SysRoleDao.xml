@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lynk.system.dao.SysRoleDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.lynk.system.entity.SysRole">
+        <id column="ID" property="id" />
+    <result column="GMT_MODIFIED" property="gmtModified" />
+        <result column="NAME" property="name" />
+        <result column="IS_ADMIN" property="isAdmin" />
+        <result column="GMT_CREATE" property="gmtCreate" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        GMT_MODIFIED,
+        ID, NAME, IS_ADMIN, GMT_CREATE
+    </sql>
+
+</mapper>

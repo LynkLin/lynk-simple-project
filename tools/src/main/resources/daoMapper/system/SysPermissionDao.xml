@@ -4,21 +4,23 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.lynk.system.entity.SysPermission">
-        <id column="ID" property="id" />
+    <result column="ID" property="id" />
+    <result column="GMT_CREATE" property="gmtCreate" />
     <result column="GMT_MODIFIED" property="gmtModified" />
         <result column="NAME" property="name" />
-        <result column="IS_REQUEST" property="isRequest" />
+        <result column="IS_REQUEST" property="request" />
         <result column="URL" property="url" />
         <result column="METHOD" property="method" />
         <result column="SEQUENCE" property="sequence" />
         <result column="PARENT_ID" property="parentId" />
-        <result column="GMT_CREATE" property="gmtCreate" />
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
+        ID,
+        GMT_CREATE,
         GMT_MODIFIED,
-        ID, NAME, IS_REQUEST, URL, METHOD, SEQUENCE, PARENT_ID, GMT_CREATE
+        NAME, IS_REQUEST, URL, METHOD, SEQUENCE, PARENT_ID
     </sql>
 
 </mapper>

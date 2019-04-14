@@ -1,6 +1,6 @@
 package com.lynk.system.service;
 
-import com.lynk.system.entity.SysPermission;
+import com.lynk.system.entity.SysTask;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @author Lynk
  * @since 2019-04-13
  */
-public interface ISysPermissionService extends IService<SysPermission> {
+public interface ISysTaskService extends IService<SysTask> {
 
 }

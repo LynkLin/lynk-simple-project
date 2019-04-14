@@ -1,6 +1,6 @@
 package com.lynk.system.web.base;
 
-import com.baomidou.mybatisplus.plugins.Page;
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.lynk.system.exception.SystemException;
 
 /**
@@ -46,11 +46,11 @@ public class ResponseFactory {
         return response;
     }
 
-    public static PageResponse createPageResponse(Page data) {
+    public static PageResponse createPageResponse(IPage data) {
         return createPageResponse("", data);
     }
 
-    public static PageResponse createPageResponse(String message, Page data) {
+    public static PageResponse createPageResponse(String message, IPage data) {
         PageResponse pageResponse = new PageResponse();
         pageResponse.setStatus(Response.SUCCESS);
         pageResponse.setErrorCode("");

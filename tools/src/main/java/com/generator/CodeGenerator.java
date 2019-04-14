@@ -1,16 +1,13 @@
 package com.generator;
 
 import com.baomidou.mybatisplus.annotation.DbType;
-import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.core.toolkit.StringPool;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
 import com.baomidou.mybatisplus.generator.InjectionConfig;
 import com.baomidou.mybatisplus.generator.config.*;
-import com.baomidou.mybatisplus.generator.config.po.TableFill;
 import com.baomidou.mybatisplus.generator.config.po.TableInfo;
 import com.baomidou.mybatisplus.generator.config.rules.DateType;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
-import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +29,7 @@ public class CodeGenerator {
         gc.setOpen(false);
         gc.setSwagger2(true);
         gc.setFileOverride(true);
-        gc.setActiveRecord(true);
+        gc.setActiveRecord(false);
         gc.setBaseColumnList(true);
         gc.setBaseResultMap(true);
         gc.setDateType(DateType.TIME_PACK);
@@ -43,7 +40,7 @@ public class CodeGenerator {
         // 数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
         dsc.setDbType(DbType.MYSQL);
-        dsc.setUrl("jdbc:mysql://192.168.202.131:4000/lynk_sys?useUnicode=true&characterEncoding=UTF-8&useSSL=false");
+        dsc.setUrl("jdbc:mysql://10.211.55.10:4000/lynk_sys?useUnicode=true&characterEncoding=UTF-8&useSSL=false");
         // dsc.setSchemaName("public");
         dsc.setDriverName("com.mysql.jdbc.Driver");
         dsc.setUsername("root");
@@ -108,20 +105,21 @@ public class CodeGenerator {
         mpg.setTemplate(templateConfig);
 
 
-        List<TableFill> tableFillList = new ArrayList<>();
-        tableFillList.add(new TableFill("GMT_CREATE", FieldFill.INSERT));
-        tableFillList.add(new TableFill("GMT_MODIFIED", FieldFill.INSERT_UPDATE));
+//        List<TableFill> tableFillList = new ArrayList<>();
+//        tableFillList.add(new TableFill("GMT_CREATE", FieldFill.INSERT));
+//        tableFillList.add(new TableFill("GMT_MODIFIED", FieldFill.INSERT_UPDATE));
         // 策略配置
         StrategyConfig strategy = new StrategyConfig();
         strategy.setNaming(NamingStrategy.underline_to_camel);
         strategy.setColumnNaming(NamingStrategy.underline_to_camel);
         strategy.setSuperEntityClass("com.lynk.system.entity.base.SystemBaseEntity");
+        strategy.setEntityColumnConstant(true);
         strategy.setEntityLombokModel(true);
         strategy.setRestControllerStyle(true);
-        strategy.setSuperControllerClass("com.lynk.system.controller.base.SystemBaseController");
-        strategy.setInclude("SYS_PERMISSION", "SYS_PARAM", "SYS_PERMISSION", "SYS_ROLE", "SYS_ROLE_PERMISSION", "SYS_USER", "SYS_USER_ROLE");
-        strategy.setSuperEntityColumns("id", "gmtCreate", "GMT_MODIFIED");
-        strategy.setTableFillList(tableFillList);
+//        strategy.setSuperControllerClass("com.lynk.system.controller.base.SystemBaseController");
+        strategy.setInclude("SYS_TASK", "SYS_PERMISSION", "SYS_PARAM", "SYS_PERMISSION", "SYS_ROLE", "SYS_ROLE_PERMISSION", "SYS_USER", "SYS_USER_ROLE");
+        strategy.setSuperEntityColumns("ID", "GMT_CREATE", "GMT_MODIFIED");
+//        strategy.setTableFillList(tableFillList);
         strategy.setControllerMappingHyphenStyle(true);
         strategy.setEntityBooleanColumnRemoveIsPrefix(true);
         strategy.setTablePrefix(pc.getModuleName() + "_");

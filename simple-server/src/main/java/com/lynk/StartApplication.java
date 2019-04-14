@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  */
 @SpringBootApplication
 @EnableTransactionManagement
-@MapperScan(basePackages = {"com.lynk.system.dao", "com.lynk.business.*.dao"})
+@MapperScan({"com.lynk.system.dao", "com.lynk.business.*.dao"})
 public class StartApplication {
     public static void main(String[] args) {
         SpringApplication.run(StartApplication.class, args);

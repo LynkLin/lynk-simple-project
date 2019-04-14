@@ -1,15 +1,16 @@
 package com.lynk.system.service.impl;
 
-import com.baomidou.mybatisplus.mapper.EntityWrapper;
-import com.baomidou.mybatisplus.plugins.Page;
-import com.baomidou.mybatisplus.service.impl.ServiceImpl;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.lynk.system.common.DBUtil;
 import com.lynk.system.common.ValidateUtil;
-import com.lynk.system.dao.SysTaskDao;
 import com.lynk.system.entity.SysTask;
+import com.lynk.system.dao.SysTaskDao;
 import com.lynk.system.exception.SystemException;
 import com.lynk.system.exception.error.ErrorCode;
 import com.lynk.system.service.ISysTaskService;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.lynk.system.task.SysTaskManager;
 import com.lynk.system.web.request.SysTaskAddRequest;
 import com.lynk.system.web.request.SysTaskGetRequest;
@@ -23,7 +24,7 @@ import org.springframework.transaction.annotation.Transactional;
  * </p>
  *
  * @author Lynk
- * @since 2017-10-17
+ * @since 2019-04-13
  */
 @Service
 public class SysTaskServiceImpl extends ServiceImpl<SysTaskDao, SysTask> implements ISysTaskService {
@@ -73,7 +74,7 @@ public class SysTaskServiceImpl extends ServiceImpl<SysTaskDao, SysTask> impleme
         task.setEnable(true);
         task.setRemark(sysTaskAddRequest.getRemark());
 
-        boolean result = insert(task);
+        boolean result = save(task);
         if (!result) {
             throw new SystemException(ErrorCode.SYS004);
         }
@@ -87,7 +88,7 @@ public class SysTaskServiceImpl extends ServiceImpl<SysTaskDao, SysTask> impleme
     @Override
     @Transactional(rollbackFor = SystemException.class)
     public void update(SysTaskUpdateRequest sysTaskUpdateRequest) throws SystemException {
-        SysTask taskDb = selectById(sysTaskUpdateRequest.getId());
+        SysTask taskDb = getById(sysTaskUpdateRequest.getId());
 
         Integer operator = sysTaskUpdateRequest.getOperator();
         SysTask task = new SysTask();
@@ -157,17 +158,17 @@ public class SysTaskServiceImpl extends ServiceImpl<SysTaskDao, SysTask> impleme
     @Override
     @Transactional(rollbackFor = SystemException.class)
     public void delete(String id) throws SystemException {
-        SysTask task = selectById(id);
+        SysTask task = getById(id);
         if (task.getEnable()) {
             SysTaskManager.getInstance().removeTask(task);
         }
-        deleteById(id);
+        removeById(id);
     }
 
     @Override
-    public Page<SysTask> get(SysTaskGetRequest sysTaskGetRequest) throws SystemException {
-        Page<SysTask> page = new Page<>(sysTaskGetRequest.getPage(), sysTaskGetRequest.getPerPage());
-        EntityWrapper<SysTask> entityWrapper = new EntityWrapper<>();
+    public IPage<SysTask> get(SysTaskGetRequest sysTaskGetRequest) throws SystemException {
+        IPage<SysTask> page = new Page<>(sysTaskGetRequest.getPage(), sysTaskGetRequest.getPerPage());
+        QueryWrapper<SysTask> entityWrapper = new QueryWrapper<>();
 
         String code = sysTaskGetRequest.getCode();
         if (ValidateUtil.isNotEmpty(code)) {
@@ -204,19 +205,19 @@ public class SysTaskServiceImpl extends ServiceImpl<SysTaskDao, SysTask> impleme
             entityWrapper.eq(SysTask.IS_ENABLE, enable);
         }
 
-        entityWrapper.orderBy(SysTask.SEQUENCE);
+        entityWrapper.orderByAsc(SysTask.SEQUENCE);
 
-        return selectPage(page, entityWrapper);
+        return page(page, entityWrapper);
     }
 
     @Override
     public SysTask getById(String id) throws SystemException {
-        return selectById(id);
+        return getById(id);
     }
 
     @Override
     public void run(String id) throws SystemException {
-        SysTask task = selectById(id);
+        SysTask task = getById(id);
         if (task.getRun()) {
             throw new SystemException(ErrorCode.SYS014, task.getCode());
         }
@@ -225,7 +226,7 @@ public class SysTaskServiceImpl extends ServiceImpl<SysTaskDao, SysTask> impleme
 
     @Override
     public void pause(String id) throws SystemException {
-        SysTask task = selectById(id);
+        SysTask task = getById(id);
         if (!task.getRun()) {
             throw new SystemException(ErrorCode.SYS015, task.getCode());
         }
@@ -237,7 +238,7 @@ public class SysTaskServiceImpl extends ServiceImpl<SysTaskDao, SysTask> impleme
 
     @Override
     public void resume(String id) throws SystemException {
-        SysTask task = selectById(id);
+        SysTask task = getById(id);
         if (!task.getPause()) {
             throw new SystemException(ErrorCode.SYS017, task.getCode());
         }
@@ -251,12 +252,12 @@ public class SysTaskServiceImpl extends ServiceImpl<SysTaskDao, SysTask> impleme
      * @return
      */
     private boolean taskCodeExists(String code, String id) {
-        EntityWrapper<SysTask> entityWrapper = new EntityWrapper<>();
+        QueryWrapper<SysTask> entityWrapper = new QueryWrapper<>();
         entityWrapper.eq(SysTask.CODE, code);
         if (ValidateUtil.isNotEmpty(id)) {
             entityWrapper.ne(SysTask.ID, id);
         }
-        int existsCount = selectCount(entityWrapper);
+        int existsCount = count(entityWrapper);
         return existsCount > 0;
     }
 

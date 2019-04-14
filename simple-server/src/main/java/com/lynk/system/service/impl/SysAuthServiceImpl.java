@@ -1,7 +1,7 @@
 package com.lynk.system.service.impl;
 
-import com.baomidou.mybatisplus.mapper.EntityWrapper;
-import com.baomidou.mybatisplus.service.impl.ServiceImpl;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.lynk.system.cache.SysRedisHandle;
 import com.lynk.system.common.ValidateUtil;
 import com.lynk.system.dao.SysUserDao;
@@ -40,7 +40,7 @@ public class SysAuthServiceImpl extends ServiceImpl<SysUserDao, SysUser> impleme
 
     @Override
     public TokenResponse create(LoginRequest loginRequest) throws SystemException {
-        List<SysUser> sysUsers = baseMapper.selectList(new EntityWrapper<SysUser>().eq(SysUser.NAME, loginRequest.getUserName()).eq(SysUser.IS_DELETED, false));
+        List<SysUser> sysUsers = baseMapper.selectList(new QueryWrapper<SysUser>().eq(SysUser.NAME, loginRequest.getUserName()).eq(SysUser.IS_DELETED, false));
         if (sysUsers == null || sysUsers.size() == 0) {
             throw new SystemException(ErrorCode.SYS001);
         }

@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 2019-04-13
  */
 @RestController
-@RequestMapping("/system/sys-param")
-public class SysParamController {
+@RequestMapping("/system/sys-task")
+public class SysTaskController {
 
 }
 

@@ -1,6 +1,6 @@
 package com.lynk.system.task;
 
-import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.lynk.system.common.Constants;
 import com.lynk.system.dao.SysTaskDao;
 import com.lynk.system.entity.SysTask;
@@ -48,7 +48,7 @@ public class SysTaskManager {
 
         SysTaskDao sysTaskDao = AppManager.getBean("sysTaskDao", SysTaskDao.class);
 
-        List<SysTask> tasks = sysTaskDao.selectList(new EntityWrapper<SysTask>().eq(SysTask.IS_ENABLE, true));
+        List<SysTask> tasks = sysTaskDao.selectList(new QueryWrapper<SysTask>().eq(SysTask.IS_ENABLE, true));
         for (SysTask task: tasks) {
             addTask(task);
         }

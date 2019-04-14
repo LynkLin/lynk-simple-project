@@ -1,8 +1,8 @@
 package com.lynk.system.service;
 
-import com.baomidou.mybatisplus.plugins.Page;
-import com.baomidou.mybatisplus.service.IService;
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.lynk.system.entity.SysTask;
+import com.baomidou.mybatisplus.extension.service.IService;
 import com.lynk.system.exception.SystemException;
 import com.lynk.system.web.request.SysTaskAddRequest;
 import com.lynk.system.web.request.SysTaskGetRequest;
@@ -14,7 +14,7 @@ import com.lynk.system.web.request.SysTaskUpdateRequest;
  * </p>
  *
  * @author Lynk
- * @since 2017-10-17
+ * @since 2019-04-13
  */
 public interface ISysTaskService extends IService<SysTask> {
 	/**
@@ -47,7 +47,7 @@ public interface ISysTaskService extends IService<SysTask> {
 	 * @return page info
 	 * @throws SystemException
 	 */
-	Page<SysTask> get(SysTaskGetRequest sysTaskGetRequest) throws SystemException;
+	IPage<SysTask> get(SysTaskGetRequest sysTaskGetRequest) throws SystemException;
 
 	/**
 	 * get by ID

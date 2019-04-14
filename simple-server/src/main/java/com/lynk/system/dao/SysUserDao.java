@@ -1,15 +1,15 @@
 package com.lynk.system.dao;
 
-import com.baomidou.mybatisplus.mapper.BaseMapper;
 import com.lynk.system.entity.SysUser;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
  * <p>
-  *  Mapper 接口
+ *  Mapper 接口
  * </p>
  *
  * @author Lynk
- * @since 2017-10-17
+ * @since 2019-04-13
  */
 public interface SysUserDao extends BaseMapper<SysUser> {
 

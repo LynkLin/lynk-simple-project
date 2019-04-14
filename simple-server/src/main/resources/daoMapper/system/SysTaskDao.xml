@@ -4,32 +4,27 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.lynk.system.entity.SysTask">
-        <result column="ID" property="id"/>
-        <result column="GMT_CREATE" property="gmtCreate"/>
-        <result column="GMT_MODIFIED" property="gmtModified"/>
-        <result column="CODE" property="code"/>
-        <result column="NAME" property="name"/>
-        <result column="CATEGORY" property="category"/>
-        <result column="CLASS_NAME" property="className"/>
-        <result column="CRON_EXPRESSION" property="cronExpression"/>
-        <result column="SEQUENCE" property="sequence"/>
-        <result column="IS_RUN" property="run"/>
-        <result column="IS_PAUSE" property="pause"/>
-        <result column="IS_ENABLE" property="enable"/>
-        <result column="REMARK" property="remark"/>
+    <result column="ID" property="id" />
+    <result column="GMT_CREATE" property="gmtCreate" />
+    <result column="GMT_MODIFIED" property="gmtModified" />
+        <result column="CODE" property="code" />
+        <result column="NAME" property="name" />
+        <result column="CATEGORY" property="category" />
+        <result column="CLASS_NAME" property="className" />
+        <result column="CRON_EXPRESSION" property="cronExpression" />
+        <result column="SEQUENCE" property="sequence" />
+        <result column="IS_RUN" property="run" />
+        <result column="IS_PAUSE" property="pause" />
+        <result column="IS_ENABLE" property="enable" />
+        <result column="REMARK" property="remark" />
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
         ID,
-        GMT_CREATE AS gmtCreate,
-        GMT_MODIFIED AS gmtModified,
-        CODE, NAME, CATEGORY, CLASS_NAME AS className,
-        CRON_EXPRESSION AS cronExpression,
-        SEQUENCE, IS_RUN AS run,
-        IS_PAUSE AS pause,
-        IS_ENABLE AS enable,
-        REMARK
+        GMT_CREATE,
+        GMT_MODIFIED,
+        CODE, NAME, CATEGORY, CLASS_NAME, CRON_EXPRESSION, SEQUENCE, IS_RUN, IS_PAUSE, IS_ENABLE, REMARK
     </sql>
 
 </mapper>

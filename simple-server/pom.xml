@@ -4,12 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.lynk</groupId>
-	<artifactId>simple</artifactId>
+	<artifactId>simple-server</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 
-	<name>simple</name>
-	<description>A simple lynk's project</description>
+	<name>simple-server</name>
+	<description>simple server</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -32,6 +32,7 @@
 		<zip4j.version>1.3.2</zip4j.version>
 		<swagger.version>2.9.2</swagger.version>
 		<jjwt.version>0.9.1</jjwt.version>
+		<lombok.version>1.18.6</lombok.version>
 		<!--<sharding.jdbc.version>3.0.0.M2</sharding.jdbc.version>-->
 	</properties>
 
@@ -39,6 +40,10 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-quartz</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -86,7 +91,7 @@
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-			<version>1.18.6</version>
+			<version>${lombok.version}</version>
 			<scope>provided</scope>
 		</dependency>
 
@@ -99,11 +104,11 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-quartz</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-context-support</artifactId>
-			<version>${spring.context.support.version}</version>
-		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>org.springframework</groupId>-->
+<!--			<artifactId>spring-context-support</artifactId>-->
+<!--			<version>${spring.context.support.version}</version>-->
+<!--		</dependency>-->
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
@@ -230,6 +235,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
-
 </project>

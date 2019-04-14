@@ -6,7 +6,7 @@ create table SYS_USER
   PASSWORD     varchar(100) null,
   SALT         varchar(10)  null,
   REAL_NAME    varchar(50)  null,
-  IS_DELETED   tinyint      null,
+  IS_DELETED   tinyint(1)      null,
   GMT_CREATE   datetime     null,
   GMT_MODIFIED datetime     null
 ) engine = InnoDB;
@@ -17,7 +17,7 @@ create table SYS_ROLE
 (
   ID           varchar(18) not null primary key,
   NAME         varchar(50) null,
-  IS_ADMIN     tinyint     null,
+  IS_ADMIN     tinyint(1)     null,
   GMT_CREATE   datetime    null,
   GMT_MODIFIED datetime    null
 ) engine = InnoDB;
@@ -28,7 +28,7 @@ create table SYS_PERMISSION
 (
   ID           varchar(50)  not null primary key,
   NAME         varchar(100) null,
-  IS_REQUEST   tinyint       null,
+  IS_REQUEST   tinyint(1)       null,
   URL          varchar(100) null,
   METHOD       varchar(10)  null,
   SEQUENCE     int           null,
@@ -83,9 +83,9 @@ create table SYS_TASK
   CLASS_NAME      varchar(200) null,
   CRON_EXPRESSION varchar(200) null,
   SEQUENCE        int          null,
-  IS_RUN          tinyint      null,
-  IS_PAUSE        tinyint      null,
-  IS_ENABLE       tinyint      null,
+  IS_RUN          tinyint(1)     null,
+  IS_PAUSE        tinyint(1)      null,
+  IS_ENABLE       tinyint(1)      null,
   REMARK          varchar(200) null,
   GMT_CREATE      datetime     null,
   GMT_MODIFIED    datetime     null

@@ -28,12 +28,12 @@ public class SysUserServiceImplTest extends BaseJunitTest {
         sysUser.setRealName("junit测试用户");
         sysUser.setDeleted(false);
 
-        sysUserServiceImpl.insert(sysUser);
+        sysUserServiceImpl.save(sysUser);
     }
 
     @After
     public void tearDown() throws Exception {
-        sysUserServiceImpl.deleteById(sysUser.getId());
+        sysUserServiceImpl.removeById(sysUser.getId());
     }
 
     @Test
@@ -61,6 +61,6 @@ public class SysUserServiceImplTest extends BaseJunitTest {
 
     @Test
     public void delete() throws Exception {
-        sysUserServiceImpl.deleteById(sysUser.getId());
+        sysUserServiceImpl.removeById(sysUser.getId());
     }
 }

@@ -35,7 +35,7 @@ public class SysParamManager {
             LOGGER.info("start load system param");
         }
         sysParamServiceImpl = AppManager.getBean("sysParamServiceImpl", ISysParamService.class);
-        List<SysParam> params = sysParamServiceImpl.selectList(null);
+        List<SysParam> params = sysParamServiceImpl.list(null);
         for (SysParam param: params) {
             sysParam.put(getRealKey(param.getCategory(), param.getCode()), param.getValue());
         }

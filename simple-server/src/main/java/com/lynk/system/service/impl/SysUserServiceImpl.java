@@ -1,18 +1,20 @@
 package com.lynk.system.service.impl;
 
-import com.baomidou.mybatisplus.mapper.EntityWrapper;
-import com.baomidou.mybatisplus.plugins.Page;
+import com.baomidou.mybatisplus.core.conditions.AbstractWrapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.lynk.system.common.ValidateUtil;
 import com.lynk.system.entity.*;
 import com.lynk.system.dao.SysUserDao;
 import com.lynk.system.exception.SystemException;
 import com.lynk.system.exception.error.ErrorCode;
 import com.lynk.system.security.common.PasswordHelper;
 import com.lynk.system.service.*;
-import com.baomidou.mybatisplus.service.impl.ServiceImpl;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.lynk.system.web.request.SysUserAddRequest;
 import com.lynk.system.web.request.SysUserGetRequest;
 import com.lynk.system.web.request.SysUserUpdateRequest;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,7 +27,7 @@ import java.util.List;
  * </p>
  *
  * @author Lynk
- * @since 2017-08-12
+ * @since 2019-04-13
  */
 @Service
 public class SysUserServiceImpl extends ServiceImpl<SysUserDao, SysUser> implements ISysUserService {
@@ -41,7 +43,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserDao, SysUser> impleme
     @Override
     public String add(SysUserAddRequest sysUserAddRequest) throws SystemException {
         String name = sysUserAddRequest.getName();
-        int existsCount = selectCount(new EntityWrapper<SysUser>().eq(SysUser.NAME, name).eq(SysUser.IS_DELETED, false));
+        int existsCount = count(new QueryWrapper<SysUser>().eq(SysUser.NAME, name).eq(SysUser.IS_DELETED, false));
         if (existsCount != 0) {
             throw new SystemException(ErrorCode.SYS007, name);
         }
@@ -58,7 +60,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserDao, SysUser> impleme
         sysUser.setPassword(password);
         sysUser.setSalt(salt);
 
-        boolean result = insert(sysUser);
+        boolean result = save(sysUser);
         if (!result) {
             throw new SystemException(ErrorCode.SYS004);
         }
@@ -67,7 +69,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserDao, SysUser> impleme
 
     @Override
     public void update(SysUserUpdateRequest sysUserUpdateRequest) throws SystemException {
-        SysUser sysUserDb = selectById(sysUserUpdateRequest.getId());
+        SysUser sysUserDb = getById(sysUserUpdateRequest.getId());
         //是否需要执行update
         boolean updateFlag = false;
 
@@ -105,18 +107,18 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserDao, SysUser> impleme
     }
 
     @Override
-    public Page<SysUser> get(SysUserGetRequest sysUserGetRequest) throws SystemException {
+    public IPage<SysUser> get(SysUserGetRequest sysUserGetRequest) throws SystemException {
         Page<SysUser> page = new Page<>(sysUserGetRequest.getPage(), sysUserGetRequest.getPerPage());
 
-        EntityWrapper<SysUser> wrapper = new EntityWrapper<>();
+        QueryWrapper<SysUser> wrapper = new QueryWrapper<>();
 
         String name = sysUserGetRequest.getName();
-        if (StringUtils.isNotEmpty(name)) {
+        if (ValidateUtil.isNotEmpty(name)) {
             wrapper.eq(SysUser.NAME, name);
         }
 
         String realName = sysUserGetRequest.getRealName();
-        if (StringUtils.isNotEmpty(realName)) {
+        if (ValidateUtil.isNotEmpty(realName)) {
             wrapper.eq(SysUser.REAL_NAME, realName);
         }
 
@@ -125,12 +127,12 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserDao, SysUser> impleme
             wrapper.eq(SysUser.IS_DELETED, isDeleted);
         }
 
-        return selectPage(page, wrapper);
+        return page(page, wrapper);
     }
 
     @Override
     public SysUser getById(String id) throws SystemException {
-        SysUser user = selectById(id);
+        SysUser user = getById(id);
         if (user == null) {
             throw new SystemException(ErrorCode.SYS003);
         }
@@ -139,7 +141,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserDao, SysUser> impleme
 
     @Override
     public void delete(String id) throws SystemException {
-        boolean result = deleteById(id);
+        boolean result = removeById(id);
         if (!result) {
             throw new SystemException(ErrorCode.SYS006);
         }
@@ -147,12 +149,12 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserDao, SysUser> impleme
 
     @Override
     public List<SysPermission> getPermissionByUserId(String userId) throws SystemException {
-        List<SysUserRole> sysUserRoles = sysUserRoleServiceImpl.selectList(new EntityWrapper<SysUserRole>().eq(SysUserRole.USER_ID, userId));
+        List<SysUserRole> sysUserRoles = sysUserRoleServiceImpl.list(new QueryWrapper<SysUserRole>().eq(SysUserRole.USER_ID, userId));
 
         boolean isAdmin = false;
         List<String> roleIds = new ArrayList<>(16);
         for (SysUserRole sysUserRole: sysUserRoles) {
-            SysRole sysRole = sysRoleServiceImpl.selectById(sysUserRole.getRoleId());
+            SysRole sysRole = sysRoleServiceImpl.getById(sysUserRole.getRoleId());
             if (sysRole.getAdmin()) {
                 isAdmin = true;
                 break;
@@ -161,17 +163,23 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserDao, SysUser> impleme
         }
 
         if (isAdmin) {
-            return sysPermissionServiceImpl.selectList(new EntityWrapper<SysPermission>().eq(SysPermission.IS_REQUEST, true));
+            return sysPermissionServiceImpl.list(new QueryWrapper<SysPermission>().eq(SysPermission.IS_REQUEST, true));
         } else {
-            List<SysRolePermission> sysRolePermissions = sysRolePermissionServiceImpl.selectList(new EntityWrapper<SysRolePermission>().in(SysRolePermission.ROLE_ID, roleIds));
-
-            List<String> permissionIds = new ArrayList<>(16);
-            for (SysRolePermission sysRolePermission: sysRolePermissions) {
-                if (!permissionIds.contains(sysRolePermission.getPermissionId())) {
-                    permissionIds.add(sysRolePermission.getPermissionId());
+            QueryWrapper<SysPermission> queryWrapper = new QueryWrapper<SysPermission>();
+            queryWrapper.eq(SysPermission.IS_REQUEST, true);
+            if (roleIds.size() > 0) {
+                List<SysRolePermission> sysRolePermissions = sysRolePermissionServiceImpl.list(new QueryWrapper<SysRolePermission>().in(SysRolePermission.ROLE_ID, roleIds));
+                List<String> permissionIds = new ArrayList<>(16);
+                for (SysRolePermission sysRolePermission: sysRolePermissions) {
+                    if (!permissionIds.contains(sysRolePermission.getPermissionId())) {
+                        permissionIds.add(sysRolePermission.getPermissionId());
+                    }
+                }
+                if (permissionIds.size() > 0) {
+                    queryWrapper.in(SysPermission.ID, permissionIds);
                 }
             }
-            return sysPermissionServiceImpl.selectList(new EntityWrapper<SysPermission>().in(SysPermission.ID, permissionIds).eq(SysPermission.IS_REQUEST, true));
+            return sysPermissionServiceImpl.list(queryWrapper);
         }
     }
 }

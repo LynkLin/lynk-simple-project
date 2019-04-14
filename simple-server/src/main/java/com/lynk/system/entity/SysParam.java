@@ -1,9 +1,12 @@
 package com.lynk.system.entity;
 
-import com.baomidou.mybatisplus.annotations.TableName;
+import com.baomidou.mybatisplus.annotation.TableName;
 import com.lynk.system.entity.base.SystemBaseEntity;
-
-import java.io.Serializable;
+import com.baomidou.mybatisplus.annotation.TableField;
+import io.swagger.annotations.ApiModel;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.experimental.Accessors;
 
 /**
  * <p>
@@ -11,71 +14,36 @@ import java.io.Serializable;
  * </p>
  *
  * @author Lynk
- * @since 2017-11-16
+ * @since 2019-04-13
  */
+@Data
+@EqualsAndHashCode(callSuper = true)
+@Accessors(chain = true)
 @TableName("SYS_PARAM")
-public class SysParam extends SystemBaseEntity<SysParam> {
+@ApiModel(value="SysParam对象", description="")
+public class SysParam extends SystemBaseEntity {
 
     private static final long serialVersionUID = 1L;
 
-	private String category;
-	private String code;
-	private String value;
-	private String remark;
+    @TableField("CATEGORY")
+    private String category;
+
+    @TableField("CODE")
+    private String code;
+
+    @TableField("VALUE")
+    private String value;
+
+    @TableField("REMARK")
+    private String remark;
 
 
-	public String getCategory() {
-		return category;
-	}
+    public static final String CATEGORY = "CATEGORY";
 
-	public void setCategory(String category) {
-		this.category = category;
-	}
+    public static final String CODE = "CODE";
 
-	public String getCode() {
-		return code;
-	}
+    public static final String VALUE = "VALUE";
 
-	public void setCode(String code) {
-		this.code = code;
-	}
+    public static final String REMARK = "REMARK";
 
-	public String getValue() {
-		return value;
-	}
-
-	public void setValue(String value) {
-		this.value = value;
-	}
-
-	public String getRemark() {
-		return remark;
-	}
-
-	public void setRemark(String remark) {
-		this.remark = remark;
-	}
-
-	public static final String CATEGORY = "category";
-
-	public static final String CODE = "code";
-
-	public static final String VALUE = "value";
-
-	public static final String REMARK = "remark";
-
-	@Override
-	protected Serializable pkVal() {
-		return this.id;
-	}
-
-	@Override
-	public String toString() {
-		return "SysParam{" +
-			", category=" + category +
-			", code=" + code +
-			", value=" + value +
-			", remark=" + remark +
-			"}";
-	}
 }

@@ -1,6 +1,6 @@
 package com.lynk.system.service;
 
-import com.baomidou.mybatisplus.service.IService;
+import com.baomidou.mybatisplus.extension.service.IService;
 import com.lynk.system.entity.SysUser;
 import com.lynk.system.exception.SystemException;
 import com.lynk.system.web.request.LoginRequest;

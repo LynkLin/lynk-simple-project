@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
  * </p>
  *
  * @author Lynk
- * @since 2019-04-11
+ * @since 2019-04-13
  */
 @Service
 public class SysParamServiceImpl extends ServiceImpl<SysParamDao, SysParam> implements ISysParamService {

@@ -1,7 +1,7 @@
 package com.lynk.system.service;
 
-import com.baomidou.mybatisplus.service.IService;
 import com.lynk.system.entity.SysRolePermission;
+import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
  * <p>
@@ -9,7 +9,7 @@ import com.lynk.system.entity.SysRolePermission;
  * </p>
  *
  * @author Lynk
- * @since 2017-12-28
+ * @since 2019-04-13
  */
 public interface ISysRolePermissionService extends IService<SysRolePermission> {
 

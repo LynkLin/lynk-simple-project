@@ -7,9 +7,10 @@ spring:
   datasource:
     druid:
       driver-class-name: com.mysql.jdbc.Driver
-      url: jdbc:mysql://10.211.55.9:3306/lynk_sys?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+      url: jdbc:mysql://10.211.55.10:4000/lynk_sys?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+#      url: jdbc:mysql://10.211.55.10:4000/lynk_sys
       username: root
-      password: root
+      password:
       initial-size: 1
       min-idle: 1
       max-active: 20
@@ -21,7 +22,7 @@ spring:
       web-stat-filter:
         enabled: true
   redis:
-    host: 10.211.55.9
+    host: 10.211.55.10
     port: 6379
     jedis:
       pool:
@@ -52,6 +53,7 @@ spring:
             threadCount: 10
             threadPriority: 5
             threadsInheritContextClassLoaderOfInitializingThread: true
+    startup-delay: 60
 
 mybatis-plus:
   mapper-locations: classpath:/daoMapper/*/*Dao.xml,classpath:/daoMapper/business/*/*Dao.xml
@@ -59,10 +61,11 @@ mybatis-plus:
   configuration.cache-enabled: false
   configuration.map-underscore-to-camel-case: true
   global-config:
-    id-type: 5
-    db-column-underline: true
-    refresh-mapper: true
-    meta-object-handler: com.lynk.system.mybatis.TimeMetaObjectHandler
+    db-config:
+      db-type: mysql
+      capital-mode: true
+      id-type: id_worker_str
+    banner: false
 
 logging:
   config: classpath:config/logback-spring.xml

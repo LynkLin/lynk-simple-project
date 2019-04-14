@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * </p>
  *
  * @author Lynk
- * @since 2019-04-11
+ * @since 2019-04-13
  */
 public interface ISysParamService extends IService<SysParam> {
 

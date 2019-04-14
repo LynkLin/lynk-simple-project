@@ -1,10 +1,12 @@
 package com.lynk.system.entity;
 
-import com.baomidou.mybatisplus.annotations.TableField;
-import com.baomidou.mybatisplus.annotations.TableName;
+import com.baomidou.mybatisplus.annotation.TableName;
 import com.lynk.system.entity.base.SystemBaseEntity;
-
-import java.io.Serializable;
+import com.baomidou.mybatisplus.annotation.TableField;
+import io.swagger.annotations.ApiModel;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.experimental.Accessors;
 
 /**
  * <p>
@@ -12,49 +14,26 @@ import java.io.Serializable;
  * </p>
  *
  * @author Lynk
- * @since 2017-11-16
+ * @since 2019-04-13
  */
+@Data
+@EqualsAndHashCode(callSuper = true)
+@Accessors(chain = true)
 @TableName("SYS_USER_ROLE")
-public class SysUserRole extends SystemBaseEntity<SysUserRole> {
+@ApiModel(value="SysUserRole对象", description="")
+public class SysUserRole extends SystemBaseEntity {
 
     private static final long serialVersionUID = 1L;
 
-	@TableField("USER_ID")
-	private String userId;
-	@TableField("ROLE_ID")
-	private String roleId;
+    @TableField("USER_ID")
+    private String userId;
+
+    @TableField("ROLE_ID")
+    private String roleId;
 
 
-	public String getUserId() {
-		return userId;
-	}
+    public static final String USER_ID = "USER_ID";
 
-	public void setUserId(String userId) {
-		this.userId = userId;
-	}
+    public static final String ROLE_ID = "ROLE_ID";
 
-	public String getRoleId() {
-		return roleId;
-	}
-
-	public void setRoleId(String roleId) {
-		this.roleId = roleId;
-	}
-
-	public static final String USER_ID = "user_id";
-
-	public static final String ROLE_ID = "role_id";
-
-	@Override
-	protected Serializable pkVal() {
-		return this.id;
-	}
-
-	@Override
-	public String toString() {
-		return "SysUserRole{" +
-			", userId=" + userId +
-			", roleId=" + roleId +
-			"}";
-	}
 }

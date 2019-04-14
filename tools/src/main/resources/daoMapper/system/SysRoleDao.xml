@@ -4,17 +4,19 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.lynk.system.entity.SysRole">
-        <id column="ID" property="id" />
+    <result column="ID" property="id" />
+    <result column="GMT_CREATE" property="gmtCreate" />
     <result column="GMT_MODIFIED" property="gmtModified" />
         <result column="NAME" property="name" />
-        <result column="IS_ADMIN" property="isAdmin" />
-        <result column="GMT_CREATE" property="gmtCreate" />
+        <result column="IS_ADMIN" property="admin" />
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
+        ID,
+        GMT_CREATE,
         GMT_MODIFIED,
-        ID, NAME, IS_ADMIN, GMT_CREATE
+        NAME, IS_ADMIN
     </sql>
 
 </mapper>

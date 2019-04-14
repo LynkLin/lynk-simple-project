@@ -1,6 +1,6 @@
 package com.lynk.system.controller;
 
-import com.baomidou.mybatisplus.plugins.Page;
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.lynk.system.entity.SysPermission;
 import com.lynk.system.entity.SysUser;
 import com.lynk.system.exception.SystemException;
@@ -26,7 +26,7 @@ import java.util.List;
  * </p>
  *
  * @author Lynk
- * @since 2017-09-18
+ * @since 2019-04-13
  */
 @RestController
 @Api(value = "system user", description = "user manage")
@@ -70,7 +70,7 @@ public class SysUserController {
     @RequirePermissions(id = "GET_USERS", value = "/system/user:GET", name = "search users")
     public PageResponse get(SysUserGetRequest sysUserGetRequest) {
         try {
-            Page<SysUser> page = sysUserServiceImpl.get(sysUserGetRequest);
+            IPage<SysUser> page = sysUserServiceImpl.get(sysUserGetRequest);
             return ResponseFactory.createPageResponse(page);
         } catch (SystemException e) {
             return ResponseFactory.createFailPageResponse(e);

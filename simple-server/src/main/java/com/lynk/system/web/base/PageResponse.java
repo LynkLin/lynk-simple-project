@@ -15,11 +15,11 @@ public class PageResponse extends Response<List> {
     @ApiModelProperty(value = "total record count")
     private Long total;
     @ApiModelProperty(value = "record number per page")
-    private Integer perPage;
+    private Long perPage;
     @ApiModelProperty(value = "total number of page")
     private Long pages;
     @ApiModelProperty(value = "current page number")
-    private Integer page;
+    private Long page;
 
     public Long getTotal() {
         return total;
@@ -29,11 +29,11 @@ public class PageResponse extends Response<List> {
         this.total = total;
     }
 
-    public Integer getPerPage() {
+    public Long getPerPage() {
         return perPage;
     }
 
-    public void setPerPage(Integer perPage) {
+    public void setPerPage(Long perPage) {
         this.perPage = perPage;
     }
 
@@ -45,11 +45,11 @@ public class PageResponse extends Response<List> {
         this.pages = pages;
     }
 
-    public Integer getPage() {
+    public Long getPage() {
         return page;
     }
 
-    public void setPage(Integer page) {
+    public void setPage(Long page) {
         this.page = page;
     }
 }

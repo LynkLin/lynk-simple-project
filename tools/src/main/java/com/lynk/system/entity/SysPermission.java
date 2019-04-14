@@ -1,13 +1,8 @@
 package com.lynk.system.entity;
 
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.baomidou.mybatisplus.extension.activerecord.Model;
-import com.baomidou.mybatisplus.annotation.TableId;
-import java.time.LocalDateTime;
-import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.lynk.system.entity.base.SystemBaseEntity;
 import com.baomidou.mybatisplus.annotation.TableField;
-import java.io.Serializable;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -20,25 +15,22 @@ import lombok.experimental.Accessors;
  * </p>
  *
  * @author Lynk
- * @since 2019-04-11
+ * @since 2019-04-13
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
 @Accessors(chain = true)
 @TableName("SYS_PERMISSION")
 @ApiModel(value="SysPermission对象", description="")
-public class SysPermission extends SystemBaseEntity<SysPermission> {
+public class SysPermission extends SystemBaseEntity {
 
     private static final long serialVersionUID = 1L;
-
-    @TableId("ID")
-    private String id;
 
     @TableField("NAME")
     private String name;
 
     @TableField("IS_REQUEST")
-    private Integer isRequest;
+    private Boolean request;
 
     @TableField("URL")
     private String url;
@@ -52,13 +44,17 @@ public class SysPermission extends SystemBaseEntity<SysPermission> {
     @TableField("PARENT_ID")
     private String parentId;
 
-    @TableField(value = "GMT_CREATE", fill = FieldFill.INSERT)
-    private LocalDateTime gmtCreate;
 
+    public static final String NAME = "NAME";
 
-    @Override
-    protected Serializable pkVal() {
-        return this.id;
-    }
+    public static final String IS_REQUEST = "IS_REQUEST";
+
+    public static final String URL = "URL";
+
+    public static final String METHOD = "METHOD";
+
+    public static final String SEQUENCE = "SEQUENCE";
+
+    public static final String PARENT_ID = "PARENT_ID";
 
 }

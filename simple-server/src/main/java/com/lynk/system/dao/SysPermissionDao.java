@@ -1,7 +1,7 @@
 package com.lynk.system.dao;
 
-import com.baomidou.mybatisplus.mapper.BaseMapper;
 import com.lynk.system.entity.SysPermission;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
  * <p>
@@ -9,7 +9,7 @@ import com.lynk.system.entity.SysPermission;
  * </p>
  *
  * @author Lynk
- * @since 2017-12-28
+ * @since 2019-04-13
  */
 public interface SysPermissionDao extends BaseMapper<SysPermission> {
 

@@ -1,13 +1,8 @@
 package com.lynk.system.entity;
 
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.baomidou.mybatisplus.extension.activerecord.Model;
-import com.baomidou.mybatisplus.annotation.TableId;
-import java.time.LocalDateTime;
-import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.lynk.system.entity.base.SystemBaseEntity;
 import com.baomidou.mybatisplus.annotation.TableField;
-import java.io.Serializable;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -20,19 +15,16 @@ import lombok.experimental.Accessors;
  * </p>
  *
  * @author Lynk
- * @since 2019-04-11
+ * @since 2019-04-13
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
 @Accessors(chain = true)
 @TableName("SYS_USER_ROLE")
 @ApiModel(value="SysUserRole对象", description="")
-public class SysUserRole extends SystemBaseEntity<SysUserRole> {
+public class SysUserRole extends SystemBaseEntity {
 
     private static final long serialVersionUID = 1L;
-
-    @TableId("ID")
-    private String id;
 
     @TableField("USER_ID")
     private String userId;
@@ -40,13 +32,9 @@ public class SysUserRole extends SystemBaseEntity<SysUserRole> {
     @TableField("ROLE_ID")
     private String roleId;
 
-    @TableField(value = "GMT_CREATE", fill = FieldFill.INSERT)
-    private LocalDateTime gmtCreate;
 
+    public static final String USER_ID = "USER_ID";
 
-    @Override
-    protected Serializable pkVal() {
-        return this.id;
-    }
+    public static final String ROLE_ID = "ROLE_ID";
 
 }

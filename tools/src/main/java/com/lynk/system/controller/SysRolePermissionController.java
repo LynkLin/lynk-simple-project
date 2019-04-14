@@ -4,7 +4,6 @@ package com.lynk.system.controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RestController;
-import com.lynk.system.controller.base.SystemBaseController;
 
 /**
  * <p>
@@ -12,11 +11,11 @@ import com.lynk.system.controller.base.SystemBaseController;
  * </p>
  *
  * @author Lynk
- * @since 2019-04-11
+ * @since 2019-04-13
  */
 @RestController
 @RequestMapping("/system/sys-role-permission")
-public class SysRolePermissionController extends SystemBaseController {
+public class SysRolePermissionController {
 
 }
 

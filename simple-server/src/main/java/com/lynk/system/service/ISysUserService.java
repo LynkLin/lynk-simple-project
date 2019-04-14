@@ -1,9 +1,9 @@
 package com.lynk.system.service;
 
-import com.baomidou.mybatisplus.plugins.Page;
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.lynk.system.entity.SysPermission;
 import com.lynk.system.entity.SysUser;
-import com.baomidou.mybatisplus.service.IService;
+import com.baomidou.mybatisplus.extension.service.IService;
 import com.lynk.system.exception.SystemException;
 import com.lynk.system.web.request.SysUserAddRequest;
 import com.lynk.system.web.request.SysUserGetRequest;
@@ -17,7 +17,7 @@ import java.util.List;
  * </p>
  *
  * @author Lynk
- * @since 2017-08-12
+ * @since 2019-04-13
  */
 public interface ISysUserService extends IService<SysUser> {
 
@@ -43,7 +43,7 @@ public interface ISysUserService extends IService<SysUser> {
      * @return
      * @throws SystemException
      */
-    Page<SysUser> get(SysUserGetRequest sysUserGetRequest) throws SystemException;
+    IPage<SysUser> get(SysUserGetRequest sysUserGetRequest) throws SystemException;
 
     /**
      * 获取单个用户

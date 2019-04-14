@@ -4,22 +4,22 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.lynk.system.entity.SysUser">
-        <result column="ID" property="id"/>
-        <result column="GMT_CREATE" property="gmtCreate"/>
-        <result column="GMT_MODIFIED" property="gmtModified"/>
-        <result column="NAME" property="name"/>
-        <result column="PASSWORD" property="password"/>
-        <result column="SALT" property="salt"/>
-        <result column="REAL_NAME" property="realName"/>
-        <result column="IS_DELETED" property="deleted"/>
+    <result column="ID" property="id" />
+    <result column="GMT_CREATE" property="gmtCreate" />
+    <result column="GMT_MODIFIED" property="gmtModified" />
+        <result column="NAME" property="name" />
+        <result column="PASSWORD" property="password" />
+        <result column="SALT" property="salt" />
+        <result column="REAL_NAME" property="realName" />
+        <result column="IS_DELETED" property="deleted" />
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
         ID,
-        GMT_CREATE AS gmtCreate,
-        GMT_MODIFIED AS gmtModified,
-        NAME, PASSWORD, SALT, REAL_NAME AS realName, IS_DELETED AS deleted
+        GMT_CREATE,
+        GMT_MODIFIED,
+        NAME, PASSWORD, SALT, REAL_NAME, IS_DELETED
     </sql>
 
 </mapper>

@@ -1,7 +1,7 @@
 package com.lynk.system.controller;
 
 
-import com.baomidou.mybatisplus.plugins.Page;
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.lynk.system.entity.SysTask;
 import com.lynk.system.exception.SystemException;
 import com.lynk.system.log.annotation.SystemLog;
@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.*;
  * </p>
  *
  * @author Lynk
- * @since 2017-10-17
+ * @since 2019-04-13
  */
 @RestController
 @Api(value = "system task", description = "task manage")
@@ -68,7 +68,7 @@ public class SysTaskController {
     @RequirePermissions(id = "GET_TASKS", value = "/system/task:GET", name = "search tasks")
     public PageResponse get(SysTaskGetRequest sysTaskGetRequest) {
         try {
-            Page<SysTask> page = sysTaskServiceImpl.get(sysTaskGetRequest);
+            IPage<SysTask> page = sysTaskServiceImpl.get(sysTaskGetRequest);
             return ResponseFactory.createPageResponse(page);
         } catch (SystemException e) {
             return ResponseFactory.createFailPageResponse(e);

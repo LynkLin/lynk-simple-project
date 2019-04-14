@@ -4,19 +4,21 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.lynk.system.entity.SysParam">
-        <id column="ID" property="id" />
+    <result column="ID" property="id" />
+    <result column="GMT_CREATE" property="gmtCreate" />
     <result column="GMT_MODIFIED" property="gmtModified" />
         <result column="CATEGORY" property="category" />
         <result column="CODE" property="code" />
         <result column="VALUE" property="value" />
         <result column="REMARK" property="remark" />
-        <result column="GMT_CREATE" property="gmtCreate" />
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
+        ID,
+        GMT_CREATE,
         GMT_MODIFIED,
-        ID, CATEGORY, CODE, VALUE, REMARK, GMT_CREATE
+        CATEGORY, CODE, VALUE, REMARK
     </sql>
 
 </mapper>

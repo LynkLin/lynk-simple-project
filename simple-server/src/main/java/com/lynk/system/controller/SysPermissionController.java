@@ -2,6 +2,7 @@ package com.lynk.system.controller;
 
 
 import org.springframework.web.bind.annotation.RequestMapping;
+
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -10,10 +11,10 @@ import org.springframework.web.bind.annotation.RestController;
  * </p>
  *
  * @author Lynk
- * @since 2017-12-28
+ * @since 2019-04-13
  */
 @RestController
-@RequestMapping("/system/sysPermission")
+@RequestMapping("/system/sys-permission")
 public class SysPermissionController {
 
 }

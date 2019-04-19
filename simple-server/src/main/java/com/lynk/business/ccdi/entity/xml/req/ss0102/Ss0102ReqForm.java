@@ -13,7 +13,7 @@ import java.util.List;
 @Accessors(chain = true)
 @XmlRootElement(name = "QUERYFORM")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class Ss0102ReqConvertible implements ReqConvertible {
+public class Ss0102ReqForm implements ReqConvertible {
     @XmlElement(name = "BASICINFO")
     private BasicInfo basicInfo;
 

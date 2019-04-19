@@ -1,9 +1,7 @@
 package com.lynk.system.start;
 
 import com.lynk.system.task.SysTaskManager;
-import com.lynk.system.tool.SequenceManager;
-import com.lynk.system.tool.SysErrorCodeManager;
-import com.lynk.system.tool.SysParamManager;
+import com.lynk.system.tool.*;
 import org.quartz.Scheduler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,6 +28,7 @@ public class AppInit implements CommandLineRunner {
         SysErrorCodeManager.getInstance().init();
         SysTaskManager.getInstance().init(scheduler);
         SequenceManager.getInstance().init();
+        BeanCopierManager.getInstance().init();
         if (LOGGER.isInfoEnabled()) {
             LOGGER.info("============init system end============");
         }

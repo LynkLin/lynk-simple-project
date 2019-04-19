@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lynk.business.ccdi.dao.RespFreezeDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.lynk.business.ccdi.entity.RespFreeze">
+    <result column="ID" property="id" />
+    <result column="GMT_CREATE" property="gmtCreate" />
+    <result column="GMT_MODIFIED" property="gmtModified" />
+        <result column="REQ_MAIN_ID" property="reqMainId" />
+        <result column="ZH" property="zh" />
+        <result column="KH" property="kh" />
+        <result column="ZXJG" property="zxjg" />
+        <result column="SQDJXE" property="sqdjxe" />
+        <result column="SDJE" property="sdje" />
+        <result column="YE" property="ye" />
+        <result column="ZXQSSJ" property="zxqssj" />
+        <result column="DJJSRQ" property="djjsrq" />
+        <result column="WNDJYY" property="wndjyy" />
+        <result column="DJJG" property="djjg" />
+        <result column="DJJE" property="djje" />
+        <result column="DJJZRQ" property="djjzrq" />
+        <result column="WDJJE" property="wdjje" />
+        <result column="ZHKYYE" property="zhkyye" />
+        <result column="BEIZ" property="beiz" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        ID,
+        GMT_CREATE,
+        GMT_MODIFIED,
+        REQ_MAIN_ID, ZH, KH, ZXJG, SQDJXE, SDJE, YE, ZXQSSJ, DJJSRQ, WNDJYY, DJJG, DJJE, DJJZRQ, WDJJE, ZHKYYE, BEIZ
+    </sql>
+
+</mapper>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lynk.business.ccdi.dao.RespCertificateDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.lynk.business.ccdi.entity.RespCertificate">
+    <result column="ID" property="id" />
+    <result column="GMT_CREATE" property="gmtCreate" />
+    <result column="GMT_MODIFIED" property="gmtModified" />
+        <result column="REQ_MAIN_ID" property="reqMainId" />
+        <result column="CXZH" property="cxzh" />
+        <result column="CXZL" property="cxzl" />
+        <result column="JYLSH" property="jylsh" />
+        <result column="PZTXLX" property="pztxlx" />
+        <result column="PZTXXH" property="pztxxh" />
+        <result column="FILE_PATH" property="filePath" />
+        <result column="PZTXMC" property="pztxmc" />
+        <result column="BEIZ" property="beiz" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        ID,
+        GMT_CREATE,
+        GMT_MODIFIED,
+        REQ_MAIN_ID, CXZH, CXZL, JYLSH, PZTXLX, PZTXXH, FILE_PATH, PZTXMC, BEIZ
+    </sql>
+
+</mapper>

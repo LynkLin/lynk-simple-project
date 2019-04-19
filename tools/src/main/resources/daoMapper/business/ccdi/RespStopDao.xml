@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lynk.business.ccdi.dao.RespStopDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.lynk.business.ccdi.entity.RespStop">
+    <result column="ID" property="id" />
+    <result column="GMT_CREATE" property="gmtCreate" />
+    <result column="GMT_MODIFIED" property="gmtModified" />
+        <result column="REQ_MAIN_ID" property="reqMainId" />
+        <result column="ZH" property="zh" />
+        <result column="KH" property="kh" />
+        <result column="ZXJG" property="zxjg" />
+        <result column="SBYY" property="sbyy" />
+        <result column="ZXQSSJ" property="zxqssj" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        ID,
+        GMT_CREATE,
+        GMT_MODIFIED,
+        REQ_MAIN_ID, ZH, KH, ZXJG, SBYY, ZXQSSJ
+    </sql>
+
+</mapper>

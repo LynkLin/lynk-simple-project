@@ -138,9 +138,30 @@ public class BipInvoker {
                 + sequence;
     }
 
-    private static String createSerialNumber() {
+    /**
+     * 生成序号为1的流水
+     * @return
+     */
+    public static String createSerialNumber() {
         return createSerialNumber(1);
     }
+
+    /**
+     * 生成下一个流水号，序号加1
+     * @param serialNumber 32位流水号
+     * @return
+     */
+    public static String createNextSerialNumber(String serialNumber) {
+        if (serialNumber.length() >= 23) {
+            String pre = serialNumber.substring(0, 23);
+            String sub = serialNumber.substring(23);
+            int order = Integer.parseInt(sub);
+            return pre + formatOrder(++order);
+        } else {
+            return serialNumber + formatOrder(1);
+        }
+    }
+
 
     /**
      * 32位流水号
@@ -149,10 +170,17 @@ public class BipInvoker {
      */
     private static String createSerialNumber(int order) {
         String serialNumberPrefix = createSerialNumberPrefix();
-
-        String orderStr = Integer.toString(order);
-        orderStr = StringUtils.leftPad(orderStr, 9, "0");
         //3+8+12+9
-        return serialNumberPrefix + orderStr;
+        return serialNumberPrefix + formatOrder(order);
+    }
+
+    /**
+     * 左补0,9位长度
+     * @param order
+     * @return
+     */
+    private static String formatOrder(int order) {
+        String orderStr = Integer.toString(order);
+        return StringUtils.leftPad(orderStr, 9, "0");
     }
 }

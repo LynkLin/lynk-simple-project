@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lynk.business.ccdi.dao.ReqMainDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.lynk.business.ccdi.entity.ReqMain">
+    <result column="ID" property="id" />
+    <result column="GMT_CREATE" property="gmtCreate" />
+    <result column="GMT_MODIFIED" property="gmtModified" />
+        <result column="REQ_BASIC_ID" property="reqBasicId" />
+        <result column="FLDM" property="fldm" />
+        <result column="SEQ_NO" property="seqNo" />
+        <result column="PROCESS_APPROVAL" property="processApproval" />
+        <result column="RESP_APPROVAL" property="respApproval" />
+        <result column="STATUS" property="status" />
+        <result column="DYNAMICAL_STATUS" property="dynamicalStatus" />
+        <result column="RWLSH" property="rwlsh" />
+        <result column="ZH" property="zh" />
+        <result column="ZZLXDM" property="zzlxdm" />
+        <result column="ZZHM" property="zzhm" />
+        <result column="ZTMC" property="ztmc" />
+        <result column="SJHM" property="sjhm" />
+        <result column="CXNR" property="cxnr" />
+        <result column="MXSDLX" property="mxsdlx" />
+        <result column="KSSJ" property="kssj" />
+        <result column="JSSJ" property="jssj" />
+        <result column="YRWLSH" property="yrwlsh" />
+        <result column="ZXSJQJ" property="zxsjqj" />
+        <result column="ZHXH" property="zhxh" />
+        <result column="DJFS" property="djfs" />
+        <result column="JE" property="je" />
+        <result column="BZ" property="bz" />
+        <result column="CXZL" property="cxzl" />
+        <result column="JYLSH" property="jylsh" />
+        <result column="CXFKJG" property="cxfkjg" />
+        <result column="CXFKJGYY" property="cxfkjgyy" />
+        <result column="FKSJHM" property="fksjhm" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        ID,
+        GMT_CREATE,
+        GMT_MODIFIED,
+        REQ_BASIC_ID, FLDM, SEQ_NO, PROCESS_APPROVAL, RESP_APPROVAL, STATUS, DYNAMICAL_STATUS, RWLSH, ZH, ZZLXDM, ZZHM, ZTMC, SJHM, CXNR, MXSDLX, KSSJ, JSSJ, YRWLSH, ZXSJQJ, ZHXH, DJFS, JE, BZ, CXZL, JYLSH, CXFKJG, CXFKJGYY, FKSJHM
+    </sql>
+
+</mapper>

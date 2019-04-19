@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lynk.business.ccdi.dao.RespTransDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.lynk.business.ccdi.entity.RespTrans">
+    <result column="ID" property="id" />
+    <result column="GMT_CREATE" property="gmtCreate" />
+    <result column="GMT_MODIFIED" property="gmtModified" />
+        <result column="REQ_MAIN_ID" property="reqMainId" />
+        <result column="CXKH" property="cxkh" />
+        <result column="JYLX" property="jylx" />
+        <result column="JDBZ" property="jdbz" />
+        <result column="BZ" property="bz" />
+        <result column="JE" property="je" />
+        <result column="YE" property="ye" />
+        <result column="JYSJ" property="jysj" />
+        <result column="JYLSH" property="jylsh" />
+        <result column="JYDFXM" property="jydfxm" />
+        <result column="JYDFZH" property="jydfzh" />
+        <result column="JYDFKH" property="jydfkh" />
+        <result column="JYDFZJHM" property="jydfzjhm" />
+        <result column="JYDSYE" property="jydsye" />
+        <result column="JYDFZHKHH" property="jydfzhkhh" />
+        <result column="JYZY" property="jyzy" />
+        <result column="JYWDMC" property="jywdmc" />
+        <result column="JYWDDM" property="jywddm" />
+        <result column="RZH" property="rzh" />
+        <result column="CPH" property="cph" />
+        <result column="PZZL" property="pzzl" />
+        <result column="PZH" property="pzh" />
+        <result column="XJBZ" property="xjbz" />
+        <result column="ZDH" property="zdh" />
+        <result column="JYSFCG" property="jysfcg" />
+        <result column="JYFSD" property="jyfsd" />
+        <result column="SHMC" property="shmc" />
+        <result column="SHH" property="shh" />
+        <result column="IP" property="ip" />
+        <result column="MAC" property="mac" />
+        <result column="JYGYH" property="jygyh" />
+        <result column="BEIZ" property="beiz" />
+        <result column="BFZH" property="bfzh" />
+        <result column="BFKH" property="bfkh" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        ID,
+        GMT_CREATE,
+        GMT_MODIFIED,
+        REQ_MAIN_ID, CXKH, JYLX, JDBZ, BZ, JE, YE, JYSJ, JYLSH, JYDFXM, JYDFZH, JYDFKH, JYDFZJHM, JYDSYE, JYDFZHKHH, JYZY, JYWDMC, JYWDDM, RZH, CPH, PZZL, PZH, XJBZ, ZDH, JYSFCG, JYFSD, SHMC, SHH, IP, MAC, JYGYH, BEIZ, BFZH, BFKH
+    </sql>
+
+</mapper>

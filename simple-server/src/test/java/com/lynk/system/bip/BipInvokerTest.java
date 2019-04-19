@@ -24,4 +24,10 @@ public class BipInvokerTest extends BaseJunitTest {
         System.out.println(serialNumberPrefix);
     }
 
+    @Test
+    public void createNextSerialNumber() throws Exception {
+        String serialNumber = BipInvoker.createSerialNumber();
+        System.out.println(serialNumber);
+        System.out.println(BipInvoker.createNextSerialNumber(serialNumber));
+    }
 }

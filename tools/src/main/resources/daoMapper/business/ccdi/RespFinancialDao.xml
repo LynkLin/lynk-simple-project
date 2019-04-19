@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lynk.business.ccdi.dao.RespFinancialDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.lynk.business.ccdi.entity.RespFinancial">
+    <result column="ID" property="id" />
+    <result column="GMT_CREATE" property="gmtCreate" />
+    <result column="GMT_MODIFIED" property="gmtModified" />
+        <result column="REQ_MAIN_ID" property="reqMainId" />
+        <result column="KH" property="kh" />
+        <result column="ZH" property="zh" />
+        <result column="JRZCXH" property="jrzcxh" />
+        <result column="JRZCMC" property="jrzcmc" />
+        <result column="JRZCLX" property="jrzclx" />
+        <result column="CPXSZL" property="cpxszl" />
+        <result column="JRCPBH" property="jrcpbh" />
+        <result column="ZCGLR" property="zcglr" />
+        <result column="ZCKFTGYHJY" property="zckftgyhjy" />
+        <result column="ZCJYXZLX" property="zcjyxzlx" />
+        <result column="ZCJYXZXCSJ" property="zcjyxzxcsj" />
+        <result column="CPZT" property="cpzt" />
+        <result column="ZYQR" property="zyqr" />
+        <result column="TGR" property="tgr" />
+        <result column="SYR" property="syr" />
+        <result column="CLR" property="clr" />
+        <result column="SHR" property="shr" />
+        <result column="TGZH" property="tgzh" />
+        <result column="JLDW" property="jldw" />
+        <result column="BZ" property="bz" />
+        <result column="ZCDWJG" property="zcdwjg" />
+        <result column="SE" property="se" />
+        <result column="KYSE" property="kyse" />
+        <result column="ZCZSE" property="zczse" />
+        <result column="KKZCZSE" property="kkzczse" />
+        <result column="BEIZ" property="beiz" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        ID,
+        GMT_CREATE,
+        GMT_MODIFIED,
+        REQ_MAIN_ID, KH, ZH, JRZCXH, JRZCMC, JRZCLX, CPXSZL, JRCPBH, ZCGLR, ZCKFTGYHJY, ZCJYXZLX, ZCJYXZXCSJ, CPZT, ZYQR, TGR, SYR, CLR, SHR, TGZH, JLDW, BZ, ZCDWJG, SE, KYSE, ZCZSE, KKZCZSE, BEIZ
+    </sql>
+
+</mapper>

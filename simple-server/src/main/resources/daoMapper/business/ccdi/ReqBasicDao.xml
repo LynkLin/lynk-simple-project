@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lynk.business.ccdi.dao.ReqBasicDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.lynk.business.ccdi.entity.ReqBasic">
+    <result column="ID" property="id" />
+    <result column="GMT_CREATE" property="gmtCreate" />
+    <result column="GMT_MODIFIED" property="gmtModified" />
+        <result column="REQ_ZIP_ID" property="reqZipId" />
+        <result column="ATTACHMENT_ID" property="attachmentId" />
+        <result column="QQDBS" property="qqdbs" />
+        <result column="QQCSLX" property="qqcslx" />
+        <result column="SQJGDM" property="sqjgdm" />
+        <result column="SQJGMC" property="sqjgmc" />
+        <result column="MBJGDM" property="mbjgdm" />
+        <result column="ZTLB" property="ztlb" />
+        <result column="AJLX" property="ajlx" />
+        <result column="JJCD" property="jjcd" />
+        <result column="BEIZ" property="beiz" />
+        <result column="FSSJ" property="fssj" />
+        <result column="FLWSH" property="flwsh" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        ID,
+        GMT_CREATE,
+        GMT_MODIFIED,
+        REQ_ZIP_ID, ATTACHMENT_ID, QQDBS, QQCSLX, SQJGDM, SQJGMC, MBJGDM, ZTLB, AJLX, JJCD, BEIZ, FSSJ, FLWSH
+    </sql>
+
+</mapper>

@@ -16,3 +16,7 @@
 .DS_Store
 hs_err_pid*
 .idea
+.DS_Store
+simple-server/target/*
+tools/target/*
+simple-server/fes/*

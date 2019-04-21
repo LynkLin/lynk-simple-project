@@ -1,4 +1,4 @@
-package com.lynk.business.ccdi.entity.xml.req.basic;
+package com.lynk.business.ccdi.file.req.basic;
 
 import com.lynk.system.common.Base64Util;
 

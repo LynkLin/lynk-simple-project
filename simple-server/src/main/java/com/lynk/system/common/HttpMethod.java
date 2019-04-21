@@ -5,7 +5,7 @@ package com.lynk.system.common;
  * @since 2017/11/07
  */
 @Deprecated
-public class   HttpMethod {
+public class HttpMethod {
     public static final String POST = "POST";
     public static final String GET = "GET";
     public static final String PUT = "PUT";

@@ -1,7 +1,5 @@
-package com.lynk.business.ccdi.entity.xml.req.ss0506;
+package com.lynk.business.ccdi.file.req.basic;
 
-import com.lynk.business.ccdi.entity.xml.req.basic.BasicInfo;
-import com.lynk.business.ccdi.entity.xml.req.basic.QueryPerson;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
@@ -12,14 +10,12 @@ import java.util.List;
 @Accessors(chain = true)
 @XmlRootElement(name = "QUERYFORM")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class Ss0506Form {
+public class ReqForm {
     @XmlElement(name = "BASICINFO")
     private BasicInfo basicInfo;
 
     @XmlElement(name = "QUERYPERSON")
     private QueryPerson queryPerson;
 
-    @XmlElementWrapper(name = "QUERYACCOUNTS")
-    @XmlElement(name = "QUERYACCOUNT")
-    private List<Ss0506Main> ss0506Mains;
+    private List<ReqBiz> reqBizs;
 }

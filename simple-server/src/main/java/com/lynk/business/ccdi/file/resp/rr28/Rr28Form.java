@@ -1,4 +1,4 @@
-package com.lynk.business.ccdi.entity.xml.resp.rr28;
+package com.lynk.business.ccdi.file.resp.rr28;
 
 import javax.xml.bind.annotation.*;
 import java.util.List;

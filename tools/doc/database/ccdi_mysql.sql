@@ -1,7 +1,7 @@
 CREATE TABLE CCDI_REQ_ATTACHMENT
 (
-    ID varchar(18) not null primary key,
-    REQ_ZIP_ID varchar(18),
+    ID varchar(19) not null primary key,
+    REQ_ZIP_ID varchar(19),
     ATTACHMENT_TYPE varchar(2),
     FILE_PATH varchar(200),
     FILE_NAME varchar(100),
@@ -11,9 +11,9 @@ CREATE TABLE CCDI_REQ_ATTACHMENT
 
 CREATE TABLE CCDI_REQ_BASIC
 (
-    ID varchar(18) not null primary key,
-    REQ_ZIP_ID varchar(18),
-    ATTACHMENT_ID varchar(18),
+    ID varchar(19) not null primary key,
+    REQ_ZIP_ID varchar(19),
+    ATTACHMENT_ID varchar(19),
     QQDBS varchar(30),
     QQCSLX varchar(2),
     SQJGDM varchar(20),
@@ -31,8 +31,8 @@ CREATE TABLE CCDI_REQ_BASIC
 
 CREATE TABLE CCDI_REQ_MAIN
 (
-    ID varchar(18) not null primary key,
-    REQ_BASIC_ID varchar(18),
+    ID varchar(19) not null primary key,
+    REQ_BASIC_ID varchar(19),
     FLDM varchar(4),
     SEQ_NO varchar(12),
     PROCESS_APPROVAL varchar(2),
@@ -66,8 +66,8 @@ CREATE TABLE CCDI_REQ_MAIN
 
 CREATE TABLE CCDI_REQ_PERSON
 (
-    ID varchar(18) not null primary key,
-    REQ_BASIC_ID varchar(18),
+    ID varchar(19) not null primary key,
+    REQ_BASIC_ID varchar(19),
     QQRXM varchar(20),
     QQRZJLX varchar(6),
     QQRZJHM varchar(10),
@@ -82,14 +82,14 @@ CREATE TABLE CCDI_REQ_PERSON
 
 CREATE TABLE CCDI_REQ_ZIP
 (
-    ID varchar(18) not null primary key,
+    ID varchar(19) not null primary key,
     SQJGDM varchar(20),
     MBJGDM varchar(20),
     QQDBS varchar(30),
     REQ_ZIP_PATH varchar(200),
     REQ_ZIP_NAME varchar(120),
     NESTED_STATUS varchar(1),
-    PARENT_REQ_ZIP_ID varchar(18),
+    PARENT_REQ_ZIP_ID varchar(19),
     STATUS varchar(2),
     HZDM varchar(5),
     HZSM varchar(200),
@@ -101,8 +101,8 @@ CREATE TABLE CCDI_REQ_ZIP
 
 CREATE TABLE CCDI_RESP_ACCOUNT
 (
-    ID varchar(18) not null primary key,
-    REQ_MAIN_ID varchar(18),
+    ID varchar(19) not null primary key,
+    REQ_MAIN_ID varchar(19),
     CUST_NO varchar(20),
     CXKH varchar(40),
     KH varchar(40),
@@ -129,8 +129,8 @@ CREATE TABLE CCDI_RESP_ACCOUNT
 
 CREATE TABLE CCDI_RESP_CERTIFICATE
 (
-    ID varchar(18) not null primary key,
-    REQ_MAIN_ID varchar(18),
+    ID varchar(19) not null primary key,
+    REQ_MAIN_ID varchar(19),
     CXZH varchar(40),
     CXZL varchar(2),
     JYLSH varchar(50),
@@ -145,8 +145,8 @@ CREATE TABLE CCDI_RESP_CERTIFICATE
 
 CREATE TABLE CCDI_RESP_CUST
 (
-    ID varchar(18) not null primary key,
-    REQ_MAIN_ID varchar(18),
+    ID varchar(19) not null primary key,
+    REQ_MAIN_ID varchar(19),
     CUST_NO varchar(20),
     ZZLXDM varchar(15),
     ZZHM varchar(30),
@@ -166,7 +166,7 @@ CREATE TABLE CCDI_RESP_CUST
     FRDB varchar(60),
     FRDBZJLX varchar(15),
     FRDBZJHM varchar(30),
-    KHGSZZHM varchar(18),
+    KHGSZZHM varchar(19),
     GSNSH varchar(20),
     DSNSH varchar(21),
     GMT_CREATE datetime,
@@ -175,8 +175,8 @@ CREATE TABLE CCDI_RESP_CUST
 
 CREATE TABLE CCDI_RESP_DYNAMIC
 (
-    ID varchar(18) not null primary key,
-    REQ_MAIN_ID varchar(18),
+    ID varchar(19) not null primary key,
+    REQ_MAIN_ID varchar(19),
     ZH varchar(30),
     KH varchar(40),
     ZHMC varchar(60),
@@ -218,8 +218,8 @@ CREATE TABLE CCDI_RESP_DYNAMIC
 
 CREATE TABLE CCDI_RESP_FINANCIAL
 (
-    ID varchar(18) not null primary key,
-    REQ_MAIN_ID varchar(18),
+    ID varchar(19) not null primary key,
+    REQ_MAIN_ID varchar(19),
     KH varchar(40),
     ZH varchar(30),
     JRZCXH varchar(10),
@@ -252,8 +252,8 @@ CREATE TABLE CCDI_RESP_FINANCIAL
 
 CREATE TABLE CCDI_RESP_FREEZE
 (
-    ID varchar(18) not null primary key,
-    REQ_MAIN_ID varchar(18),
+    ID varchar(19) not null primary key,
+    REQ_MAIN_ID varchar(19),
     ZH varchar(30),
     KH varchar(40),
     ZXJG varchar(2),
@@ -275,8 +275,8 @@ CREATE TABLE CCDI_RESP_FREEZE
 
 CREATE TABLE CCDI_RESP_MEASURE
 (
-    ID varchar(18) not null primary key,
-    REQ_MAIN_ID varchar(18),
+    ID varchar(19) not null primary key,
+    REQ_MAIN_ID varchar(19),
     ZH varchar(30),
     CSXH varchar(10),
     DJKSRQ varchar(8),
@@ -291,8 +291,8 @@ CREATE TABLE CCDI_RESP_MEASURE
 
 CREATE TABLE CCDI_RESP_MESSAGE
 (
-    ID varchar(18) not null primary key,
-    REQ_MAIN_ID varchar(18),
+    ID varchar(19) not null primary key,
+    REQ_MAIN_ID varchar(19),
     MOBILE_NO varchar(20),
     MSG_TYPE varchar(2),
     MESSAGE varchar(1000),
@@ -302,8 +302,8 @@ CREATE TABLE CCDI_RESP_MESSAGE
 
 CREATE TABLE CCDI_RESP_PROIORITY
 (
-    ID varchar(18) not null primary key,
-    REQ_MAIN_ID varchar(18),
+    ID varchar(19) not null primary key,
+    REQ_MAIN_ID varchar(19),
     ZH varchar(30),
     XH varchar(10),
     QLLX varchar(50),
@@ -319,8 +319,8 @@ CREATE TABLE CCDI_RESP_PROIORITY
 
 CREATE TABLE CCDI_RESP_STOP
 (
-    ID varchar(18) not null primary key,
-    REQ_MAIN_ID varchar(18),
+    ID varchar(19) not null primary key,
+    REQ_MAIN_ID varchar(19),
     ZH varchar(40),
     KH varchar(40),
     ZXJG varchar(2),
@@ -332,8 +332,8 @@ CREATE TABLE CCDI_RESP_STOP
 
 CREATE TABLE CCDI_RESP_SUBACCOUNT
 (
-    ID varchar(18) not null primary key,
-    REQ_MAIN_ID varchar(18),
+    ID varchar(19) not null primary key,
+    REQ_MAIN_ID varchar(19),
     ZH varchar(40),
     ZZHXH varchar(10),
     ZZHLB varchar(20),
@@ -349,8 +349,8 @@ CREATE TABLE CCDI_RESP_SUBACCOUNT
 
 CREATE TABLE CCDI_RESP_TRANS
 (
-    ID varchar(18) not null primary key,
-    REQ_MAIN_ID varchar(18),
+    ID varchar(19) not null primary key,
+    REQ_MAIN_ID varchar(19),
     CXKH varchar(40),
     JYLX varchar(50),
     JDBZ varchar(4),
@@ -390,14 +390,14 @@ CREATE TABLE CCDI_RESP_TRANS
 
 CREATE TABLE CCDI_RESP_ZIP
 (
-    ID varchar(18) not null primary key,
+    ID varchar(19) not null primary key,
     SQJGDM varchar(20),
     MBJGDM varchar(20),
     QQDBS varchar(30),
     REQ_ZIP_PATH varchar(200),
     REQ_ZIP_NAME varchar(120),
     NESTED_STATUS varchar(1),
-    PARENT_REQ_ZIP_ID varchar(18),
+    PARENT_REQ_ZIP_ID varchar(19),
     STATUS varchar(2),
     HZDM varchar(5),
     HZSM varchar(200),

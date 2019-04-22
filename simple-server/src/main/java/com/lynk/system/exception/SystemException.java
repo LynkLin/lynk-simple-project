@@ -10,7 +10,7 @@ import java.text.MessageFormat;
 /**
  * @author Lynk on 16/12/1.
  */
-public class SystemException extends RuntimeException {
+public class SystemException extends Exception {
     private static final Logger LOGGER = LoggerFactory.getLogger(SystemException.class);
     
     private String errorCode;

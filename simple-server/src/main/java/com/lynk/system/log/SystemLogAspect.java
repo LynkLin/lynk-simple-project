@@ -2,6 +2,7 @@ package com.lynk.system.log;
 
 import com.lynk.system.common.Constant;
 import com.lynk.system.common.JsonBuilder;
+import com.lynk.system.exception.SystemException;
 import com.lynk.system.log.annotation.SystemLog;
 import com.lynk.system.tool.SequenceManager;
 import org.aspectj.lang.JoinPoint;
@@ -38,13 +39,26 @@ public class SystemLogAspect {
         Object[] args = joinPoint.getArgs();
         for (int i = 0; i < args.length; i++) {
             Object arg = args[i];
-            LOGGER.info("[{}][入参{}, {}]: {}", id, i + 1, arg.getClass().getName(), JsonBuilder.builder(true).bean2Json(arg));
+            String value = null;
+            try {
+                value = JsonBuilder.builder(true).bean2Json(arg);
+            } catch (SystemException e) {
+                LOGGER.error("convert bean to json error", e);
+            }
+            LOGGER.info("[{}][入参{}, {}]: {}", id, i + 1, arg.getClass().getName(), value);
         }
     }
 
     @AfterReturning(pointcut = "@annotation(com.lynk.system.log.annotation.SystemLog)", returning = "resp")
     public void afterReturning(Object resp) {
-        LOGGER.info("[{}][出参]: {}", ids.get(), JsonBuilder.builder(true).bean2Json(resp));
+        String value = null;
+        try {
+            value = JsonBuilder.builder(true).bean2Json(resp);
+        } catch (SystemException e) {
+            LOGGER.error("convert bean to json error", e);
+        }
+
+        LOGGER.info("[{}][出参]: {}", ids.get(), value);
         LOGGER.info("[{}][###### END ######]", ids.get());
         ids.remove();
     }

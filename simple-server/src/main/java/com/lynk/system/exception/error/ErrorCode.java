@@ -36,6 +36,21 @@ public class ErrorCode {
     @ErrorCodeDefinition(description = "FTP下载文件失败")
     public static final String FTP005 = "FTP005";
     /**
+     * FTP查询文件失败
+     */
+    @ErrorCodeDefinition(description = "FTP查询文件失败")
+    public static final String FTP006 = "FTP006";
+    /**
+     * FTP删除文件失败:{0}
+     */
+    @ErrorCodeDefinition(description = "FTP删除文件失败:{0}")
+    public static final String FTP007 = "FTP007";
+    /**
+     * FTP创建目录失败:{0}
+     */
+    @ErrorCodeDefinition(description = "FTP创建目录失败:{0}")
+    public static final String FTP008 = "FTP008";
+    /**
      * 创建短信文件失败
      */
     @ErrorCodeDefinition(description = "创建短信文件失败")

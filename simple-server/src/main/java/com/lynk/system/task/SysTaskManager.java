@@ -50,7 +50,11 @@ public class SysTaskManager {
 
         List<SysTask> tasks = sysTaskDao.selectList(new QueryWrapper<SysTask>().eq(SysTask.IS_ENABLE, true));
         for (SysTask task: tasks) {
-            addTask(task);
+            try {
+                addTask(task);
+            } catch (SystemException e) {
+                LOGGER.error("Add Task error", e);
+            }
         }
 
         try {

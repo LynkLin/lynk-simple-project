@@ -119,7 +119,7 @@ public class SysAuthServiceImpl extends ServiceImpl<SysUserDao, SysUser> impleme
      * @param sysUser user bean
      * @return cache user bean
      */
-    private CacheSysUser createCacheSysUser(SysUser sysUser) {
+    private CacheSysUser createCacheSysUser(SysUser sysUser) throws SystemException {
         List<SysPermission> sysPermissions = sysUserServiceImpl.getPermissionByUserId(sysUser.getId());
         return CacheSysUserFactory.create(sysUser, sysPermissions);
     }

@@ -1,6 +1,7 @@
 package com.lynk.system.security;
 
 import com.lynk.base.BaseJunitTest;
+import com.lynk.system.exception.SystemException;
 import com.lynk.system.security.common.JwtBuilder;
 import com.lynk.system.tool.SequenceManager;
 import org.junit.Assert;
@@ -16,6 +17,12 @@ public class JwtBuilderTest extends BaseJunitTest {
     public void createToken() {
         String cacheId = SequenceManager.getInstance().nextSequenceId();
         String token = JwtBuilder.builder().createToken(cacheId);
-        Assert.assertEquals(JwtBuilder.builder().getCacheId(token), cacheId);
+        String jwtCacheId = null;
+        try {
+            jwtCacheId = JwtBuilder.builder().getCacheId(token);
+        } catch (SystemException e) {
+            e.printStackTrace();
+        }
+        Assert.assertEquals(jwtCacheId, cacheId);
     }
 }

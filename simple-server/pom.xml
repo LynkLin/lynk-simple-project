@@ -33,6 +33,7 @@
 		<swagger.version>2.9.2</swagger.version>
 		<jjwt.version>0.9.1</jjwt.version>
 		<lombok.version>1.18.6</lombok.version>
+		<ftp4j.version>1.6</ftp4j.version>
 		<!--<sharding.jdbc.version>3.0.0.M2</sharding.jdbc.version>-->
 	</properties>
 
@@ -118,6 +119,11 @@
 			<groupId>commons-net</groupId>
 			<artifactId>commons-net</artifactId>
 			<version>${commons.net.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>it.sauronsoftware</groupId>
+			<artifactId>ftp4j</artifactId>
+			<version>${ftp4j.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>net.lingala.zip4j</groupId>

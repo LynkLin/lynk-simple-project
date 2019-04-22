@@ -78,10 +78,18 @@ public class SysRealm extends AuthorizingRealm {
      */
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
-        String cacheId = JwtBuilder.builder().getCacheId(principalCollection.toString());
+        SimpleAuthorizationInfo simpleAuthorizationInfo = new SimpleAuthorizationInfo();
+
+        String cacheId = null;
+        try {
+            cacheId = JwtBuilder.builder().getCacheId(principalCollection.toString());
+        } catch (SystemException e) {
+            LOGGER.error("获取cacheId失败", e);
+            return simpleAuthorizationInfo;
+        }
         CacheSysUser sysUser = (CacheSysUser) sysRedisHandle.get(cacheId);
 
-        SimpleAuthorizationInfo simpleAuthorizationInfo = new SimpleAuthorizationInfo();
+
         if (sysUser != null) {
             List<SysPermission> sysPermissions = sysUser.getSysPermissions();
             if (sysPermissions != null) {

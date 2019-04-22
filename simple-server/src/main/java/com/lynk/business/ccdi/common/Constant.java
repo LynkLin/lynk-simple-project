@@ -52,4 +52,14 @@ public class Constant extends com.lynk.system.common.Constant {
     public static final List<String> FLDM_GROUP_REQ_FREEZE = Arrays.asList(FLDM_SS17, FLDM_SS18);
     public static final List<String> FLDM_GROUP_REQ_STOP = Arrays.asList(FLDM_SS21, FLDM_SS22);
     public static final List<String> FLDM_GROUP_REQ_CERT = Arrays.asList(FLDM_SS25);
+
+    public static final String SUFFIX = ".zip";
+    /**
+     * 文件名上的请求机构
+     */
+    public static final String FILE_ORG = "ZYJWGJJW";
+
+    public static final String NESTED_STATUS_NORMAL = "0";
+    public static final String NESTED_STATUS_OUTTER = "1";
+    public static final String NESTED_STATUS_INNER = "2";
 }

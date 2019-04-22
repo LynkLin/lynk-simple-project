@@ -6,7 +6,7 @@ import com.lynk.system.entity.*;
 import com.lynk.system.exception.SystemException;
 import com.lynk.system.security.cache.CacheSysUser;
 import com.lynk.system.security.common.JwtBuilder;
-import com.lynk.system.security.common.SecurityConstants;
+import com.lynk.system.security.common.SecurityConstant;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
@@ -89,7 +89,7 @@ public class SysRealm extends AuthorizingRealm {
                     if (!sysPermission.getRequest()) {
                         continue;
                     }
-                    String permissionStr = sysPermission.getUrl() + SecurityConstants.PERMISSION_SPLIT + sysPermission.getMethod();
+                    String permissionStr = sysPermission.getUrl() + SecurityConstant.PERMISSION_SPLIT + sysPermission.getMethod();
                     simpleAuthorizationInfo.addStringPermission(permissionStr);
                 }
             }

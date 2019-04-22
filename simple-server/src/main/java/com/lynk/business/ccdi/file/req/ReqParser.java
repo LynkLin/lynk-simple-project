@@ -1,5 +1,6 @@
 package com.lynk.business.ccdi.file.req;
 
+import com.lynk.business.ccdi.common.Constant;
 import com.lynk.business.ccdi.entity.ReqBasic;
 import com.lynk.business.ccdi.entity.ReqMain;
 import com.lynk.business.ccdi.entity.ReqPerson;
@@ -7,7 +8,6 @@ import com.lynk.business.ccdi.file.req.basic.BasicInfo;
 import com.lynk.business.ccdi.file.req.basic.QueryPerson;
 import com.lynk.business.ccdi.file.req.basic.ReqBiz;
 import com.lynk.business.ccdi.file.req.basic.ReqForm;
-import com.lynk.system.common.ValidateUtil;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Component;
 
@@ -26,8 +26,7 @@ public class ReqParser {
         if (!file.exists()) {
             return null;
         }
-        T t = JAXB.unmarshal(file, clz);
-        return t;
+        return JAXB.unmarshal(file, clz);
     }
 
     public ReqBasic parse2ReqBasic(ReqForm reqForm) {
@@ -44,7 +43,13 @@ public class ReqParser {
         return reqPerson;
     }
 
-    public List<ReqMain> parse2ReqMain(ReqForm reqForm) {
+    /**
+     *
+     * @param fldm
+     * @param reqForm
+     * @return
+     */
+    public List<ReqMain> parse2ReqMain(String fldm, ReqForm reqForm) {
         List<ReqBiz> reqBizs = reqForm.getReqBizs();
         List<ReqMain> reqMains = new ArrayList<>(reqBizs.size());
 
@@ -52,12 +57,37 @@ public class ReqParser {
             ReqMain reqMain = new ReqMain();
             BeanUtils.copyProperties(reqBiz, reqMain);
 
+            if (Constant.FLDM_GROUP_REQ_IDENT.contains(fldm)) {
+                reqMain.setKssj(reqBiz.getMxqssj());
+                reqMain.setJssj(reqBiz.getMxjzsj());
+            }
+
+            if (Constant.FLDM_GROUP_REQ_ACCOUNT.contains(fldm)) {
+                reqMain.setZh(reqBiz.getCxzh());
+                reqMain.setKssj(reqBiz.getMxqssj());
+                reqMain.setJssj(reqBiz.getMxjzsj());
+            }
+
+            if (Constant.FLDM_GROUP_REQ_FREEZE.contains(fldm)) {
+                reqMain.setZtmc(reqBiz.getDjzhhz());
+            }
+
+            if (Constant.FLDM_GROUP_REQ_CERT.contains(fldm)) {
+                reqMain.setZh(reqBiz.getCxzh());
+            }
+
+            if (Constant.FLDM_GROUP_REQ_PHONE.contains(fldm)) {
+                reqMain.setZh(reqBiz.getCxzh());
+                reqMain.setKssj(reqBiz.getMxqssj());
+                reqMain.setJssj(reqBiz.getMxjzsj());
+            }
+            /*
             if (ValidateUtil.isEmpty(reqMain.getZh())) {
                 reqMain.setZh(reqBiz.getCxzh());
             }
 
             if (ValidateUtil.isEmpty(reqMain.getZtmc())) {
-                reqMain.setZtmc(reqBiz.getDjzhhz());
+
             }
 
             if (ValidateUtil.isEmpty(reqMain.getKssj())) {
@@ -66,7 +96,8 @@ public class ReqParser {
 
             if (ValidateUtil.isEmpty(reqMain.getJssj())) {
                 reqMain.setJssj(reqBiz.getMxjzsj());
-            }
+            }*/
+            reqMain.setFldm(fldm);
             reqMains.add(reqMain);
         }
         return reqMains;

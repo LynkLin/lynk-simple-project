@@ -1,6 +1,6 @@
 package com.lynk.system.task;
 
-import com.lynk.system.common.Constants;
+import com.lynk.system.common.Constant;
 import com.lynk.system.dao.SysTaskDao;
 import com.lynk.system.entity.SysTask;
 import com.lynk.system.exception.SystemException;
@@ -27,7 +27,7 @@ public abstract class BaseSystemJob implements Job {
     @Override
     public void execute(JobExecutionContext context) throws JobExecutionException {
         JobDataMap jobDataMap = context.getJobDetail().getJobDataMap();
-        String taskId = jobDataMap.getString(Constants.JOB_DATA_MAP_KEY);
+        String taskId = jobDataMap.getString(Constant.JOB_DATA_MAP_KEY);
 
         SysTask task = new SysTask();
         task.setId(taskId);

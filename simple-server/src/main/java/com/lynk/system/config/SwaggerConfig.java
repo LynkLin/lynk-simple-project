@@ -1,7 +1,7 @@
 package com.lynk.system.config;
 
 import com.google.common.base.Predicates;
-import com.lynk.system.security.common.SecurityConstants;
+import com.lynk.system.security.common.SecurityConstant;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.ApiInfoBuilder;
@@ -55,7 +55,7 @@ public class SwaggerConfig {
         List<Parameter> parameters = new ArrayList<>(1);
 
         ParameterBuilder tokenPar = new ParameterBuilder();
-        tokenPar.name(SecurityConstants.JWT_HEADER).description("令牌")
+        tokenPar.name(SecurityConstant.JWT_HEADER).description("令牌")
                 .modelRef(new ModelRef("string"))
                 .parameterType("header")
                 .required(false).build();

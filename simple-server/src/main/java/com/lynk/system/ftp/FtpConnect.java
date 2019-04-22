@@ -132,4 +132,29 @@ public class FtpConnect {
             }
         }
     }
+
+    public void remove(String remotePath, String fileName) throws SystemException {
+        try {
+            boolean flag;
+            flag = client.changeWorkingDirectory(remotePath);
+            if (!flag) {
+                throw new Exception("FTP更改文件目录失败");
+            }
+
+            flag = client.deleteFile(remotePath + File.separator + fileName);
+            if (!flag) {
+                throw new Exception("删除文件失败!");
+            }
+        } catch (Exception e) {
+            throw new SystemException(ErrorCode.FTP004, e);
+        } finally {
+            if (client.isConnected()) {
+                try {
+                    client.disconnect();
+                } catch (IOException e) {
+                    LOGGER.error("upload fail: disconnect ftp server error", e);
+                }
+            }
+        }
+    }
 }

@@ -3,7 +3,7 @@ package com.lynk.system.security.filter;
 import com.lynk.system.common.JsonBuilder;
 import com.lynk.system.exception.error.ErrorCode;
 import com.lynk.system.security.JwtShiroToken;
-import com.lynk.system.security.common.SecurityConstants;
+import com.lynk.system.security.common.SecurityConstant;
 import com.lynk.system.web.base.ResponseFactory;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.web.filter.AccessControlFilter;
@@ -28,7 +28,7 @@ public class JwtFilter extends AccessControlFilter {
         if (LOGGER.isDebugEnabled()) {
             LOGGER.debug("请求地址为：{}", shiroRequest.getRequestURL());
         }
-        String token = shiroRequest.getHeader(SecurityConstants.JWT_HEADER);
+        String token = shiroRequest.getHeader(SecurityConstant.JWT_HEADER);
         JwtShiroToken jwtShiroToken = new JwtShiroToken(token);
 
         try {

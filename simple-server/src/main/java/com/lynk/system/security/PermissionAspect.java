@@ -1,6 +1,6 @@
 package com.lynk.system.security;
 
-import com.lynk.system.common.Constants;
+import com.lynk.system.common.Constant;
 import com.lynk.system.exception.SystemException;
 import com.lynk.system.exception.error.ErrorCode;
 import com.lynk.system.security.annotation.RequirePermissions;
@@ -20,7 +20,7 @@ import org.springframework.stereotype.Component;
  */
 @Aspect
 @Component
-@Order(Constants.ASPECT_ORDER_PERMISSION)
+@Order(Constant.ASPECT_ORDER_PERMISSION)
 public class PermissionAspect {
     private static final Logger LOGGER = LoggerFactory.getLogger(PermissionAspect.class);
 

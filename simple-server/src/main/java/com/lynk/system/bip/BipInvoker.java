@@ -6,9 +6,9 @@ import com.giantstone.service.InvokeResult;
 import com.giantstone.service.domain.WebserviceInvokeResult;
 import com.giantstone.service.invoke.imp.WebServiceInvoker;
 import com.giantstone.wsdl.domain.WebServiceInterfaceManager;
-import com.lynk.system.common.Constants;
 import com.lynk.system.common.DateUtil;
 import com.lynk.system.common.JsonBuilder;
+import com.lynk.system.common.ParamKey;
 import com.lynk.system.exception.SystemException;
 import com.lynk.system.tool.SequenceManager;
 import com.lynk.system.tool.SysParamManager;
@@ -40,19 +40,19 @@ public class BipInvoker {
             inputMap = new HashMap<>(16);
         }
         if (!inputMap.containsKey(BipResult.INPUT_EXTERNAL_DOMAIN)) {
-            inputMap.put(BipResult.INPUT_EXTERNAL_DOMAIN, SysParamManager.getInstance().getParam(Constants.SYSTEM_PARAM_GROUP_BIP, Constants.SYSTEM_PARAM_BIP_DOMAIN));
+            inputMap.put(BipResult.INPUT_EXTERNAL_DOMAIN, SysParamManager.getInstance().getParam(ParamKey.SYSTEM_PARAM_CATEGORY_BIP, ParamKey.SYSTEM_PARAM_BIP_DOMAIN));
         }
         if (!inputMap.containsKey(BipResult.INPUT_MEDIUM)) {
-            inputMap.put(BipResult.INPUT_MEDIUM, SysParamManager.getInstance().getParam(Constants.SYSTEM_PARAM_GROUP_BIP, Constants.SYSTEM_PARAM_BIP_MEDIUM));
+            inputMap.put(BipResult.INPUT_MEDIUM, SysParamManager.getInstance().getParam(ParamKey.SYSTEM_PARAM_CATEGORY_BIP, ParamKey.SYSTEM_PARAM_BIP_MEDIUM));
         }
         if (!inputMap.containsKey(BipResult.INPUT_SERIAL_NUMBER)) {
             inputMap.put(BipResult.INPUT_SERIAL_NUMBER, createSerialNumber());
         }
         if (!inputMap.containsKey(BipResult.INPUT_TELLER_CODE)) {
-            inputMap.put(BipResult.INPUT_TELLER_CODE, SysParamManager.getInstance().getParam(Constants.SYSTEM_PARAM_GROUP_BIP, Constants.SYSTEM_PARAM_BIP_TELLER_CODE));
+            inputMap.put(BipResult.INPUT_TELLER_CODE, SysParamManager.getInstance().getParam(ParamKey.SYSTEM_PARAM_CATEGORY_BIP, ParamKey.SYSTEM_PARAM_BIP_TELLER_CODE));
         }
         if (!inputMap.containsKey(BipResult.INPUT_ORG_CODE)) {
-            inputMap.put(BipResult.INPUT_ORG_CODE, SysParamManager.getInstance().getParam(Constants.SYSTEM_PARAM_GROUP_BIP, Constants.SYSTEM_PARAM_BIP_ORG_CODE));
+            inputMap.put(BipResult.INPUT_ORG_CODE, SysParamManager.getInstance().getParam(ParamKey.SYSTEM_PARAM_CATEGORY_BIP, ParamKey.SYSTEM_PARAM_BIP_ORG_CODE));
         }
 
         if (LOGGER.isInfoEnabled()) {
@@ -60,8 +60,8 @@ public class BipInvoker {
         }
 
         //wsdl文件路径
-        String wsdlFileName = SysParamManager.getInstance().getParam(Constants.SYSTEM_PARAM_GROUP_BIP, Constants.SYSTEM_PARAM_BIP_WSDL_PATH) + File.separator + serviceName + File.separator + serviceName + ".wsdl";
-        String serviceAddress = SysParamManager.getInstance().getParam(Constants.SYSTEM_PARAM_GROUP_BIP, Constants.SYSTEM_PARAM_BIP_ADDRESS) + "/" + serviceName;
+        String wsdlFileName = SysParamManager.getInstance().getParam(ParamKey.SYSTEM_PARAM_CATEGORY_BIP, ParamKey.SYSTEM_PARAM_BIP_WSDL_PATH) + File.separator + serviceName + File.separator + serviceName + ".wsdl";
+        String serviceAddress = SysParamManager.getInstance().getParam(ParamKey.SYSTEM_PARAM_CATEGORY_BIP, ParamKey.SYSTEM_PARAM_BIP_ADDRESS) + "/" + serviceName;
         //解析wsdl文件
         try {
             WebServiceInterfaceManager.loadWsdlByFullPath(wsdlFileName);
@@ -133,7 +133,7 @@ public class BipInvoker {
         String sequence = sequenceId.substring(sequenceId.length() - 12);
 
         //3+8+12
-        return SysParamManager.getInstance().getParam(Constants.SYSTEM_PARAM_GROUP_BIP, Constants.SYSTEM_PARAM_BIP_DOMAIN)
+        return SysParamManager.getInstance().getParam(ParamKey.SYSTEM_PARAM_CATEGORY_BIP, ParamKey.SYSTEM_PARAM_BIP_DOMAIN)
                 + DateUtil.getCurrentDate8()
                 + sequence;
     }

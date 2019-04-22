@@ -12,7 +12,7 @@ import com.lynk.system.security.cache.CacheSysUser;
 import com.lynk.system.security.cache.CacheSysUserFactory;
 import com.lynk.system.security.common.JwtBuilder;
 import com.lynk.system.security.common.PasswordHelper;
-import com.lynk.system.security.common.SecurityConstants;
+import com.lynk.system.security.common.SecurityConstant;
 import com.lynk.system.service.*;
 import com.lynk.system.web.request.LoginRequest;
 import com.lynk.system.web.response.TokenResponse;
@@ -55,7 +55,7 @@ public class SysAuthServiceImpl extends ServiceImpl<SysUserDao, SysUser> impleme
         String cacheId = getCacheId(sysUser.getId());
 
         //写入缓存
-        sysRedisHandle.set(cacheId, createCacheSysUser(sysUser), SecurityConstants.JWT_LIVE_HOUR, TimeUnit.HOURS);
+        sysRedisHandle.set(cacheId, createCacheSysUser(sysUser), SecurityConstant.JWT_LIVE_HOUR, TimeUnit.HOURS);
         String token = JwtBuilder.builder().createToken(cacheId);
 
         TokenResponse tokenResponse = new TokenResponse();
@@ -78,7 +78,7 @@ public class SysAuthServiceImpl extends ServiceImpl<SysUserDao, SysUser> impleme
         SysUser sysUser = baseMapper.selectById(cacheSysUser.getId());
         cacheSysUser = createCacheSysUser(sysUser);
 
-        sysRedisHandle.set(cacheId, cacheSysUser, SecurityConstants.JWT_LIVE_HOUR, TimeUnit.HOURS);
+        sysRedisHandle.set(cacheId, cacheSysUser, SecurityConstant.JWT_LIVE_HOUR, TimeUnit.HOURS);
 
         return JwtBuilder.builder().refreshToken(cacheId, token);
     }

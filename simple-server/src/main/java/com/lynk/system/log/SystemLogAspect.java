@@ -1,6 +1,6 @@
 package com.lynk.system.log;
 
-import com.lynk.system.common.Constants;
+import com.lynk.system.common.Constant;
 import com.lynk.system.common.JsonBuilder;
 import com.lynk.system.log.annotation.SystemLog;
 import com.lynk.system.tool.SequenceManager;
@@ -19,7 +19,7 @@ import org.springframework.stereotype.Component;
  */
 @Aspect
 @Component
-@Order(Constants.ASPECT_ORDER_LOG)
+@Order(Constant.ASPECT_ORDER_LOG)
 public class SystemLogAspect {
     private static final Logger LOGGER = LoggerFactory.getLogger(SystemLogAspect.class);
 

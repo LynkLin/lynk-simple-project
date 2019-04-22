@@ -27,7 +27,7 @@ public class JwtBuilder {
         SignatureAlgorithm signatureAlgorithm = SignatureAlgorithm.HS256;
 
         LocalDateTime now = LocalDateTime.now();
-        LocalDateTime expiration = now.plusHours(SecurityConstants.JWT_LIVE_HOUR);
+        LocalDateTime expiration = now.plusHours(SecurityConstant.JWT_LIVE_HOUR);
 
         return Jwts.builder()
                 .setId(UUID.randomUUID().toString())
@@ -60,7 +60,7 @@ public class JwtBuilder {
 
         LocalDateTime expiration = DateUtil.dateToLocalDateTime(claims.getExpiration());
 
-        expiration = expiration.plusHours(SecurityConstants.JWT_LIVE_HOUR);
+        expiration = expiration.plusHours(SecurityConstant.JWT_LIVE_HOUR);
 
         return Jwts.builder()
                 .setId(UUID.randomUUID().toString())
@@ -117,7 +117,7 @@ public class JwtBuilder {
     }
 
     private Key generateKey() {
-        byte[] encodeKey = Base64.getEncoder().encode(SecurityConstants.JWT_SECURITY.getBytes());
+        byte[] encodeKey = Base64.getEncoder().encode(SecurityConstant.JWT_SECURITY.getBytes());
         return new SecretKeySpec(encodeKey, "AES");
     }
 }

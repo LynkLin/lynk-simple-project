@@ -2,7 +2,7 @@ package com.lynk.datainit;
 
 import com.lynk.base.BaseJunitTest;
 import com.lynk.system.security.annotation.RequirePermissions;
-import com.lynk.system.security.common.SecurityConstants;
+import com.lynk.system.security.common.SecurityConstant;
 import com.lynk.system.service.ISysPermissionService;
 import com.lynk.system.tool.AppManager;
 import org.junit.Test;
@@ -52,7 +52,7 @@ public class MysqlDataInit extends BaseJunitTest {
                 }
 
                 String permissionStr = permissionArray[0];
-                int index = permissionStr.indexOf(SecurityConstants.PERMISSION_SPLIT);
+                int index = permissionStr.indexOf(SecurityConstant.PERMISSION_SPLIT);
                 if (index == -1) {
                     continue;
                 }

@@ -1,7 +1,7 @@
 package com.lynk.system.task;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.lynk.system.common.Constants;
+import com.lynk.system.common.Constant;
 import com.lynk.system.dao.SysTaskDao;
 import com.lynk.system.entity.SysTask;
 import com.lynk.system.exception.SystemException;
@@ -80,7 +80,7 @@ public class SysTaskManager {
                         .withIdentity(getJobKey(task))
                         .withDescription(task.getRemark())
                         .build();
-                jobDetail.getJobDataMap().put(Constants.JOB_DATA_MAP_KEY, task.getId());
+                jobDetail.getJobDataMap().put(Constant.JOB_DATA_MAP_KEY, task.getId());
 
                 Trigger trigger = TriggerBuilder.newTrigger()
                         .withIdentity(getTriggerKey(task))

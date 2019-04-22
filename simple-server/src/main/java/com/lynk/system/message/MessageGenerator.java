@@ -1,7 +1,7 @@
 package com.lynk.system.message;
 
-import com.lynk.system.common.Constants;
 import com.lynk.system.common.DateUtil;
+import com.lynk.system.common.ParamKey;
 import com.lynk.system.exception.SystemException;
 import com.lynk.system.exception.error.ErrorCode;
 import com.lynk.system.ftp.FtpConnect;
@@ -29,11 +29,11 @@ public class MessageGenerator {
         String filePath = createMessageTxt(phone, content);
         File txtFile = new File(filePath);
 
-        String ip = SysParamManager.getInstance().getParam(Constants.SYSTEM_PARAM_GROUP_MSG, Constants.SYSTEM_PARAM_MSG_IP);
-        int port = SysParamManager.getInstance().getIntParam(Constants.SYSTEM_PARAM_GROUP_MSG, Constants.SYSTEM_PARAM_MSG_PORT);
-        String user = SysParamManager.getInstance().getParam(Constants.SYSTEM_PARAM_GROUP_MSG, Constants.SYSTEM_PARAM_MSG_USER);
-        String password = SysParamManager.getInstance().getParam(Constants.SYSTEM_PARAM_GROUP_MSG, Constants.SYSTEM_PARAM_MSG_PASSWORD);
-        String remotePath = SysParamManager.getInstance().getParam(Constants.SYSTEM_PARAM_GROUP_MSG, Constants.SYSTEM_PARAM_MSG_REMOTE_PATH);
+        String ip = SysParamManager.getInstance().getParam(ParamKey.SYSTEM_PARAM_CATEGORY_MSG, ParamKey.SYSTEM_PARAM_MSG_IP);
+        int port = SysParamManager.getInstance().getIntParam(ParamKey.SYSTEM_PARAM_CATEGORY_MSG, ParamKey.SYSTEM_PARAM_MSG_PORT);
+        String user = SysParamManager.getInstance().getParam(ParamKey.SYSTEM_PARAM_CATEGORY_MSG, ParamKey.SYSTEM_PARAM_MSG_USER);
+        String password = SysParamManager.getInstance().getParam(ParamKey.SYSTEM_PARAM_CATEGORY_MSG, ParamKey.SYSTEM_PARAM_MSG_PASSWORD);
+        String remotePath = SysParamManager.getInstance().getParam(ParamKey.SYSTEM_PARAM_CATEGORY_MSG, ParamKey.SYSTEM_PARAM_MSG_REMOTE_PATH);
 
         FtpConnect ftpConnect = FtpFactory.getConnect(ip, port, user, password);
         ftpConnect.upload(remotePath, txtFile.getParent(), txtFile.getName());
@@ -44,22 +44,22 @@ public class MessageGenerator {
             LOGGER.info("start generate msg, phone: {} | content: {}", phone, content);
         }
 
-        String msg = SysParamManager.getInstance().getParam(Constants.SYSTEM_PARAM_GROUP_MSG, Constants.SYSTEM_PARAM_MSG_CONTENT_START)
-                + SysParamManager.getInstance().getParam(Constants.SYSTEM_PARAM_GROUP_MSG, Constants.SYSTEM_PARAM_MSG_CONTENT_SPLIT)
+        String msg = SysParamManager.getInstance().getParam(ParamKey.SYSTEM_PARAM_CATEGORY_MSG, ParamKey.SYSTEM_PARAM_MSG_CONTENT_START)
+                + SysParamManager.getInstance().getParam(ParamKey.SYSTEM_PARAM_CATEGORY_MSG, ParamKey.SYSTEM_PARAM_MSG_CONTENT_SPLIT)
                 + phone
-                + SysParamManager.getInstance().getParam(Constants.SYSTEM_PARAM_GROUP_MSG, Constants.SYSTEM_PARAM_MSG_CONTENT_SPLIT)
+                + SysParamManager.getInstance().getParam(ParamKey.SYSTEM_PARAM_CATEGORY_MSG, ParamKey.SYSTEM_PARAM_MSG_CONTENT_SPLIT)
                 + content
-                + SysParamManager.getInstance().getParam(Constants.SYSTEM_PARAM_GROUP_MSG, Constants.SYSTEM_PARAM_MSG_CONTENT_SPLIT)
-                + SysParamManager.getInstance().getParam(Constants.SYSTEM_PARAM_GROUP_MSG, Constants.SYSTEM_PARAM_MSG_CONTENT_END);
+                + SysParamManager.getInstance().getParam(ParamKey.SYSTEM_PARAM_CATEGORY_MSG, ParamKey.SYSTEM_PARAM_MSG_CONTENT_SPLIT)
+                + SysParamManager.getInstance().getParam(ParamKey.SYSTEM_PARAM_CATEGORY_MSG, ParamKey.SYSTEM_PARAM_MSG_CONTENT_END);
 
         String serialNumber = SequenceManager.getInstance().nextSequenceId();
         serialNumber = serialNumber.substring(serialNumber.length() - 4);
         String txtName = "dx_"
-                + SysParamManager.getInstance().getParam(Constants.SYSTEM_PARAM_GROUP_MSG, Constants.SYSTEM_PARAM_MSG_CHANNEL)
+                + SysParamManager.getInstance().getParam(ParamKey.SYSTEM_PARAM_CATEGORY_MSG, ParamKey.SYSTEM_PARAM_MSG_CHANNEL)
                 + "_"
                 + DateUtil.getCurrentDateTime12()
                 + serialNumber + ".txt";
-        File msgFile = new File(SysParamManager.getInstance().getParam(Constants.SYSTEM_PARAM_GROUP_MSG, Constants.SYSTEM_PARAM_MSG_LOCAL_PATH), txtName);
+        File msgFile = new File(SysParamManager.getInstance().getParam(ParamKey.SYSTEM_PARAM_CATEGORY_MSG, ParamKey.SYSTEM_PARAM_MSG_LOCAL_PATH), txtName);
 
         try (
                 FileOutputStream fis = new FileOutputStream(msgFile)

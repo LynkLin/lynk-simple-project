@@ -3,10 +3,9 @@ package com.lynk.datainit;
 import com.lynk.base.BaseJunitTest;
 import com.lynk.system.security.annotation.RequirePermissions;
 import com.lynk.system.security.common.SecurityConstant;
-import com.lynk.system.service.ISysPermissionService;
 import com.lynk.system.tool.AppManager;
 import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.junit.jupiter.api.DisplayName;
 import org.springframework.core.annotation.AnnotationUtils;
 
 import java.lang.reflect.Method;
@@ -21,10 +20,8 @@ public class MysqlDataInit extends BaseJunitTest {
 
     private static final String SQL = "INSERT INTO SYS_PERMISSION (id, name, is_request, url, method, sequence, parent_id, gmt_create, gmt_modified) VALUES (''{0}'', ''{1}'', {2}, ''{3}'', ''{4}'', {5}, ''{6}'', NOW(), NULL);";
 
-    @Autowired
-    private ISysPermissionService sysPermissionService;
-
     @Test
+    @DisplayName("生成权限SQL")
     public void initPermission() {
         String rootSQL = MessageFormat.format(SQL, "ROOT", "ROOT", 0, "", "", 0, "");
         System.out.println(rootSQL);

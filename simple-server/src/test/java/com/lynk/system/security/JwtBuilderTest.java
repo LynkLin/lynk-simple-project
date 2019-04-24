@@ -4,8 +4,9 @@ import com.lynk.base.BaseJunitTest;
 import com.lynk.system.exception.SystemException;
 import com.lynk.system.security.common.JwtBuilder;
 import com.lynk.system.tool.SequenceManager;
-import org.junit.Assert;
-import org.junit.Test;
+import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
 /**
  * @author Lynk
@@ -14,6 +15,7 @@ import org.junit.Test;
 public class JwtBuilderTest extends BaseJunitTest {
 
     @Test
+    @DisplayName("Token解析后字段对比")
     public void createToken() {
         String cacheId = SequenceManager.getInstance().nextSequenceId();
         String token = JwtBuilder.builder().createToken(cacheId);
@@ -23,6 +25,6 @@ public class JwtBuilderTest extends BaseJunitTest {
         } catch (SystemException e) {
             e.printStackTrace();
         }
-        Assert.assertEquals(jwtCacheId, cacheId);
+        Assertions.assertThat(jwtCacheId).as("Token解析出的字段应和生成Token时的一致").isEqualTo(cacheId);
     }
 }

@@ -5,11 +5,12 @@ import com.lynk.system.entity.SysUser;
 import com.lynk.system.service.ISysUserService;
 import com.lynk.system.web.request.SysUserAddRequest;
 import com.lynk.system.web.request.SysUserUpdateRequest;
-import org.junit.*;
+import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
-
-import static org.junit.Assert.*;
 
 /**
  * @author Lynk
@@ -20,7 +21,7 @@ public class SysUserServiceImplTest extends BaseJunitTest {
     @Autowired
     private ISysUserService sysUserServiceImpl;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         sysUser = new SysUser();
         sysUser.setName("junit");
@@ -31,7 +32,7 @@ public class SysUserServiceImplTest extends BaseJunitTest {
         sysUserServiceImpl.save(sysUser);
     }
 
-    @After
+    @AfterEach
     public void tearDown() throws Exception {
         sysUserServiceImpl.removeById(sysUser.getId());
     }
@@ -45,8 +46,7 @@ public class SysUserServiceImplTest extends BaseJunitTest {
         user.setRealName("测试用户");
 
         String id = sysUserServiceImpl.add(user);
-        Assert.assertNotNull(id);
-
+        Assertions.assertThat(id).as("新建客户ID不为空").isNotNull();
     }
 
     @Test
@@ -56,11 +56,14 @@ public class SysUserServiceImplTest extends BaseJunitTest {
         user.setRealName("test-update");
         sysUserServiceImpl.update(user);
         SysUser userDb = sysUserServiceImpl.getById(user.getId());
-        assertEquals(userDb.getRealName(), user.getRealName());
+        Assertions.assertThat(userDb.getRealName()).as("更新realName字段").isEqualTo(user.getRealName());
     }
 
     @Test
     public void delete() throws Exception {
         sysUserServiceImpl.removeById(sysUser.getId());
+
+        SysUser userDb = sysUserServiceImpl.getById(sysUser.getId());
+        Assertions.assertThat(userDb).as("删除后应不存在").isNull();
     }
 }

@@ -8,6 +8,7 @@ import com.lynk.system.ftp.FtpConnect;
 import com.lynk.system.ftp.FtpFactory;
 import com.lynk.system.tool.SequenceManager;
 import com.lynk.system.tool.SysParamManager;
+import it.sauronsoftware.ftp4j.FTPClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -36,7 +37,8 @@ public class MessageGenerator {
         String remotePath = SysParamManager.getInstance().getParam(ParamKey.SYSTEM_PARAM_CATEGORY_MSG, ParamKey.SYSTEM_PARAM_MSG_REMOTE_PATH);
 
         FtpConnect ftpConnect = FtpFactory.getConnect(ip, port, user, password);
-        ftpConnect.upload(remotePath, txtFile.getParent(), txtFile.getName());
+        ftpConnect.changeDirectory(remotePath);
+        ftpConnect.upload(txtFile);
     }
 
     private static String createMessageTxt(String phone, String content) throws SystemException {

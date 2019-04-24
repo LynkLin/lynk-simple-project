@@ -26,30 +26,50 @@ public class ErrorCode {
     @ErrorCodeDefinition(description = "FTP设置二进制传输模式失败")
     public static final String FTP003 = "FTP003";
     /**
-     * FTP上传文件失败
+     * FTP上传文件失败: {0}
      */
-    @ErrorCodeDefinition(description = "FTP上传文件失败")
+    @ErrorCodeDefinition(description = "FTP上传文件失败: {0}")
     public static final String FTP004 = "FTP004";
     /**
-     * FTP下载文件失败
+     * FTP下载文件失败: {0}
      */
-    @ErrorCodeDefinition(description = "FTP下载文件失败")
+    @ErrorCodeDefinition(description = "FTP下载文件失败: {0}")
     public static final String FTP005 = "FTP005";
     /**
-     * FTP查询文件失败
+     * FTP获取文件列表失败: {0}
      */
-    @ErrorCodeDefinition(description = "FTP查询文件失败")
+    @ErrorCodeDefinition(description = "FTP获取文件列表失败: {0}")
     public static final String FTP006 = "FTP006";
     /**
-     * FTP删除文件失败:{0}
+     * FTP删除文件失败: {0}
      */
-    @ErrorCodeDefinition(description = "FTP删除文件失败:{0}")
+    @ErrorCodeDefinition(description = "FTP删除文件失败: {0}")
     public static final String FTP007 = "FTP007";
     /**
-     * FTP创建目录失败:{0}
+     * FTP创建目录失败: {0}
      */
-    @ErrorCodeDefinition(description = "FTP创建目录失败:{0}")
+    @ErrorCodeDefinition(description = "FTP创建目录失败: {0}")
     public static final String FTP008 = "FTP008";
+    /**
+     * FTP移动文件失败: {0} > {1}
+     */
+    @ErrorCodeDefinition(description = "FTP移动文件失败: {0} > {1}")
+    public static final String FTP009 = "FTP009";
+    /**
+     * FTP进入目录失败: {0}
+     */
+    @ErrorCodeDefinition(description = "FTP进入目录失败: {0}")
+    public static final String FTP010 = "FTP010";
+    /**
+     * FTP断开连接失败
+     */
+    @ErrorCodeDefinition(description = "FTP断开连接失败")
+    public static final String FTP011 = "FTP011";
+    /**
+     * FTP本地文件不存在
+     */
+    @ErrorCodeDefinition(description = "FTP本地文件不存在")
+    public static final String FTP012 = "FTP012";
     /**
      * 创建短信文件失败
      */

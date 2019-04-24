@@ -1,9 +1,8 @@
 package com.lynk.system.message;
 
 import com.lynk.base.BaseJunitTest;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.*;
 
 /**
  * @author Lynk

@@ -2,7 +2,6 @@ package com.lynk.business.ccdi.service;
 
 import com.lynk.business.ccdi.entity.ReqZip;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.lynk.system.exception.SystemException;
 
 /**
  * <p>
@@ -14,9 +13,5 @@ import com.lynk.system.exception.SystemException;
  */
 public interface IReqZipService extends IService<ReqZip> {
 
-    /**
-     * 下载FTP上的请求包
-     * @throws SystemException
-     */
-    void downloadReqFile() throws SystemException;
+
 }

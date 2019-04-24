@@ -1,7 +1,7 @@
 package com.lynk.business.ccdi.service.impl;
 
 import com.lynk.base.BaseJunitTest;
-import com.lynk.business.ccdi.service.IReqZipService;
+import com.lynk.business.ccdi.service.IReqTaskService;
 import com.lynk.system.exception.SystemException;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,15 +10,14 @@ import static org.junit.Assert.*;
 
 /**
  * @authory: Lynk
- * @date: 2019/04/22
+ * @date: 2019/04/23
  */
-public class ReqZipServiceImplTest extends BaseJunitTest {
-
+public class ReqTaskServiceImplTest extends BaseJunitTest {
     @Autowired
-    private IReqZipService reqZipServiceImpl;
+    private IReqTaskService reqTaskService;
 
     @Test
     public void downloadReqFile() throws SystemException {
-        reqZipServiceImpl.downloadReqFile();
+        reqTaskService.downloadReqFile();
     }
 }

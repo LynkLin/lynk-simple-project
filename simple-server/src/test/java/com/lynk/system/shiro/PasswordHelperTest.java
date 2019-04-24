@@ -3,8 +3,8 @@ package com.lynk.system.shiro;
 import com.lynk.base.BaseJunitTest;
 import com.lynk.system.entity.SysUser;
 import com.lynk.system.security.common.PasswordHelper;
-import org.junit.Assert;
-import org.junit.Test;
+import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 /**
  * @author Lynk
@@ -26,6 +26,6 @@ public class PasswordHelperTest extends BaseJunitTest {
         sysUser.setPassword(password2);
 
         boolean result = PasswordHelper.verify(password, sysUser);
-        Assert.assertTrue(result);
+        Assertions.assertThat(result).as("密码验证").isTrue();
     }
 }

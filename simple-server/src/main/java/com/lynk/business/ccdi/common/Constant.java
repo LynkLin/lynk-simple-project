@@ -53,13 +53,71 @@ public class Constant extends com.lynk.system.common.Constant {
     public static final List<String> FLDM_GROUP_REQ_STOP = Arrays.asList(FLDM_SS21, FLDM_SS22);
     public static final List<String> FLDM_GROUP_REQ_CERT = Arrays.asList(FLDM_SS25);
 
-    public static final String SUFFIX = ".zip";
+    /**
+     * *.ZIP
+     */
+    public static final String ZIP_FILE_SPEC = "*.ZIP";
     /**
      * 文件名上的请求机构
      */
     public static final String FILE_ORG = "ZYJWGJJW";
 
+    /**
+     * 正常包
+     */
     public static final String NESTED_STATUS_NORMAL = "0";
+    /**
+     * 托管银行外层
+     */
     public static final String NESTED_STATUS_OUTTER = "1";
+    /**
+     * 托管银行内层
+     */
     public static final String NESTED_STATUS_INNER = "2";
+
+    /**
+     * 00-下载zip完成
+     */
+    public static final String REQ_ZIP_STATUS_00 = "00";
+    /**
+     * 01-解析请求文件
+     */
+    public static final String REQ_ZIP_STATUS_01 = "01";
+    /**
+     * 02-解析完成, 等待反馈回执
+     */
+    public static final String REQ_ZIP_STATUS_02 = "02";
+    /**
+     * 03-已反馈回执
+     */
+    public static final String REQ_ZIP_STATUS_03 = "03";
+    /**
+     * 04-数据全部反馈完成
+     */
+    public static final String REQ_ZIP_STATUS_04 = "04";
+
+    /**
+     * 30000 成功接收查控文件
+     */
+    public static final String REQ_ZIP_HZDM_SUCCESS = "3000";
+    /**
+     * 30001 数字签名错误，验签没通过
+     */
+    public static final String REQ_ZIP_HZDM_FAIL_SIGNATURE = "30001";
+    /**
+     * 30002 查控报文解析错误
+     */
+    public static final String REQ_ZIP_HZDM_FAIL_PARSE = "30002";
+    /**
+     * 30003 查控法律文件缺失
+     */
+    public static final String REQ_ZIP_HZDM_FAIL_MISSING_PDF = "30003";
+    /**
+     * 30004 法律文书与请求单信息不符
+     */
+    public static final String REQ_ZIP_HZDM_FAIL_PDF_NOT_MATCH = "30004";
+    /**
+     * 30005 缺少请求报文文件
+     */
+    public static final String REQ_ZIP_HZDM_FAIL_MISSING_XML = "30005";
 }

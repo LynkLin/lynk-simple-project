@@ -74,8 +74,8 @@ public class SysTaskServiceImpl extends ServiceImpl<SysTaskDao, SysTask> impleme
         task.setEnable(true);
         task.setRemark(sysTaskAddRequest.getRemark());
 
-        boolean result = save(task);
-        if (!result) {
+        int result = baseMapper.insert(task);
+        if (!retBool(result)) {
             throw new SystemException(ErrorCode.SYS004);
         }
 
@@ -88,7 +88,7 @@ public class SysTaskServiceImpl extends ServiceImpl<SysTaskDao, SysTask> impleme
     @Override
     @Transactional(rollbackFor = SystemException.class)
     public void update(SysTaskUpdateRequest sysTaskUpdateRequest) throws SystemException {
-        SysTask taskDb = getById(sysTaskUpdateRequest.getId());
+        SysTask taskDb = baseMapper.selectById(sysTaskUpdateRequest.getId());
 
         Integer operator = sysTaskUpdateRequest.getOperator();
         SysTask task = new SysTask();
@@ -100,7 +100,7 @@ public class SysTaskServiceImpl extends ServiceImpl<SysTaskDao, SysTask> impleme
                     throw new SystemException(ErrorCode.SYS010, "cronExpression");
                 }
                 task.setCronExpression(cronExpression);
-                updateById(task);
+                baseMapper.updateById(task);
 
                 taskDb.setCronExpression(cronExpression);
                 SysTaskManager.getInstance().updateTask(taskDb);
@@ -110,7 +110,7 @@ public class SysTaskServiceImpl extends ServiceImpl<SysTaskDao, SysTask> impleme
                     throw new SystemException(ErrorCode.SYS021, taskDb.getId());
                 }
                 task.setEnable(false);
-                updateById(task);
+                baseMapper.updateById(task);
 
                 SysTaskManager.getInstance().removeTask(taskDb);
                 break;
@@ -119,7 +119,7 @@ public class SysTaskServiceImpl extends ServiceImpl<SysTaskDao, SysTask> impleme
                     throw new SystemException(ErrorCode.SYS022, taskDb.getId());
                 }
                 task.setEnable(true);
-                updateById(task);
+                baseMapper.updateById(task);
 
                 SysTaskManager.getInstance().addTask(taskDb);
                 break;
@@ -131,7 +131,7 @@ public class SysTaskServiceImpl extends ServiceImpl<SysTaskDao, SysTask> impleme
                     throw new SystemException(ErrorCode.SYS016, taskDb.getId());
                 }
                 task.setPause(true);
-                updateById(task);
+                baseMapper.updateById(task);
 
                 SysTaskManager.getInstance().pauseTask(taskDb);
                 break;
@@ -140,7 +140,7 @@ public class SysTaskServiceImpl extends ServiceImpl<SysTaskDao, SysTask> impleme
                     throw new SystemException(ErrorCode.SYS017, taskDb.getId());
                 }
                 task.setPause(false);
-                updateById(task);
+                baseMapper.updateById(task);
 
                 SysTaskManager.getInstance().resumeTask(taskDb);
                 break;
@@ -162,7 +162,7 @@ public class SysTaskServiceImpl extends ServiceImpl<SysTaskDao, SysTask> impleme
         if (task.getEnable()) {
             SysTaskManager.getInstance().removeTask(task);
         }
-        removeById(id);
+        baseMapper.deleteById(id);
     }
 
     @Override
@@ -207,17 +207,17 @@ public class SysTaskServiceImpl extends ServiceImpl<SysTaskDao, SysTask> impleme
 
         entityWrapper.orderByAsc(SysTask.SEQUENCE);
 
-        return page(page, entityWrapper);
+        return baseMapper.selectPage(page, entityWrapper);
     }
 
     @Override
     public SysTask getById(String id) throws SystemException {
-        return getById(id);
+        return baseMapper.selectById(id);
     }
 
     @Override
     public void run(String id) throws SystemException {
-        SysTask task = getById(id);
+        SysTask task = baseMapper.selectById(id);
         if (task.getRun()) {
             throw new SystemException(ErrorCode.SYS014, task.getCode());
         }
@@ -226,7 +226,7 @@ public class SysTaskServiceImpl extends ServiceImpl<SysTaskDao, SysTask> impleme
 
     @Override
     public void pause(String id) throws SystemException {
-        SysTask task = getById(id);
+        SysTask task = baseMapper.selectById(id);
         if (!task.getRun()) {
             throw new SystemException(ErrorCode.SYS015, task.getCode());
         }
@@ -238,7 +238,7 @@ public class SysTaskServiceImpl extends ServiceImpl<SysTaskDao, SysTask> impleme
 
     @Override
     public void resume(String id) throws SystemException {
-        SysTask task = getById(id);
+        SysTask task = baseMapper.selectById(id);
         if (!task.getPause()) {
             throw new SystemException(ErrorCode.SYS017, task.getCode());
         }

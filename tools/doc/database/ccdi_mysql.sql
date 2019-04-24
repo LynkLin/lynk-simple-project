@@ -2,7 +2,7 @@ CREATE TABLE CCDI_REQ_ATTACHMENT
 (
     ID varchar(19) not null primary key,
     REQ_ZIP_ID varchar(19),
-    ATTACHMENT_TYPE varchar(2),
+    ATTACHMENT_TYPE varchar(4),
     FILE_PATH varchar(200),
     FILE_NAME varchar(100),
     GMT_CREATE datetime,

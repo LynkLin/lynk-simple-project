@@ -9,6 +9,9 @@ import lombok.experimental.Accessors;
 import javax.xml.bind.annotation.*;
 import java.util.List;
 
+/**
+ * @author Lynk @ 2019/04/27
+ */
 @Data
 @Accessors(chain = true)
 @EqualsAndHashCode(callSuper = true)

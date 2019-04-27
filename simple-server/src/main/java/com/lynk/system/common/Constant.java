@@ -9,4 +9,13 @@ public class Constant {
     public static final int ASPECT_ORDER_LOG = 5;
     public static final int ASPECT_ORDER_PERMISSION = 10;
 
+    /**
+     * Y
+     */
+    public static final String YES = "Y";
+    /**
+     * N
+     */
+    public static final String NO = "N";
+
 }

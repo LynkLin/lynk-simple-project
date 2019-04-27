@@ -1,5 +1,6 @@
 package com.lynk.system.common;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
@@ -43,7 +44,33 @@ public class DateUtil {
         return getNow("yyyy-MM-dd HH:mm:ss");
     }
 
+    /**
+     * 日计算
+     * @param date 日期, pattern格式
+     * @param day 可为负值
+     * @param pattern 格式
+     * @return
+     */
+    public static String plusDay(String date, long day, String pattern) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(pattern);
+        LocalDate localDate = LocalDate.parse(date, formatter);
+        localDate = localDate.plusDays(day);
+        return formatter.format(localDate);
+    }
 
+    /**
+     * 月计算
+     * @param date 日期, pattern格式
+     * @param month 可为负值
+     * @param pattern 格式
+     * @return
+     */
+    public static String plusMonth(String date, long month, String pattern) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(pattern);
+        LocalDate localDate = LocalDate.parse(date, formatter);
+        localDate = localDate.plusMonths(month);
+        return formatter.format(localDate);
+    }
 
     /**
      * current date & time

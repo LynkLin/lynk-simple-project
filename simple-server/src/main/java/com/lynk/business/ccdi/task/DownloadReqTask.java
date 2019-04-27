@@ -14,6 +14,6 @@ public class DownloadReqTask extends BaseSystemJob {
 
     @Override
     public void run() throws SystemException {
-        reqTaskServiceImpl.downloadReqFile();
+        reqTaskServiceImpl.downloadUnzipReqFile();
     }
 }

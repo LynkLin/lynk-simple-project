@@ -6,8 +6,6 @@ import com.lynk.system.exception.SystemException;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import static org.junit.Assert.*;
-
 /**
  * @authory: Lynk
  * @date: 2019/04/23
@@ -18,6 +16,6 @@ public class ReqTaskServiceImplTest extends BaseJunitTest {
 
     @Test
     public void downloadReqFile() throws SystemException {
-        reqTaskService.downloadReqFile();
+        reqTaskService.downloadUnzipReqFile();
     }
 }

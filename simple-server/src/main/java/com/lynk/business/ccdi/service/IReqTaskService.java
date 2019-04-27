@@ -8,8 +8,14 @@ import com.lynk.system.exception.SystemException;
  */
 public interface IReqTaskService {
     /**
-     * 下载FTP上的请求包
+     * 下载解压缩FTP上的请求包
      * @throws SystemException
      */
-    void downloadReqFile() throws SystemException;
+    void downloadUnzipReqFile() throws SystemException;
+
+    /**
+     * 解析请求文件
+     * @throws SystemException
+     */
+    void parseReqZip() throws SystemException;
 }

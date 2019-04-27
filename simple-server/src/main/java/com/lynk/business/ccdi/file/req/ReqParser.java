@@ -8,6 +8,7 @@ import com.lynk.business.ccdi.file.req.basic.BasicInfo;
 import com.lynk.business.ccdi.file.req.basic.QueryPerson;
 import com.lynk.business.ccdi.file.req.basic.ReqBiz;
 import com.lynk.business.ccdi.file.req.basic.ReqForm;
+import com.lynk.business.ccdi.file.req.ss0102.Ss0102Form;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Component;
 
@@ -21,12 +22,19 @@ import java.util.List;
  */
 @Component
 public class ReqParser {
-    public <T> T parseReqXmlFile(String filePath, Class<T> clz) {
+    public <T extends ReqForm> T parseReqXmlFile(String filePath, Class<T> clz) {
         File file = new File(filePath);
-        if (!file.exists()) {
+        if (!file.exists() || clz == null) {
             return null;
         }
         return JAXB.unmarshal(file, clz);
+    }
+
+    public <T extends ReqForm> T parseReqXmlFile(File xmlFile, Class<T> clz) {
+        if (!xmlFile.exists() || clz == null) {
+            return null;
+        }
+        return JAXB.unmarshal(xmlFile, clz);
     }
 
     public ReqBasic parse2ReqBasic(ReqForm reqForm) {

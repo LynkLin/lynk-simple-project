@@ -7,8 +7,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 
 /**
- * @authory: Lynk
- * @date: 2019/04/21
+ * @author Lynk @ 2019/04/21
  */
 
 @XmlAccessorType(XmlAccessType.PROPERTY)

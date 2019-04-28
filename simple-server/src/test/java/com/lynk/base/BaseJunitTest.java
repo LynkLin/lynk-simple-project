@@ -3,10 +3,9 @@ package com.lynk.base;
 import org.springframework.boot.test.context.SpringBootTest;
 
 /**
- * @author Lynk on 2017/7/11.
+ * @author Lynk on 2019/4/28.
  */
-//@RunWith(SpringRunner.class)
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 public class BaseJunitTest {
 
 }

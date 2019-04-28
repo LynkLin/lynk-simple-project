@@ -6,8 +6,7 @@ import org.junit.jupiter.api.Test;
 
 
 /**
- * @authory: Lynk
- * @date: 2019/04/22
+ * @author Lynk @ 2019/04/22
  */
 public class SequenceManagerTest extends BaseJunitTest {
 

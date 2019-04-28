@@ -3,8 +3,7 @@ package com.lynk.system.common;
 import java.util.Base64;
 
 /**
- * @authory: Lynk
- * @date: 2019/04/20
+ * @author Lynk @ 2019/04/20
  */
 public class Base64Util {
 

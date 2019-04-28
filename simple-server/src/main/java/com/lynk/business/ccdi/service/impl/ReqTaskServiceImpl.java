@@ -10,21 +10,18 @@ import com.lynk.business.ccdi.file.req.ss0102.Ss0102Form;
 import com.lynk.business.ccdi.file.req.ss0506.Ss0506Form;
 import com.lynk.business.ccdi.service.*;
 import com.lynk.system.common.DateUtil;
-import com.lynk.system.common.ValidateUtil;
 import com.lynk.system.exception.SystemException;
 import com.lynk.system.ftp.FtpConnect;
 import com.lynk.system.ftp.FtpFactory;
 import com.lynk.system.tool.SysParamManager;
 import net.lingala.zip4j.core.ZipFile;
 import net.lingala.zip4j.exception.ZipException;
-import net.lingala.zip4j.model.FileHeader;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -175,7 +172,6 @@ public class ReqTaskServiceImpl implements IReqTaskService {
                         reqMain.setFksjhm(SysParamManager.getInstance().getParam(ParamKey.BIZ_PARAM_CATEGORY_CCDI, ParamKey.BIZ_PARAM_CCDI_RESP_PHONE_NO));
                     }
                 }
-
             }
         }
     }
@@ -184,68 +180,49 @@ public class ReqTaskServiceImpl implements IReqTaskService {
      *
      * @throws SystemException
      */
-    private void dealZipFile(File localFile) throws SystemException {
+    private void dealZipFile(File localFile) {
         String nestedStatus = Constant.NESTED_STATUS_NORMAL;
         String status = Constant.REQ_ZIP_STATUS_00;
         String hzdm = Constant.REQ_ZIP_HZDM_SUCCESS;
         String hzsm = "";
 
         //解压缩开始
-        File extractPathFile = new File(localFile.getParent(), FilenameUtils.getBaseName(localFile.getName()));
-        if (!extractPathFile.exists()) {
-            extractPathFile.mkdirs();
-        }
-
-        List<ReqAttachment> reqAttachments = new ArrayList<>(16);
+        File extractPathFile = null;
         try {
-            ZipFile zipFile = new ZipFile(localFile);
-            //是否托管包
-            boolean isNested = false;
-            List<FileHeader> fileHeaders = zipFile.getFileHeaders();
-            for (FileHeader fileHeader: fileHeaders) {
-                String inFileName = fileHeader.getFileName();
-                if (ValidateUtil.isNotEmpty(inFileName)) {
-                    inFileName = inFileName.toLowerCase();
-                    if ("zip".equals(FilenameUtils.getExtension(inFileName).toLowerCase())) {
-                        isNested = true;
-                        break;
-                    }
-                }
-            }
-            if (!isNested) {
-                zipFile.extractAll(extractPathFile.getAbsolutePath());
-                File[] listFiles = extractPathFile.listFiles();
-                boolean hasDocument = false;
-                for (File listFile: listFiles) {
-                    String fileName = listFile.getName();
-                    String fldm = fileName.substring(0, 4);
-
-                    ReqAttachment reqAttachment = new ReqAttachment();
-                    reqAttachment.setAttachmentType(fldm);
-                    if (Constant.FLDM_LI25.equals(fldm)) {
-                        hasDocument = true;
-                    }
-                    reqAttachment.setFilePath(listFile.getParent());
-                    reqAttachment.setFileName(fileName);
-
-                    reqAttachments.add(reqAttachment);
-                }
-                if (!hasDocument) {
-                    status = Constant.REQ_ZIP_STATUS_02;
-                    hzdm = Constant.REQ_ZIP_HZDM_FAIL_MISSING_PDF;
-                    hzsm = "查控法律文件缺失";
-                    reqAttachments.clear();
-                }
-            } else {
-                //托管包,暂时没有
-            }
-        } catch (ZipException e) {
+            extractPathFile = unzipFile(localFile);
+        } catch (Exception e) {
+            //解压缩失败
             LOGGER.error("解压缩请求包失败: {0}", localFile.getName(), e);
             status = Constant.REQ_ZIP_STATUS_02;
             hzdm = Constant.REQ_ZIP_HZDM_FAIL_PARSE;
             hzsm = "解压缩请求包失败";
         }
-        //解压缩结束
+
+        List<ReqAttachment> reqAttachments = new ArrayList<>(16);
+        if (extractPathFile != null) {
+            File[] listFiles = extractPathFile.listFiles();
+            boolean hasDocument = false;
+            for (File listFile: listFiles) {
+                String fileName = listFile.getName();
+                String fldm = fileName.substring(0, 4);
+
+                ReqAttachment reqAttachment = new ReqAttachment();
+                reqAttachment.setAttachmentType(fldm);
+                if (Constant.FLDM_LI25.equals(fldm)) {
+                    hasDocument = true;
+                }
+                reqAttachment.setFilePath(listFile.getParent());
+                reqAttachment.setFileName(fileName);
+
+                reqAttachments.add(reqAttachment);
+            }
+            if (!hasDocument) {
+                status = Constant.REQ_ZIP_STATUS_02;
+                hzdm = Constant.REQ_ZIP_HZDM_FAIL_MISSING_PDF;
+                hzsm = "查控法律文件缺失";
+                reqAttachments.clear();
+            }
+        }
 
         ReqZip reqZip = new ReqZip();
         reqZip.setReqZipPath(localFile.getParent());
@@ -270,6 +247,28 @@ public class ReqTaskServiceImpl implements IReqTaskService {
             //写入文件
             reqAttachmentService.saveBatch(reqAttachments);
         }
+    }
+
+    private File unzipFile(File file) throws Exception {
+        File extractPathFile = new File(file.getParent(), FilenameUtils.getBaseName(file.getName()));
+        if (!extractPathFile.exists()) {
+            extractPathFile.mkdirs();
+        } else {
+            extractPathFile.delete();
+            extractPathFile.mkdirs();
+        }
+        try {
+            ZipFile zipFile = new ZipFile(file);
+            zipFile.extractAll(extractPathFile.getAbsolutePath());
+        } catch (ZipException e) {
+            extractPathFile.delete();
+            throw e;
+        }
+        return extractPathFile;
+    }
+
+    private void parseOneReqZip() throws Exception {
+
     }
 
     /**

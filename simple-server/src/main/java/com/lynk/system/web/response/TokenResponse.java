@@ -3,8 +3,7 @@ package com.lynk.system.web.response;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * @authory: Lynk
- * @date: 2018/06/09
+ * @author Lynk @ 2019/04/22
  */
 public class TokenResponse {
     @ApiModelProperty(value = "user id")

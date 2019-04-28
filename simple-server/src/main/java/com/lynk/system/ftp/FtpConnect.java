@@ -13,8 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @authory: Lynk
- * @date: 2019/04/23
+ * @author Lynk @ 2019/04/23
  */
 public class FtpConnect {
     private static final Logger LOGGER = LoggerFactory.getLogger(FtpConnect.class);
@@ -88,8 +87,13 @@ public class FtpConnect {
 
     public boolean fileExists(String fileName) throws SystemException {
         try {
-            FTPFile[] files = ftpClient.list(fileName);
-            return files != null && files.length > 0;
+            FTPFile[] files = ftpClient.list();
+            for (FTPFile file: files) {
+                if (file.getType() == FTPFile.TYPE_FILE && file.getName().equals(fileName)) {
+                    return true;
+                }
+            }
+            return false;
         } catch (Exception e) {
             LOGGER.error("fileExists error", e);
             return false;
@@ -99,8 +103,13 @@ public class FtpConnect {
     public boolean directoryExists(String parentPath, String directory) {
         try {
             changeDirectory(parentPath);
-            FTPFile[] files = ftpClient.list(directory);
-            return files != null && files.length > 0;
+            FTPFile[] files = ftpClient.list();
+            for (FTPFile file: files) {
+                if (file.getType() == FTPFile.TYPE_DIRECTORY && file.getName().equals(directory)) {
+                    return true;
+                }
+            }
+            return false;
         } catch (Exception e) {
             LOGGER.error("directoryExists error", e);
             return false;

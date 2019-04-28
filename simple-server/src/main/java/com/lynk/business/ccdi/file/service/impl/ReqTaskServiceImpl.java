@@ -1,4 +1,4 @@
-package com.lynk.business.ccdi.service.impl;
+package com.lynk.business.ccdi.file.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.lynk.business.ccdi.common.Constant;
@@ -8,6 +8,7 @@ import com.lynk.business.ccdi.file.req.ReqParser;
 import com.lynk.business.ccdi.file.req.basic.ReqForm;
 import com.lynk.business.ccdi.file.req.ss0102.Ss0102Form;
 import com.lynk.business.ccdi.file.req.ss0506.Ss0506Form;
+import com.lynk.business.ccdi.file.service.IReqTaskService;
 import com.lynk.business.ccdi.service.*;
 import com.lynk.system.common.DateUtil;
 import com.lynk.system.exception.SystemException;
@@ -43,11 +44,12 @@ public class ReqTaskServiceImpl implements IReqTaskService {
     @Autowired
     private IReqPersonService reqPersonService;
     @Autowired
+    private IReqMainService reqMainService;
+    @Autowired
     private ReqParser reqParser;
 
     /**
      * 下载FTP上的请求包
-     *
      * @throws SystemException throw it
      */
     @Override
@@ -73,7 +75,6 @@ public class ReqTaskServiceImpl implements IReqTaskService {
                 int count = reqZipService.count(new QueryWrapper<ReqZip>().eq(ReqZip.REQ_ZIP_NAME, fileName));
                 if (count > 0) {
                     LOGGER.warn("存在下载记录: {0}", fileName);
-//                    continue;
                 } else {
                     File localDatePath = new File(reqLocalPath, currentDate);
                     if (!localDatePath.exists()) {
@@ -102,82 +103,41 @@ public class ReqTaskServiceImpl implements IReqTaskService {
     }
 
     /**
-     * 解析XML文件
+     * 解析待处理zip包的xml文件
      *
      * @throws SystemException
      */
     @Override
     public void parseReqZip() throws SystemException {
-        String processApprovalAuto = SysParamManager.getInstance().getParam(ParamKey.BIZ_PARAM_CATEGORY_CCDI, ParamKey.BIZ_PARAM_CCDI_PROCESS_APPROVAL_AUTO);
-        String respApprovalAuto = SysParamManager.getInstance().getParam(ParamKey.BIZ_PARAM_CATEGORY_CCDI, ParamKey.BIZ_PARAM_CCDI_RESP_APPROVAL_AUTO);
-
+        //更改为中间状态
         List<ReqZip> reqZips = reqZipService.list(new QueryWrapper<ReqZip>().eq(ReqZip.STATUS, Constant.REQ_ZIP_STATUS_00));
+        if (reqZips.size() == 0) {
+            return;
+        }
+
         for (ReqZip reqZip: reqZips) {
             reqZip.setStatus(Constant.REQ_ZIP_STATUS_01);
-            reqZipService.updateById(reqZip);
+        }
+        reqZipService.updateBatchById(reqZips);
 
-            List<ReqAttachment> reqAttachments = reqAttachmentService.list(new QueryWrapper<ReqAttachment>().likeRight(ReqAttachment.ATTACHMENT_TYPE, "SS"));
-            for (ReqAttachment reqAttachment: reqAttachments) {
-                File xmlFile = new File(reqAttachment.getFilePath(), reqAttachment.getFileName());
-                Class<? extends ReqForm> clz = convertFldm(reqAttachment.getAttachmentType());
-                ReqForm reqForm = reqParser.parseReqXmlFile(xmlFile, clz);
-                if (reqForm == null) {
-                    // 解析失败!
-                    reqZip.setStatus(Constant.REQ_ZIP_STATUS_02);
-
-                    reqZipService.updateById(reqZip);
-                    break;
-                }
-
-                ReqBasic reqBasic = reqParser.parse2ReqBasic(reqForm);
-                reqBasic.setReqZipId(reqZip.getId());
-                reqBasic.setAttachmentId(reqAttachment.getId());
-                reqBasicService.save(reqBasic);
-
-                ReqPerson reqPerson = reqParser.parse2ReqPerson(reqForm);
-                reqPerson.setReqBasicId(reqBasic.getId());
-                reqPersonService.save(reqPerson);
-
-                List<ReqMain> reqMains = reqParser.parse2ReqMain(reqAttachment.getAttachmentType(), reqForm);
-                for (int i = 0; i < reqMains.size(); i++) {
-                    ReqMain reqMain = reqMains.get(i);
-                    reqMain.setReqBasicId(reqBasic.getId());
-                    reqMain.setFldm(reqAttachment.getAttachmentType());
-                    reqMain.setSeqNo(StringUtils.leftPad(Integer.toString(i + 1), 12, "0"));
-                    reqMain.setProcessApproval(Constant.YES.equals(processApprovalAuto)? Constant.REQ_APPROVAL_PASS: Constant.REQ_APPROVAL_WAIT);
-                    reqMain.setRespApproval(Constant.YES.equals(respApprovalAuto)? Constant.REQ_APPROVAL_PASS: Constant.REQ_APPROVAL_WAIT);
-                    reqMain.setStatus(Constant.REQ_STATUS_WAIT_PROCESS);
-
-                    if (Constant.FLDM_GROUP_REQ_DYNAMIC.contains(reqAttachment.getAttachmentType())) {
-                        // 动态查询时, 计算动态查询到期时间
-                        String kssj = DateUtil.getCurrentDate8();
-                        String jssj;
-                        switch (reqMain.getZxsjqj()) {
-                            case Constant.REQ_DYNAMICAL_ZXJSQJ_100_DAY:
-                                jssj = DateUtil.plusDay(kssj, 100, "yyyyMMdd");
-                                break;
-                            case Constant.REQ_DYNAMICAL_ZXJSQJ_3_MONTH:
-                                jssj = DateUtil.plusMonth(kssj, 3, "yyyyMMdd");
-                                break;
-                            case Constant.REQ_DYNAMICAL_ZXJSQJ_2_MONTH:
-                                jssj = DateUtil.plusMonth(kssj, 2, "yyyyMMdd");
-                                break;
-                            case Constant.REQ_DYNAMICAL_ZXJSQJ_1_MONTH:
-                            default:
-                                jssj = DateUtil.plusMonth(kssj, 1, "yyyyMMdd");
-                        }
-
-                        reqMain.setKssj(kssj);
-                        reqMain.setJssj(jssj);
-                        reqMain.setFksjhm(SysParamManager.getInstance().getParam(ParamKey.BIZ_PARAM_CATEGORY_CCDI, ParamKey.BIZ_PARAM_CCDI_RESP_PHONE_NO));
-                    }
-                }
+        for (ReqZip reqZip: reqZips) {
+            try {
+                parseOneReqZip(reqZip);
+                reqZip.setStatus(Constant.REQ_ZIP_STATUS_02);
+                reqZip.setHzdm(Constant.REQ_ZIP_HZDM_SUCCESS);
+                reqZipService.updateById(reqZip);
+            } catch (Exception e) {
+                LOGGER.error("parseOneReqZip ERROR", e);
+                reqZip.setStatus(Constant.REQ_ZIP_STATUS_02);
+                reqZip.setHzdm(Constant.REQ_ZIP_HZDM_FAIL_PARSE);
+                reqZip.setHzsm("解析查控XML失败");
+                reqZipService.updateById(reqZip);
             }
         }
     }
 
     /**
-     *
+     * 解压缩ZIP包
      * @throws SystemException
      */
     private void dealZipFile(File localFile) {
@@ -190,6 +150,7 @@ public class ReqTaskServiceImpl implements IReqTaskService {
         File extractPathFile = null;
         try {
             extractPathFile = unzipFile(localFile);
+            localFile.delete();
         } catch (Exception e) {
             //解压缩失败
             LOGGER.error("解压缩请求包失败: {0}", localFile.getName(), e);
@@ -201,22 +162,31 @@ public class ReqTaskServiceImpl implements IReqTaskService {
         List<ReqAttachment> reqAttachments = new ArrayList<>(16);
         if (extractPathFile != null) {
             File[] listFiles = extractPathFile.listFiles();
-            boolean hasDocument = false;
+            boolean hasXml = false;
+            boolean hasPdf = false;
             for (File listFile: listFiles) {
                 String fileName = listFile.getName();
                 String fldm = fileName.substring(0, 4);
 
                 ReqAttachment reqAttachment = new ReqAttachment();
                 reqAttachment.setAttachmentType(fldm);
+                if (fldm.startsWith("SS")) {
+                    hasXml = true;
+                }
                 if (Constant.FLDM_LI25.equals(fldm)) {
-                    hasDocument = true;
+                    hasPdf = true;
                 }
                 reqAttachment.setFilePath(listFile.getParent());
                 reqAttachment.setFileName(fileName);
 
                 reqAttachments.add(reqAttachment);
             }
-            if (!hasDocument) {
+            if (!hasXml) {
+                status = Constant.REQ_ZIP_STATUS_02;
+                hzdm = Constant.REQ_ZIP_HZDM_FAIL_MISSING_XML;
+                hzsm = "查控请求XML缺失";
+                reqAttachments.clear();
+            } else if (!hasPdf) {
                 status = Constant.REQ_ZIP_STATUS_02;
                 hzdm = Constant.REQ_ZIP_HZDM_FAIL_MISSING_PDF;
                 hzsm = "查控法律文件缺失";
@@ -249,6 +219,12 @@ public class ReqTaskServiceImpl implements IReqTaskService {
         }
     }
 
+    /**
+     * 解压缩文件
+     * @param file
+     * @return
+     * @throws Exception
+     */
     private File unzipFile(File file) throws Exception {
         File extractPathFile = new File(file.getParent(), FilenameUtils.getBaseName(file.getName()));
         if (!extractPathFile.exists()) {
@@ -267,8 +243,77 @@ public class ReqTaskServiceImpl implements IReqTaskService {
         return extractPathFile;
     }
 
-    private void parseOneReqZip() throws Exception {
+    /**
+     * 解析一个请求包的xml文件
+     * @param reqZip
+     * @throws Exception
+     */
+    private void parseOneReqZip(ReqZip reqZip) throws Exception {
+        String processApprovalAuto = SysParamManager.getInstance().getParam(ParamKey.BIZ_PARAM_CATEGORY_CCDI, ParamKey.BIZ_PARAM_CCDI_PROCESS_APPROVAL_AUTO);
+        String respApprovalAuto = SysParamManager.getInstance().getParam(ParamKey.BIZ_PARAM_CATEGORY_CCDI, ParamKey.BIZ_PARAM_CCDI_RESP_APPROVAL_AUTO);
 
+        List<ReqMain> reqMains = new ArrayList<>(16);
+
+        List<ReqAttachment> reqAttachments = reqAttachmentService.list(new QueryWrapper<ReqAttachment>().eq(ReqAttachment.REQ_ZIP_ID, reqZip.getId()).likeRight(ReqAttachment.ATTACHMENT_TYPE, "SS"));
+        for (ReqAttachment reqAttachment: reqAttachments) {
+            File xmlFile = new File(reqAttachment.getFilePath(), reqAttachment.getFileName());
+            Class<? extends ReqForm> clz = convertFldm(reqAttachment.getAttachmentType());
+            ReqForm reqForm = reqParser.parseReqXmlFile(xmlFile, clz);
+            if (reqForm == null) {
+                // 解析失败!
+                throw new Exception("解析文件异常, 解析出的结果为空.");
+            }
+
+            ReqBasic reqBasic = reqParser.parse2ReqBasic(reqForm);
+            reqBasic.setReqZipId(reqZip.getId());
+            reqBasic.setAttachmentId(reqAttachment.getId());
+            reqBasicService.save(reqBasic);
+
+            ReqPerson reqPerson = reqParser.parse2ReqPerson(reqForm);
+            reqPerson.setReqBasicId(reqBasic.getId());
+            reqPersonService.save(reqPerson);
+
+            List<ReqMain> reqSubMains = reqParser.parse2ReqMain(reqAttachment.getAttachmentType(), reqForm);
+            for (int i = 0; i < reqSubMains.size(); i++) {
+                ReqMain reqMain = reqSubMains.get(i);
+                reqMain.setReqBasicId(reqBasic.getId());
+                reqMain.setFldm(reqAttachment.getAttachmentType());
+                reqMain.setSeqNo(StringUtils.leftPad(Integer.toString(i + 1), 12, "0"));
+                reqMain.setProcessApproval(Constant.YES.equals(processApprovalAuto)? Constant.REQ_APPROVAL_PASS: Constant.REQ_APPROVAL_WAIT);
+                reqMain.setRespApproval(Constant.YES.equals(respApprovalAuto)? Constant.REQ_APPROVAL_PASS: Constant.REQ_APPROVAL_WAIT);
+                reqMain.setStatus(Constant.REQ_STATUS_WAIT_PROCESS);
+
+                if (Constant.FLDM_GROUP_REQ_DYNAMIC.contains(reqAttachment.getAttachmentType())) {
+                    // 动态查询时, 计算动态查询到期时间
+                    String kssj = DateUtil.getCurrentDate8();
+                    String jssj;
+                    switch (reqMain.getZxsjqj()) {
+                        case Constant.REQ_DYNAMICAL_ZXJSQJ_100_DAY:
+                            jssj = DateUtil.plusDay(kssj, 100, "yyyyMMdd");
+                            break;
+                        case Constant.REQ_DYNAMICAL_ZXJSQJ_3_MONTH:
+                            jssj = DateUtil.plusMonth(kssj, 3, "yyyyMMdd");
+                            break;
+                        case Constant.REQ_DYNAMICAL_ZXJSQJ_2_MONTH:
+                            jssj = DateUtil.plusMonth(kssj, 2, "yyyyMMdd");
+                            break;
+                        case Constant.REQ_DYNAMICAL_ZXJSQJ_1_MONTH:
+                        default:
+                            jssj = DateUtil.plusMonth(kssj, 1, "yyyyMMdd");
+                    }
+
+                    reqMain.setKssj(kssj);
+                    reqMain.setJssj(jssj);
+                    reqMain.setDynamicalStatus(Constant.REQ_DYNAMICAL_STATUS_NORMAL);
+                    reqMain.setFksjhm(SysParamManager.getInstance().getParam(ParamKey.BIZ_PARAM_CATEGORY_CCDI, ParamKey.BIZ_PARAM_CCDI_RESP_PHONE_NO));
+                }
+            }
+            reqMains.addAll(reqSubMains);
+        }
+
+        if (reqMains.size() > 0) {
+            reqMainService.saveBatch(reqMains);
+        }
     }
 
     /**

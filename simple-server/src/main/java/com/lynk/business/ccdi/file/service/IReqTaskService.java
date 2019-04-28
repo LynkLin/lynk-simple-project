@@ -1,4 +1,4 @@
-package com.lynk.business.ccdi.service;
+package com.lynk.business.ccdi.file.service;
 
 import com.lynk.system.exception.SystemException;
 

@@ -4,10 +4,8 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.lynk.business.ccdi.common.Constant;
 import com.lynk.business.ccdi.common.ParamKey;
 import com.lynk.business.ccdi.entity.*;
-import com.lynk.business.ccdi.file.req.ReqParser;
+import com.lynk.business.ccdi.file.req.*;
 import com.lynk.business.ccdi.file.req.basic.ReqForm;
-import com.lynk.business.ccdi.file.req.ss0102.Ss0102Form;
-import com.lynk.business.ccdi.file.req.ss0506.Ss0506Form;
 import com.lynk.business.ccdi.file.service.IReqTaskService;
 import com.lynk.business.ccdi.service.*;
 import com.lynk.system.common.DateUtil;
@@ -329,6 +327,20 @@ public class ReqTaskServiceImpl implements IReqTaskService {
             case Constant.FLDM_SS05:
             case Constant.FLDM_SS06:
                 return Ss0506Form.class;
+            case Constant.FLDM_SS11:
+            case Constant.FLDM_SS12:
+                return Ss1112Form.class;
+            case Constant.FLDM_SS17:
+            case Constant.FLDM_SS18:
+                return Ss1718Form.class;
+            case Constant.FLDM_SS21:
+            case Constant.FLDM_SS22:
+                return Ss2122Form.class;
+            case Constant.FLDM_SS25:
+                return Ss25Form.class;
+            case Constant.FLDM_SS32:
+            case Constant.FLDM_SS33:
+                return Ss3233Form.class;
             default:
                 LOGGER.error("未知的分类代码:{0}", fldm);
                 return null;

@@ -6,8 +6,6 @@ import com.lynk.business.ccdi.entity.ReqBasic;
 import com.lynk.business.ccdi.entity.ReqMain;
 import com.lynk.business.ccdi.entity.ReqPerson;
 import com.lynk.business.ccdi.file.req.basic.ReqBiz;
-import com.lynk.business.ccdi.file.req.ss0102.Ss0102Form;
-import com.lynk.business.ccdi.file.req.ss0506.Ss0506Form;
 import org.junit.Test;
 
 import javax.annotation.Resource;

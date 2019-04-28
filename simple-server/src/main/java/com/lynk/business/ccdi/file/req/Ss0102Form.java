@@ -1,4 +1,4 @@
-package com.lynk.business.ccdi.file.req.ss0102;
+package com.lynk.business.ccdi.file.req;
 
 import com.lynk.business.ccdi.file.req.basic.ReqForm;
 import com.lynk.business.ccdi.file.req.basic.ReqBiz;

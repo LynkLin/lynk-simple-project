@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 /**
  * @author Lynk @ 2019/04/22
  */
-public class DownloadReqTask extends BaseSystemJob {
+public class DownloadUnzipReqTask extends BaseSystemJob {
     @Autowired
     private IReqTaskService reqTaskServiceImpl;
 

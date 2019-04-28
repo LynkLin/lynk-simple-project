@@ -8,7 +8,6 @@ import com.lynk.business.ccdi.file.req.basic.BasicInfo;
 import com.lynk.business.ccdi.file.req.basic.QueryPerson;
 import com.lynk.business.ccdi.file.req.basic.ReqBiz;
 import com.lynk.business.ccdi.file.req.basic.ReqForm;
-import com.lynk.business.ccdi.file.req.ss0102.Ss0102Form;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Component;
 

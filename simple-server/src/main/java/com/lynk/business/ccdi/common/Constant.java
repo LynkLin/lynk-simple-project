@@ -206,7 +206,7 @@ public class Constant extends com.lynk.system.common.Constant {
     /**
      * 30000 成功接收查控文件
      */
-    public static final String REQ_ZIP_HZDM_SUCCESS = "3000";
+    public static final String REQ_ZIP_HZDM_SUCCESS = "30000";
     /**
      * 30001 数字签名错误，验签没通过
      */

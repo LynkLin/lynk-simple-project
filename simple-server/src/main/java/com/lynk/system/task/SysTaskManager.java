@@ -92,9 +92,7 @@ public class SysTaskManager {
                         .withSchedule(CronScheduleBuilder.cronSchedule(task.getCronExpression()).withMisfireHandlingInstructionDoNothing())
                         .build();
                 scheduler.scheduleJob(jobDetail, trigger);
-                if (task.getPause()) {
-                    pauseTask(task);
-                }
+
                 if (LOGGER.isInfoEnabled()) {
                     LOGGER.info("add task success, task id: {}", task.getId());
                 }

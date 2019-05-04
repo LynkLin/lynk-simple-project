@@ -44,9 +44,11 @@ public class SysTask extends SystemBaseEntity {
     @TableField("SEQUENCE")
     private Integer sequence;
 
+    @Deprecated
     @TableField("IS_RUN")
     private Boolean run;
 
+    @Deprecated
     @TableField("IS_PAUSE")
     private Boolean pause;
 

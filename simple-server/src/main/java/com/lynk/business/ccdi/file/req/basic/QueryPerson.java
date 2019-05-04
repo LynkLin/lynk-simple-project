@@ -2,6 +2,7 @@ package com.lynk.business.ccdi.file.req.basic;
 
 import com.lynk.system.common.Base64Util;
 
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -9,20 +10,28 @@ import javax.xml.bind.annotation.XmlAttribute;
 @XmlAccessorType(XmlAccessType.PROPERTY)
 public class QueryPerson {
 
+    @Size(max = 20, message = "请求人姓名超长")
     private String qqrxm;
 
+    @Size(max = 20, message = "请求人证件类型超长")
     private String qqrzjlx;
 
+    @Size(max = 10, message = "请求人证件号码超长")
     private String qqrzjhm;
 
+    @Size(max = 100, message = "请求人单位名称超长")
     private String qqrdwmc;
 
+    @Size(max = 30, message = "请求人手机号超长")
     private String qqrsjh;
 
+    @Size(max = 20, message = "协查人姓名超长")
     private String xcrxm;
 
+    @Size(max = 20, message = "协查人证件类型超长")
     private String xcrzjlx;
 
+    @Size(max = 8, message = "协查人证件号码超长")
     private String xcrzjhm;
 
     public String getQqrxm() {

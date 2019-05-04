@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
+import javax.validation.Valid;
 import javax.xml.bind.annotation.*;
 import java.util.List;
 
@@ -20,5 +21,5 @@ import java.util.List;
 public class Ss25Form extends ReqForm {
     @XmlElementWrapper(name = "QUERYSCANINFOS")
     @XmlElement(name = "QUERYSCANINFO")
-    private List<ReqBiz> reqBizs;
+    private List<@Valid ReqBiz> reqBizs;
 }

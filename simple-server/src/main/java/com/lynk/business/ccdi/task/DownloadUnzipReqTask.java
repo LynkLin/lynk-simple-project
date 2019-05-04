@@ -6,6 +6,7 @@ import com.lynk.system.task.BaseSystemJob;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
+ * 从FTP下载文件, 解压缩, 并将数据插入表中
  * @author Lynk @ 2019/04/22
  */
 public class DownloadUnzipReqTask extends BaseSystemJob {

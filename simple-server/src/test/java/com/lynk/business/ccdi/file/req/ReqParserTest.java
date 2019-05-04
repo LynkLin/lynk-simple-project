@@ -10,6 +10,7 @@ import org.junit.Test;
 
 import javax.annotation.Resource;
 
+import java.io.File;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -22,7 +23,12 @@ public class ReqParserTest extends BaseJunitTest {
 
     @Test
     public void parseSs01XmlFile() {
-        Ss0102Form ss01Form = reqParser.parseReqXmlFile(PROJECT_PATH + "/fes/recv/ZYJWGJJWE004H101110101001A181201000000100000001/SS01E004H101110101001A181201000000100000001.xml", Ss0102Form.class);
+        Ss0102Form ss01Form = null;
+        try {
+            ss01Form = reqParser.parseReqXmlFile(new File(PROJECT_PATH + "/fes/recv/ZYJWGJJWE004H101110101001A181201000000100000001/SS01E004H101110101001A181201000000100000001.xml"), Ss0102Form.class);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         assertNotNull(ss01Form.getBasicInfo());
         assertNotNull(ss01Form.getQueryPerson());
         assertNotNull(ss01Form.getReqBizs());
@@ -30,7 +36,12 @@ public class ReqParserTest extends BaseJunitTest {
 
     @Test
     public void parseSs02XmlFile() {
-        Ss0102Form ss02Form = reqParser.parseReqXmlFile(PROJECT_PATH + "/fes/recv/ZYJWGJJWE004H101110101001A181204000000100000003/SS02E004H101110101001A181204000000100000003.xml", Ss0102Form.class);
+        Ss0102Form ss02Form = null;
+        try {
+            ss02Form = reqParser.parseReqXmlFile(new File(PROJECT_PATH + "/fes/recv/ZYJWGJJWE004H101110101001A181204000000100000003/SS02E004H101110101001A181204000000100000003.xml"), Ss0102Form.class);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         assertNotNull(ss02Form.getBasicInfo());
         assertNotNull(ss02Form.getQueryPerson());
         assertNotNull(ss02Form.getReqBizs());
@@ -38,7 +49,12 @@ public class ReqParserTest extends BaseJunitTest {
 
     @Test
     public void parseSs05XmlFile() {
-        Ss0506Form ss05Form = reqParser.parseReqXmlFile(PROJECT_PATH + "/fes/recv/ZYJWGJJWE004H101110101001A181206000000100000005/SS05E004H101110101001A181206000000100000005.xml", Ss0506Form.class);
+        Ss0506Form ss05Form = null;
+        try {
+            ss05Form = reqParser.parseReqXmlFile(new File(PROJECT_PATH + "/fes/recv/ZYJWGJJWE004H101110101001A181206000000100000005/SS05E004H101110101001A181206000000100000005.xml"), Ss0506Form.class);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         assertNotNull(ss05Form.getBasicInfo());
         assertNotNull(ss05Form.getQueryPerson());
         assertNotNull(ss05Form.getReqBizs());
@@ -46,7 +62,12 @@ public class ReqParserTest extends BaseJunitTest {
 
     @Test
     public void parseSs06XmlFile() {
-        Ss0506Form ss06Form = reqParser.parseReqXmlFile(PROJECT_PATH + "/fes/recv/ZYJWGJJWE004H101110101001A181206000000100000007/SS06E004H101110101001A181206000000100000007.xml", Ss0506Form.class);
+        Ss0506Form ss06Form = null;
+        try {
+            ss06Form = reqParser.parseReqXmlFile(new File(PROJECT_PATH + "/fes/recv/ZYJWGJJWE004H101110101001A181206000000100000007/SS06E004H101110101001A181206000000100000007.xml"), Ss0506Form.class);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         assertNotNull(ss06Form.getBasicInfo());
         assertNotNull(ss06Form.getQueryPerson());
         assertNotNull(ss06Form.getReqBizs());
@@ -54,21 +75,36 @@ public class ReqParserTest extends BaseJunitTest {
 
     @Test
     public void parse2ReqBasic() {
-        Ss0102Form ss01Form = reqParser.parseReqXmlFile(PROJECT_PATH + "/fes/recv/ZYJWGJJWE004H101110101001A181201000000100000001/SS01E004H101110101001A181201000000100000001.xml", Ss0102Form.class);
+        Ss0102Form ss01Form = null;
+        try {
+            ss01Form = reqParser.parseReqXmlFile(new File(PROJECT_PATH + "/fes/recv/ZYJWGJJWE004H101110101001A181201000000100000001/SS01E004H101110101001A181201000000100000001.xml"), Ss0102Form.class);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         ReqBasic reqBasic = reqParser.parse2ReqBasic(ss01Form);
         assertEquals(ss01Form.getBasicInfo().getQqdbs(), reqBasic.getQqdbs());
     }
 
     @Test
     public void parse2ReqPerson() {
-        Ss0102Form ss01Form = reqParser.parseReqXmlFile(PROJECT_PATH + "/fes/recv/ZYJWGJJWE004H101110101001A181201000000100000001/SS01E004H101110101001A181201000000100000001.xml", Ss0102Form.class);
+        Ss0102Form ss01Form = null;
+        try {
+            ss01Form = reqParser.parseReqXmlFile(new File(PROJECT_PATH + "/fes/recv/ZYJWGJJWE004H101110101001A181201000000100000001/SS01E004H101110101001A181201000000100000001.xml"), Ss0102Form.class);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         ReqPerson reqPerson = reqParser.parse2ReqPerson(ss01Form);
         assertEquals(ss01Form.getQueryPerson().getQqrxm(), reqPerson.getQqrxm());
     }
 
     @Test
     public void parse2ReqMain0102() {
-        Ss0102Form ss01Form = reqParser.parseReqXmlFile(PROJECT_PATH + "/fes/recv/ZYJWGJJWE004H101110101001A181201000000100000001/SS01E004H101110101001A181201000000100000001.xml", Ss0102Form.class);
+        Ss0102Form ss01Form = null;
+        try {
+            ss01Form = reqParser.parseReqXmlFile(new File(PROJECT_PATH + "/fes/recv/ZYJWGJJWE004H101110101001A181201000000100000001/SS01E004H101110101001A181201000000100000001.xml"), Ss0102Form.class);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         List<ReqBiz> reqBizs = ss01Form.getReqBizs();
         List<ReqMain> reqMains = reqParser.parse2ReqMain(Constant.FLDM_SS01,ss01Form);
         assertEquals(reqBizs.size(), reqMains.size());

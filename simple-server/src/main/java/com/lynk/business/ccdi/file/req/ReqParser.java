@@ -8,32 +8,51 @@ import com.lynk.business.ccdi.file.req.basic.BasicInfo;
 import com.lynk.business.ccdi.file.req.basic.QueryPerson;
 import com.lynk.business.ccdi.file.req.basic.ReqBiz;
 import com.lynk.business.ccdi.file.req.basic.ReqForm;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.validation.ConstraintViolation;
+import javax.validation.Validator;
 import javax.xml.bind.JAXB;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+import java.util.StringJoiner;
 
 /**
  * @author Lynk @ 2019/4/20
  */
 @Component
 public class ReqParser {
-    public <T extends ReqForm> T parseReqXmlFile(String filePath, Class<T> clz) {
-        File file = new File(filePath);
-        if (!file.exists() || clz == null) {
-            return null;
-        }
-        return JAXB.unmarshal(file, clz);
-    }
+    private static final Logger LOGGER = LoggerFactory.getLogger(ReqParser.class);
 
-    public <T extends ReqForm> T parseReqXmlFile(File xmlFile, Class<T> clz) {
-        if (!xmlFile.exists() || clz == null) {
-            return null;
+    @Autowired
+    private Validator validator;
+
+    public <T extends ReqForm> T parseReqXmlFile(File xmlFile, Class<T> clz) throws Exception {
+        if (!xmlFile.exists()) {
+            throw new Exception("解析请求文件异常");
         }
-        return JAXB.unmarshal(xmlFile, clz);
+        T t = JAXB.unmarshal(xmlFile, clz);
+
+        Set<ConstraintViolation<T>> constraintViolations = validator.validate(t);
+
+        if (constraintViolations.size() > 0) {
+            StringJoiner joiner = new StringJoiner(",");
+            for (ConstraintViolation<T> constraintViolation : constraintViolations) {
+                String message = constraintViolation.getMessage();
+                Object value = constraintViolation.getInvalidValue();
+                LOGGER.warn("校验失败, 值: {}, 原因: {}", value, message);
+                joiner.add(message);
+            }
+            String message = joiner.toString();
+            throw new Exception(message);
+        }
+        return t;
     }
 
     public ReqBasic parse2ReqBasic(ReqForm reqForm) {

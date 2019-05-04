@@ -15,6 +15,7 @@ public class ParamKey extends com.lynk.system.common.ParamKey {
     public static final String BIZ_PARAM_FTP_REQ_LOCAL_PATH = "req_local_path";
     public static final String BIZ_PARAM_FTP_RESP_PATH = "resp_path";
     public static final String BIZ_PARAM_FTP_RESP_OK_PATH = "resp_ok_path";
+    public static final String BIZ_PARAM_FTP_RESP_LOCAL_PATH = "resp_local_path";
 
     public static final String BIZ_PARAM_CATEGORY_CCDI = "ccdi";
 

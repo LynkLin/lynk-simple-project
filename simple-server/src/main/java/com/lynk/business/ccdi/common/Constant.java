@@ -195,13 +195,25 @@ public class Constant extends com.lynk.system.common.Constant {
      */
     public static final String REQ_ZIP_STATUS_02 = "02";
     /**
-     * 03-已反馈回执
+     * 03-反馈回执中
      */
     public static final String REQ_ZIP_STATUS_03 = "03";
     /**
-     * 04-数据全部反馈完成
+     * 04-回执包已上传至FES
      */
     public static final String REQ_ZIP_STATUS_04 = "04";
+    /**
+     * 05--回执包已被FES接收
+     */
+    public static final String REQ_ZIP_STATUS_05 = "05";
+    /**
+     * 06-数据全部反馈完成
+     */
+    public static final String REQ_ZIP_STATUS_06 = "06";
+    /**
+     * 07-反馈失败
+     */
+    public static final String REQ_ZIP_STATUS_07 = "07";
 
     /**
      * 30000 成功接收查控文件

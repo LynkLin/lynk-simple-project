@@ -11,6 +11,23 @@ import java.util.Date;
  */
 public class DateUtil {
     /**
+     * LocalDateTime格式默认值
+     * yyyyMMddHHmmss
+     */
+    private static final String DEFAULT_DATE_TIME_PATTERN = "yyyyMMddHHmmss";
+
+    /**
+     * LocalDate格式默认值
+     * yyyyMMdd
+     */
+    private static final String DEFAULT_DATE_PATTERN = "yyyyMMdd";
+
+    /**
+     * LocalTime格式默认值
+     * HHmmss
+     */
+    private static final String DEFAULT_TIME_PATTERN = "HHmmss";
+    /**
      * current date/time
      * @param pattern
      * @return
@@ -25,7 +42,7 @@ public class DateUtil {
      * @return yyyyMMdd
      */
     public static String getCurrentDate8() {
-        return getNow("yyyyMMdd");
+        return getNow(DEFAULT_DATE_PATTERN);
     }
 
     /**
@@ -33,7 +50,7 @@ public class DateUtil {
      * @return HHmmss
      */
     public static String getCurrentTime6() {
-        return getNow("HHmmss");
+        return getNow(DEFAULT_TIME_PATTERN);
     }
 
     /**
@@ -96,5 +113,26 @@ public class DateUtil {
      */
     public static LocalDateTime dateToLocalDateTime(Date date) {
         return LocalDateTime.ofInstant(date.toInstant(), ZoneId.systemDefault());
+    }
+
+    /**
+     * 格式化为: yyyyMMddHHmmss
+     * @param localDateTime
+     * @return
+     */
+    public static String formatLocalDateTime(LocalDateTime localDateTime) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(DEFAULT_DATE_TIME_PATTERN);
+        return formatter.format(localDateTime);
+    }
+
+    /**
+     * 格式化
+     * @param localDateTime
+     * @param pattern
+     * @return
+     */
+    public static String formatLocalDateTime(LocalDateTime localDateTime, String pattern) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(pattern);
+        return formatter.format(localDateTime);
     }
 }

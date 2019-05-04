@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.lynk.business.ccdi.common.Constant;
 import com.lynk.business.ccdi.common.ParamKey;
 import com.lynk.business.ccdi.entity.*;
+import com.lynk.business.ccdi.file.ftp.CcdiFtpUtil;
 import com.lynk.business.ccdi.file.req.*;
 import com.lynk.business.ccdi.file.req.basic.ReqForm;
 import com.lynk.business.ccdi.file.service.IReqTaskService;
@@ -11,7 +12,6 @@ import com.lynk.business.ccdi.service.*;
 import com.lynk.system.common.DateUtil;
 import com.lynk.system.exception.SystemException;
 import com.lynk.system.ftp.FtpConnect;
-import com.lynk.system.ftp.FtpFactory;
 import com.lynk.system.tool.SysParamManager;
 import net.lingala.zip4j.core.ZipFile;
 import net.lingala.zip4j.exception.ZipException;
@@ -52,11 +52,6 @@ public class ReqTaskServiceImpl implements IReqTaskService {
      */
     @Override
     public void downloadUnzipReqFile() throws SystemException {
-        String ip = SysParamManager.getInstance().getParam(ParamKey.BIZ_PARAM_CATEGORY_CCDI_FTP, ParamKey.BIZ_PARAM_FTP_IP);
-        int port = SysParamManager.getInstance().getIntParam(ParamKey.BIZ_PARAM_CATEGORY_CCDI_FTP, ParamKey.BIZ_PARAM_FTP_PORT);
-        String userName = SysParamManager.getInstance().getParam(ParamKey.BIZ_PARAM_CATEGORY_CCDI_FTP, ParamKey.BIZ_PARAM_FTP_USER);
-        String password = SysParamManager.getInstance().getParam(ParamKey.BIZ_PARAM_CATEGORY_CCDI_FTP, ParamKey.BIZ_PARAM_FTP_PASSWORD);
-
         String reqPath = SysParamManager.getInstance().getParam(ParamKey.BIZ_PARAM_CATEGORY_CCDI_FTP, ParamKey.BIZ_PARAM_FTP_REQ_PATH);
         String reqOkPath = SysParamManager.getInstance().getParam(ParamKey.BIZ_PARAM_CATEGORY_CCDI_FTP, ParamKey.BIZ_PARAM_FTP_REQ_OK_PATH);
         String reqLocalPath = SysParamManager.getInstance().getParam(ParamKey.BIZ_PARAM_CATEGORY_CCDI_FTP, ParamKey.BIZ_PARAM_FTP_REQ_LOCAL_PATH);
@@ -65,14 +60,13 @@ public class ReqTaskServiceImpl implements IReqTaskService {
         FtpConnect ftpConnect = null;
 
         try {
-            ftpConnect = FtpFactory.getConnect(ip, port, userName, password);
-            ftpConnect.setPassive(true);
+            ftpConnect = CcdiFtpUtil.getCcdiFtpConnect();
             ftpConnect.changeDirectory(reqPath);
             List<String> fileNames = ftpConnect.listFileName("*.ZIP");
             for (String fileName: fileNames) {
                 int count = reqZipService.count(new QueryWrapper<ReqZip>().eq(ReqZip.REQ_ZIP_NAME, fileName));
                 if (count > 0) {
-                    LOGGER.warn("存在下载记录: {0}", fileName);
+                    LOGGER.warn("存在下载记录: {}", fileName);
                 } else {
                     File localDatePath = new File(reqLocalPath, currentDate);
                     if (!localDatePath.exists()) {
@@ -128,7 +122,7 @@ public class ReqTaskServiceImpl implements IReqTaskService {
                 LOGGER.error("parseOneReqZip ERROR", e);
                 reqZip.setStatus(Constant.REQ_ZIP_STATUS_02);
                 reqZip.setHzdm(Constant.REQ_ZIP_HZDM_FAIL_PARSE);
-                reqZip.setHzsm("解析查控XML失败");
+                reqZip.setHzsm(e.getMessage());
                 reqZipService.updateById(reqZip);
             }
         }
@@ -151,7 +145,7 @@ public class ReqTaskServiceImpl implements IReqTaskService {
             localFile.delete();
         } catch (Exception e) {
             //解压缩失败
-            LOGGER.error("解压缩请求包失败: {0}", localFile.getName(), e);
+            LOGGER.error("解压缩请求包失败: {}", localFile.getName(), e);
             status = Constant.REQ_ZIP_STATUS_02;
             hzdm = Constant.REQ_ZIP_HZDM_FAIL_PARSE;
             hzsm = "解压缩请求包失败";
@@ -319,7 +313,7 @@ public class ReqTaskServiceImpl implements IReqTaskService {
      * @param fldm
      * @return
      */
-    private Class<? extends ReqForm> convertFldm(String fldm) {
+    private Class<? extends ReqForm> convertFldm(String fldm) throws Exception {
         switch (fldm) {
             case Constant.FLDM_SS01:
             case Constant.FLDM_SS02:
@@ -342,8 +336,8 @@ public class ReqTaskServiceImpl implements IReqTaskService {
             case Constant.FLDM_SS33:
                 return Ss3233Form.class;
             default:
-                LOGGER.error("未知的分类代码:{0}", fldm);
-                return null;
+                LOGGER.error("未知的分类代码:{}", fldm);
+                throw new Exception("未知的分类代码");
         }
     }
 

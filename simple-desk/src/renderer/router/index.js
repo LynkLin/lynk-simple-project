@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Login from '@/page/login/Login'
-import Home from '@/page/home/Home'
+import Main from '@/page/main/Main'
 import store from '@/store'
 import user from '@/api/user.js'
 
@@ -19,9 +19,9 @@ const routers = [
     // component: require('@/page/login/Login').default
   },
   {
-    path: '/home',
-    name: 'home',
-    component: Home
+    path: '/main',
+    name: 'main',
+    component: Main
   },
   {
     path: '*',

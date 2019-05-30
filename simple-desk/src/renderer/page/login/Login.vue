@@ -71,7 +71,7 @@ export default {
           this.onLogin = true
           var loginRequest = {userName: this.loginForm.userName, password: this.loginForm.password}
           auth.createToken(loginRequest).then(() => {
-            this.$router.push('/home')
+            this.$router.push('/main')
             this.onLogin = false
           })
           this.onLogin = false

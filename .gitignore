@@ -20,3 +20,4 @@ hs_err_pid*
 simple-server/target/*
 tools/target/*
 simple-server/fes/*
+simple-desk/yarn.lock

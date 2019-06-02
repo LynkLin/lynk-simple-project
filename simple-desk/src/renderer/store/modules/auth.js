@@ -22,7 +22,7 @@ const actions = {
       resolve()
     })
   },
-  createToken ({ commit }, {token, userId}) {
+  saveToken ({ commit }, {token, userId}) {
     return new Promise((resolve) => {
       commit('SET_TOKEN', token)
       commit('user/SET_ID', userId, {root: true})

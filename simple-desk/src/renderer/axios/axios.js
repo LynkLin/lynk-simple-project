@@ -37,7 +37,7 @@ service.interceptors.response.use(response => {
   // error
   // message
   // data
-  var status = response.data.status
+  let status = response.data.status
   if (status !== '0') {
     Notification.error({
       title: i18n.t('error.title'),
@@ -49,16 +49,23 @@ service.interceptors.response.use(response => {
   }
 }, error => {
   // Do something with response error
-  var status = error.response.status
-  switch (status) {
-    case 401:
-      router.push('/login')
-      break
-    default:
-      Notification.error({
-        title: i18n.t('error.title'),
-        message: error.message
-      })
+  if (error.response) {
+    let status = error.response.status
+    switch (status) {
+      case 401:
+        router.push('/login')
+        break
+      default:
+        Notification.error({
+          title: i18n.t('error.title'),
+          message: error.message
+        })
+    }
+  } else {
+    Notification.error({
+      title: i18n.t('error.title'),
+      message: error
+    })
   }
   return Promise.reject(error)
 })

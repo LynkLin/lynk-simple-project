@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.experimental.Accessors;
@@ -25,10 +26,12 @@ public class SystemBaseEntity implements Serializable {
 
     @ApiModelProperty(hidden = true)
     @TableField(value = "GMT_CREATE", fill = FieldFill.INSERT)
+    @JsonIgnore
     private LocalDateTime gmtCreate;
 
     @ApiModelProperty(hidden = true)
     @TableField(value = "GMT_MODIFIED", fill = FieldFill.INSERT_UPDATE)
+    @JsonIgnore
     private LocalDateTime gmtModified;
 
 

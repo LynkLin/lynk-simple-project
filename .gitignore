@@ -21,3 +21,5 @@ simple-server/target/*
 tools/target/*
 simple-server/fes/*
 simple-desk/yarn.lock
+simple-server/.DS_Store
+simple-server/.DS_Store

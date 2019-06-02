@@ -43,12 +43,9 @@ router.beforeEach((to, from, next) => {
     let token = store.getters['auth/token']
     if (userId && token) {
       var permissions = store.getters['user/permissions']
-      console.log('321 ' + permissions)
       if (permissions.length === 0) {
-        user.getUserPermissions(userId).then((user, permissions) => {
-          console.log('1 ' + user)
-          console.log('2 ' + permissions)
-          store.dispatch('user/saveUserInfos', {user, permissions})
+        user.getUserInfo(userId).then((userInfo) => {
+          store.dispatch('user/saveUserInfo', {userInfo})
         })
       }
       next()

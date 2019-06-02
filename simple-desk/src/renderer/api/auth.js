@@ -13,7 +13,7 @@ export default {
         'token': response.data.token,
         'userId': response.data.userId
       }
-      store.dispatch('auth/createToken', payload)
+      store.dispatch('auth/saveToken', payload)
       // return auth.token
     })
   },

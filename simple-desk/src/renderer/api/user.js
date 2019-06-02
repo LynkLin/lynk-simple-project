@@ -26,7 +26,10 @@ export default {
   getUserPermissions,
   getUserInfo (userId) {
     return axios.all([getUser(userId), getUserPermissions(userId)]).then(axios.spread(function (user, permissions) {
-      return {user, permissions}
+      return {
+        user: user,
+        permissions: permissions
+      }
     }))
   }
 }

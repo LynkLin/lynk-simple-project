@@ -1,14 +1,14 @@
 import {getUserId, setUserId} from '../session'
 
 const state = {
-  id: getUserId(),
+  id: '',
   name: '',
   realName: '',
   permissions: []
 }
 
 const getters = {
-  id: state => state.id,
+  id: state => getUserId(),
   name: state => state.name,
   realName: state => state.realName,
   permissions: state => state.permissions
@@ -31,7 +31,9 @@ const mutations = {
 }
 
 const actions = {
-  saveUserInfos ({ commit }, {user, permissions}) {
+  saveUserInfo ({ commit }, {userInfo}) {
+    let user = userInfo.user
+    let permissions = userInfo.permissions
     return new Promise((resolve) => {
       commit('SET_ID', user.userId)
       commit('SET_NAME', user.name)
